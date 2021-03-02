@@ -1,0 +1,15 @@
+#!/bin/sh
+
+xsetroot -cursor_name left_ptr
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ] && . "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
+
+session=${1:-kde}
+
+case $session in
+	kde	) exec startplasma-x11;;
+	bspwm	) exec bspwm;;
+	awesome ) exec awesome;;
+	leftwm	) exec dbus-launch leftwm;;
+	*	) exec ${1};;
+esac

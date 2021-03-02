@@ -1,0 +1,56 @@
+#!/bin/sh
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+# Reboot into Windows
+alias win="sudo grub-reboot 'Windows 10' && reboot"
+
+# Update grub
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+
+# Alias sudo
+alias sudo="sudo "
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	mkd="mkdir -pv" \
+	rmdir="rmdir -v"\
+	rcp="rsync -v --progress"\
+	rmv="rsync -v --progress --remove-source-files"\
+	ln="ln -v"\
+	chmod="chmod -c"\
+	chown="chown -c"
+
+# Colorize commands when possible.
+alias \
+	ls="ls -lhNF --color=auto --group-directories-first" \
+	la="ls -lAhNF --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	fgrep="fgrep --color=auto" \
+	egrep="egrep --color=auto" \
+	diff="diff --color=auto"
+
+# These common commands are just too long! Abbreviate them.
+alias \
+	ka="killall" \
+	g="git" \
+	sdn="sudo shutdown -h now" \
+	f="$FILE" \
+	e="$EDITOR" \
+	v="$EDITOR"
+
+# Config shortcuts
+alias \
+	cfz="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/zsh/.zshrc" \
+	cfa="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" \
+	cfx="$EDITOR ${HOME}/.xinitrc" \
+	cfp="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile" \
+	cfxp="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" \
+	cfv="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.vim"
+
+# Dotfile repo shortcut
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME"
