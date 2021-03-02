@@ -53,4 +53,4 @@ alias \
 	cfv="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.vim"
 
 # Dotfile repo shortcut
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME"
+alias dots="/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME"
