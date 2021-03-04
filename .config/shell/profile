@@ -10,6 +10,9 @@ export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
 unsetopt PROMPT_SP
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Default programs:
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -147,5 +150,5 @@ ex=🎯:\
 #and replace \`libxft\`. Afterwards, you may start the graphical server by running \`startx\`."
 #fi
 
-# Switch escape and caps if tty and no passwd required:
-sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/keymap/ttymap 2>/dev/null
+# Map escape to caps on tty and no passwd required:
+sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/keymap/ttymap 2> /dev/null
