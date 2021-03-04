@@ -5,8 +5,8 @@ ZSHDDIR="${HOME}/.config/zsh.d"
 HISTFILE="${ZDOTDIR:-${HOME}/.config/zsh}/.zsh_history"
 HISTSIZE='64000'
 SAVEHIST="${HISTSIZE}"
-export TERM="xterm-256color"
-export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
+export TERM="xterm-termite"
+export HISTORY_IGNORE="(ls|cd|pwd|exit|clear|sudo reboot|history|cd -|cd ..)"
 export TMP="$HOME/tmp"
 export TEMP="$TMP"
 export TMPDIR="$TMP"
@@ -24,35 +24,19 @@ if ! [[ "${PATH}" =~ "^${HOME}/.local/bin" ]]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
-## COLORS
-if tput setaf 1 &> /dev/null; then
-    tput sgr0
-    reset=$(tput sgr0)
-    bold=$(tput bold)
-    black=$(tput setaf 0)
-    blue=$(tput setaf 33)
-    cyan=$(tput setaf 14)
-    green=$(tput setaf 10)
-    orange=$(tput setaf 172)
-    purple=$(tput setaf 125)
-    red=$(tput setaf 9)
-    violet=$(tput setaf 61)
-    white=$(tput setaf 15)
-    yellow=$(tput setaf 226)
-else
-    reset='%f%b'
-    bold='%B'
-    black='%F{black}'
-    blue='%F{blue}'
-    cyan='%F{cyan}'
-    green='%F{green}'
-    orange='%F{yellow}'
-    purple='%F{magenta}'
-    red='%F{red}'
-    violet='%F{magenta}'
-    white='%F{white}'
-    yellow='%F{yellow}'
-fi
+# COLORS
+reset='%f%b'
+bold='%B'
+black='%F{0}'
+blue='%F{33}'
+cyan='%F{14}'
+green='%F{10}'
+orange='%F{172}'
+purple='%F{125}'
+red='%F{9}'
+violet='%F{61}'
+white='%F{15}'
+yellow='%F{226}'
 
 ## FUNCTIONS
 
@@ -175,7 +159,7 @@ setup_git_prompt() {
 	git_status=""
     fi
 
-    git_prompt="${white}[${violet}${git_branch}${git_status}${white}]"
+    git_prompt="${white}[${violet}${git_branch}${git_status}${white}${reset}]"
 
 }
 
@@ -265,9 +249,9 @@ fi
 
 # Fancy prompt.
 if over_ssh; then
-    hostStyle="${red}%m"
+    hostStyle="${red}%m${reset}"
 else
-    hostStyle="${yellow}%m"
+    hostStyle="${yellow}%m${reset}"
 fi
 
 if [[ "${USER}" == "root" ]]; then
@@ -280,10 +264,9 @@ PROMPT="${bold}${userStyle}"
 PROMPT+="${white}@"
 PROMPT+="${hostStyle}"
 PROMPT+="${white}: ${cyan}%1~"
-PROMPT+=' ${git_prompt}'
+PROMPT+=' ${git_prompt} '
 PROMPT+="
-${white}%#${reset} "
-
+${white}%# "
 
 # Keep history of `cd` as in with `pushd` and make `cd -<TAB>` work.
 DIRSTACKSIZE=16
@@ -458,6 +441,7 @@ bindkey -v '^?' backward-delete-char
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 
 if [ -f ~/.alert ]; then echo '>>> Check ~/.alert'; fi
