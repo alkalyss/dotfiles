@@ -1,0 +1,92 @@
+#!/bin/sh
+
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+rm yay
+
+# zsh plugins : fast-syntax-highlighting history-substring-search
+yay -S alsa-tools \
+	alsa-utils \
+	dmenu \
+	dunst \
+	feh \
+	firefox \
+	gparted \
+	htop \
+	leftwm \
+	man-db \
+	man-pages \
+	neofetch \
+	neovim \
+	nerd-fonts-inconsolata \
+	nerd-fonts-mononoki \
+	networkmanager \
+	notepadqq \
+	noto-fonts-emoji \
+	ntfs-3g \
+	numlockx \
+	openssh \
+	os-prober \
+	pavucontrol \
+	picom-jonaburg-git \
+	polybar \
+	pulseaudio \
+	pulseaudio-alsa \
+	qbittorrent \
+	termite \
+	texinfo \
+	traceroute \
+	ttf-ms-fonts \
+	ttf-vista-fonts \
+	unclutter \
+	unrar \
+	vi \
+	vim \
+	vlc \
+	wget \
+	xclip \
+	xcape \
+	xdg-user-dirs \
+	xkbset \
+	zsh \
+	zsh-syntax-highlighting \
+	zsh-autosuggestions
+
+
+yay -S ark \
+	breeze \
+	breeze-gtk \
+	ckb-next \
+	cmatrix \
+	discord \
+	dolphin \
+	eclipse-java \
+	gimp \
+	inkscape \
+	jdk-openjdk \
+	jre8-openjdk \
+	keepassxc \
+	libratbag \
+	libreoffice-fresh \
+	lutris \
+	multimc5 \
+	ncdu \
+	okular \
+	onedrive-abraunegg \
+	openjdk-src \
+	piper \
+	plex-media-server \
+	spectacle \
+	spotify \
+	steam \
+	teamviewer \
+	ventoy-bin \
+	visual-studio-code-bin \
+	virtualbox \
+	virtualbox-ext-oracle \
+	virtualbox-host-modules-arch \
+	wine-staging \
+	winetricks \
+	zoom \
