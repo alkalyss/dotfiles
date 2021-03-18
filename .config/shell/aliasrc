@@ -12,6 +12,10 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 # Alias sudo
 alias sudo="sudo "
 
+# UPatras VPN
+alias upvpn="sudo openvpn --config $HOME/UPatrasVPN/UPatras.ovpn --auth-user-pass $HOME/UPatrasVPN/auth-pass --daemon"
+alias killvpn="sudo pkill openvpn"
+
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
 	cp="cp -iv" \
