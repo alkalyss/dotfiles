@@ -6,7 +6,7 @@ makepkg -si
 cd ..
 rm yay
 
-# zsh plugins : fast-syntax-highlighting history-substring-search
+#zsh plugins : fast-syntax-highlighting history-substring-search
 yay -S alsa-tools \
 	alsa-utils \
 	dmenu \
@@ -22,13 +22,11 @@ yay -S alsa-tools \
 	neovim \
 	nerd-fonts-inconsolata \
 	nerd-fonts-mononoki \
-	networkmanager \
 	notepadqq \
 	noto-fonts-emoji \
 	ntfs-3g \
 	numlockx \
 	openssh \
-	os-prober \
 	pavucontrol \
 	picom-jonaburg-git \
 	polybar \
@@ -42,14 +40,14 @@ yay -S alsa-tools \
 	ttf-vista-fonts \
 	unclutter \
 	unrar \
-	vi \
-	vim \
 	vlc \
 	wget \
 	xclip \
 	xcape \
 	xdg-user-dirs \
 	xkbset \
+	xorg \
+	xorg-xinit \
 	zsh \
 	zsh-syntax-highlighting \
 	zsh-autosuggestions
