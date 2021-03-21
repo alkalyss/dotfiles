@@ -5,7 +5,7 @@ ZSHDDIR="${HOME}/.config/zsh.d"
 HISTFILE="${ZDOTDIR:-${HOME}/.config/zsh}/.zsh_history"
 HISTSIZE='64000'
 SAVEHIST="${HISTSIZE}"
-export TERM="xterm-termite"
+export TERM="xterm-256color"
 export HISTORY_IGNORE="(ls|cd|pwd|exit|clear|sudo reboot|history|cd -|cd ..)"
 export TMP="$HOME/tmp"
 export TEMP="$TMP"
@@ -14,6 +14,7 @@ export TMPPREFIX="${TMPDIR}/zsh"
 
 if [ ! -d "${TMP}" ]; then mkdir "${TMP}"; fi
 
+sudo loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/keymap/ttymap 2> /dev/null
 
 ## PATH
 if ! [[ "${PATH}" =~ "^${HOME}/.bin" ]]; then
