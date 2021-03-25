@@ -10,9 +10,21 @@ key = "r"
 
 [[keybind]]
 command = "Execute"
+value = "rofi -show window"
+modifier = ["Alt"]
+key = "Tab"
+
+[[keybind]]
+command = "Execute"
 value = "termite"
 modifier = ["modkey"]
 key = "t"
+
+[[keybind]]
+command = "Execute"
+value = "firefox"
+modifier = ["modkey"]
+key = "f"
 
 [[keybind]]
 command = "CloseWindow"
