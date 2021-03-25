@@ -43,19 +43,19 @@ yellow='%F{226}'
 
 # Fancy cd that can cd into parent directory, if trying to cd into file.
 # useful with ^F fuzzy searcher.
-cd() {
-    if (( $+2 )); then
-        builtin cd "$@"
-        return 0
-    fi
-
-    if [ -f "$1" ]; then
-        echo "${yellow}cd ${1:h}${NC}" >&2
-        builtin cd "${1:h}"
-    else
-        builtin cd "${@}"
-    fi
-}
+#cd() {
+#    if (( $+2 )); then
+#        builtin cd "$@"
+#        return 0
+#    fi
+#
+#    if [ -f "$1" ]; then
+#        echo "${yellow}cd ${1:h}${NC}" >&2
+#        builtin cd "${1:h}"
+#    else
+#        builtin cd "${@}"
+#    fi
+#}
 
 over_ssh() {
     if [ -n "${SSH_CLIENT}" ]; then
