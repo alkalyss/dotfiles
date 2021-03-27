@@ -27,6 +27,12 @@ modifier = ["modkey"]
 key = "f"
 
 [[keybind]]
+command = "Execute"
+value = "code"
+modifier = ["modkey"]
+key = "c"
+
+[[keybind]]
 command = "CloseWindow"
 modifier = ["modkey"]
 key = "q"
