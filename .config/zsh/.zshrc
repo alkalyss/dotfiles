@@ -6,7 +6,7 @@ HISTFILE="${ZDOTDIR:-${HOME}/.config/zsh}/.zsh_history"
 HISTSIZE='64000'
 SAVEHIST="${HISTSIZE}"
 export TERM="xterm-256color"
-export HISTORY_IGNORE="(ls|cd|pwd|exit|clear|sudo reboot|history|cd -|cd ..)"
+export HISTORY_IGNORE='(ls *|cd *|pwd|exit|clear|reboot|history)'
 export TMP="$HOME/tmp"
 export TEMP="$TMP"
 export TMPDIR="$TMP"
@@ -56,6 +56,16 @@ yellow='%F{226}'
 #        builtin cd "${@}"
 #    fi
 #}
+
+function zshaddhistory() {
+	emulate -L zsh
+	if ! [[ "$1" =~ "${HISTRORY_IGNORE}" ]] ; then
+      		print -sr -- "${1%%$'\n'}"
+      		fc -p
+  	else
+      		return 1
+  	fi
+}
 
 over_ssh() {
     if [ -n "${SSH_CLIENT}" ]; then
@@ -419,6 +429,7 @@ bindkey "^[[1~" beginning-of-line # Home key TTY
 bindkey "^[[F" end-of-line # End key
 bindkey "^[[4~" end-of-line # End key TTY
 bindkey "^[[3~" delete-char #Del key
+bindkey "^[[2~" quoted-insert #Insert key
 bindkey "^[[A" history-beginning-search-backward #Up Arrow
 bindkey "^[[B" history-beginning-search-forward #Down Arrow
 bindkey "^[[1;5C" forward-word # control + right arrow
