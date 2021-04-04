@@ -4,15 +4,33 @@ tags = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 [[keybind]]
 command = "Execute"
-value = "dmenu_run"
+value = "rofi -show drun"
 modifier = ["modkey"]
 key = "r"
+
+[[keybind]]
+command = "Execute"
+value = "rofi -show window"
+modifier = ["Alt"]
+key = "Tab"
 
 [[keybind]]
 command = "Execute"
 value = "termite"
 modifier = ["modkey"]
 key = "t"
+
+[[keybind]]
+command = "Execute"
+value = "firefox"
+modifier = ["modkey"]
+key = "f"
+
+[[keybind]]
+command = "Execute"
+value = "code"
+modifier = ["modkey"]
+key = "c"
 
 [[keybind]]
 command = "CloseWindow"

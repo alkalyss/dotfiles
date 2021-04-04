@@ -14,6 +14,7 @@ export TMPPREFIX="${TMPDIR}/zsh"
 
 if [ ! -d "${TMP}" ]; then mkdir "${TMP}"; fi
 
+sudo loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/keymap/ttymap 2> /dev/null
 
 ## PATH
 if ! [[ "${PATH}" =~ "^${HOME}/.bin" ]]; then
@@ -42,19 +43,19 @@ yellow='%F{226}'
 
 # Fancy cd that can cd into parent directory, if trying to cd into file.
 # useful with ^F fuzzy searcher.
-cd() {
-    if (( $+2 )); then
-        builtin cd "$@"
-        return 0
-    fi
-
-    if [ -f "$1" ]; then
-        echo "${yellow}cd ${1:h}${NC}" >&2
-        builtin cd "${1:h}"
-    else
-        builtin cd "${@}"
-    fi
-}
+#cd() {
+#    if (( $+2 )); then
+#        builtin cd "$@"
+#        return 0
+#    fi
+#
+#    if [ -f "$1" ]; then
+#        echo "${yellow}cd ${1:h}${NC}" >&2
+#        builtin cd "${1:h}"
+#    else
+#        builtin cd "${@}"
+#    fi
+#}
 
 function zshaddhistory() {
 	emulate -L zsh
