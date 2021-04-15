@@ -57,15 +57,15 @@ yellow='%F{226}'
 #    fi
 #}
 
-function zshaddhistory() {
-	emulate -L zsh
-	if ! [[ "$1" =~ "${HISTRORY_IGNORE}" ]] ; then
-      		print -sr -- "${1%%$'\n'}"
-      		fc -p
-  	else
-      		return 1
-  	fi
-}
+#function zshaddhistory() {
+#	emulate -L zsh
+#	if ! [[ "$1" =~ "${HISTRORY_IGNORE}" ]] ; then
+#      		print -sr -- "${1%%$'\n'}"
+#      		fc -p
+#  	else
+#      		return 1
+#  	fi
+#}
 
 over_ssh() {
     if [ -n "${SSH_CLIENT}" ]; then

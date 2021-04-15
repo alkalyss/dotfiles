@@ -9,7 +9,7 @@ rm yay
 #zsh plugins : fast-syntax-highlighting history-substring-search
 yay -S alsa-tools \
 	alsa-utils \
-	dmenu \
+	bspwm \
 	dunst \
 	feh \
 	firefox \
@@ -40,6 +40,7 @@ yay -S alsa-tools \
 	ttf-vista-fonts \
 	unclutter \
 	unrar \
+	unzip \
 	vlc \
 	wget \
 	xclip \
@@ -53,14 +54,15 @@ yay -S alsa-tools \
 	zsh-autosuggestions
 
 
-yay -S ark \
+yay -S android-tools \
+	ark \
 	breeze \
 	breeze-gtk \
 	ckb-next \
 	cmatrix \
 	discord \
 	dolphin \
-	eclipse-java \
+	ghidra \
 	gimp \
 	inkscape \
 	jdk-openjdk \
