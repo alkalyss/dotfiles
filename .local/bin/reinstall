@@ -90,4 +90,6 @@ yay -S android-tools \
 	virtualbox-host-modules-arch \
 	wine-staging \
 	winetricks \
+	wireshark-cli \
+	wireshark-qt \
 	zoom \
