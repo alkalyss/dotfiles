@@ -33,5 +33,4 @@ dunst &
 #  monitor=${monitors[index]} width=$(( width - 16 )) polybar -c "$SCRIPTPATH"/polybar.config $barname &> /dev/null &
 #  let index=index+1
 #done
-
-${XDG_CONFIG_HOME:-$HOME/.config}/polybar/launch.sh --forest &
+polybar -q main -c "${XDG_CONFIG_HOME:-$HOME/.config}/polybar/default/config.ini" &
