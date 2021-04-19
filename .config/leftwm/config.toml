@@ -1,6 +1,22 @@
 modkey = "Mod4"
 workspaces = []
+layouts = [
+	"MainAndVertStack",
+	"GridHorizontal",
+	"EvenVertical",
+	"Fibonacci",
+	"CenterMain",
+	"CenterMainBalanced",
+	"Monocle",
+	"LeftWiderRightStack"
+]
 tags = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+[[keybind]]
+command = "Execute"
+value = "flameshot gui"
+modifier = []
+key = "Print"
 
 [[keybind]]
 command = "Execute"
@@ -38,6 +54,18 @@ modifier = ["modkey"]
 key = "q"
 
 [[keybind]]
+command = "SetLayout"
+value = "Monocle"
+modifier = ["modkey"]
+key = "m"
+
+[[keybind]]
+command = "SetLayout"
+value = "MainAndVertStack"
+modifier = ["modkey"]
+key = "d"
+
+[[keybind]]
 command = "SoftReload"
 modifier = ["modkey", "Shift"]
 key = "r"
@@ -51,7 +79,7 @@ key = "q"
 [[keybind]]
 command = "Execute"
 value = "slock"
-modifier = ["modkey","Shift"]
+modifier = ["modkey","Alt"]
 key = "l"
 
 [[keybind]]
@@ -91,13 +119,13 @@ key = "j"
 
 [[keybind]]
 command = "NextLayout"
-modifier = ["modkey", "Control"]
-key = "k"
+modifier = ["modkey", "Shift"]
+key = "l"
 
 [[keybind]]
 command = "PreviousLayout"
-modifier = ["modkey", "Control"]
-key = "j"
+modifier = ["modkey", "Shift"]
+key = "h"
 
 [[keybind]]
 command = "FocusNextTag"
