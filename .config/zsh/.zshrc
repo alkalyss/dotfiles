@@ -421,7 +421,7 @@ zle-line-init() {
 }
 zle -N zle-line-init
 echo -ne '\e[6 q' # Use beam shape cursor on startup.
-
+echo -ne "\033]12;Grey\007"
 
 ## KEYBINDINGS
 bindkey "^[[H" beginning-of-line # Home key
