@@ -40,6 +40,12 @@ key = "t"
 command = "Execute"
 value = "firefox"
 modifier = ["modkey"]
+key = "b"
+
+[[keybind]]
+command = "Execute"
+value = "pcmanfm"
+modifier = ["modkey"]
 key = "f"
 
 [[keybind]]
