@@ -1,41 +1,64 @@
 #!/bin/sh
 
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ..
-rm yay
+#git clone https://aur.archlinux.org/yay.git
+#cd yay
+#makepkg -si
+#cd ..
+#rm yay
 
-#zsh plugins : fast-syntax-highlighting history-substring-search
-yay -S alsa-tools \
+yay -S acpi \
+	acpid \
+	alsa-tools \
 	alsa-utils \
+	arc-gtk-theme \
+	breeze \
+	breeze-gtk \
 	bspwm \
 	dunst \
+	expac \
 	feh \
 	firefox \
+	flameshot \
 	gparted \
+	grub-silent \
 	htop \
+	jq \
 	leftwm \
+	lxappearance \
+	lxsession \
 	man-db \
 	man-pages \
 	neofetch \
 	neovim \
 	nerd-fonts-inconsolata \
+	nerd-fonts-iosevka \
 	nerd-fonts-mononoki \
 	notepadqq \
 	noto-fonts-emoji \
 	ntfs-3g \
+	nvidia \
+	nvidia-settings \
 	numlockx \
 	openssh \
+	openvpn \
+	otf-font-awesome \
+	os-prober \
 	pavucontrol \
+	pcmanfm \
 	picom-jonaburg-git \
 	polybar \
 	pulseaudio \
 	pulseaudio-alsa \
 	qbittorrent \
+	qt5ct \
+	qtile \
+	ranger \
+	rofi \
+	systemd-numlockontty \
 	termite \
-	texinfo \
 	traceroute \
+	ttf-font-awesome \
+	ttf-icomoon-feather \
 	ttf-ms-fonts \
 	ttf-vista-fonts \
 	unclutter \
@@ -43,43 +66,36 @@ yay -S alsa-tools \
 	unzip \
 	vlc \
 	wget \
-	xclip \
 	xcape \
+	xclip \
+	xcursor-themes \
 	xdg-user-dirs \
 	xkbset \
 	xorg \
 	xorg-xinit \
 	zsh \
 	zsh-syntax-highlighting \
-	zsh-autosuggestions
-
-
-yay -S android-tools \
+	zsh-autosuggestions \
+	android-tools \
 	ark \
-	breeze \
-	breeze-gtk \
 	ckb-next \
 	cmatrix \
-	discord \
-	dolphin \
 	ghidra \
 	gimp \
 	inkscape \
 	jdk-openjdk \
 	jre8-openjdk \
 	keepassxc \
-	libratbag \
 	libreoffice-fresh \
-	lightcord \
+	lightcord-bin \
 	lutris \
 	multimc5 \
-	ncdu \
 	okular \
 	onedrive-abraunegg \
 	openjdk-src \
 	piper \
 	plex-media-server \
-	spectacle \
+	python-pwntools \
 	spotify \
 	steam \
 	teamviewer \
@@ -90,6 +106,5 @@ yay -S android-tools \
 	virtualbox-host-modules-arch \
 	wine-staging \
 	winetricks \
-	wireshark-cli \
 	wireshark-qt \
-	zoom \
+	zoom
