@@ -1,6 +1,8 @@
 #!/bin/bash
 export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
+xrandr --output VGA-0 --primary --auto --output HDMI-0 --auto --off --right-of VGA-0
+
 # Down the last running theme
 if [ -f "/tmp/leftwm-theme-down" ]; then
     /tmp/leftwm-theme-down
