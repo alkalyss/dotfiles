@@ -2,7 +2,7 @@
 
 layouts=("CenterMain" "CenterMainBalanced" "EvenHorizontal" "EvenVertical" "Fibonacci" "GridHorizontal" "MainAndVertStack" "MainAndHorizontalStack" "MainAndDeck" "Monocle" "RightWiderLeftStack" "LeftWiderRightStack")
 
-icons=("頻" "冀" "𤋮" "ﰧ" "侀" "全" "D" "Main & H Stack" "Main & Deck" "" "R>L Stack" "DD")
+icons=("頻" "冀" "𤋮" "ﰧ" "侀" "全" "D" "Main & H Stack" "Main & Deck" "" "R>L Stack" "WD")
 
 layout=$(leftwm-state -q | jq -r '.["workspaces"] | .[0].layout')
 
