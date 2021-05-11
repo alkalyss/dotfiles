@@ -10,7 +10,7 @@ layouts = [
 	"Monocle",
 	"LeftWiderRightStack"
 ]
-tags = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+tags = ["1", "2", "3", "4", "5"]
 
 [[keybind]]
 command = "Execute"
@@ -32,7 +32,7 @@ key = "Tab"
 
 [[keybind]]
 command = "Execute"
-value = "termite"
+value = "alacritty"
 modifier = ["modkey"]
 key = "t"
 
