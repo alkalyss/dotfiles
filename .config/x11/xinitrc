@@ -20,6 +20,7 @@ xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xressources
 #dunst &			# dunst for notifications
 numlockx on 		# Turn on NumLock
 #xcompmgr &		# xcompmgr for transparency
+/home/alkinoos/.fehbg
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
@@ -28,7 +29,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-session=${1:-leftwm}
+session=${1:-qtile}
 
 case $session in
 	kde	) exec startplasma-x11;;
@@ -36,6 +37,6 @@ case $session in
 	awesome ) exec awesome;;
 	leftwm	) exec dbus-launch leftwm;;
 	openbox	) exec /usr/bin/openbox;;
-	qtile	) exec qtile;;
+	qtile	) exec qtile start;;
 	*	) exec ${1};;
 esac
