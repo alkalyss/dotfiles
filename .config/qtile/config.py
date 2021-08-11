@@ -40,7 +40,7 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Focus right"),
     Key([mod], "j", lazy.layout.down(), desc="Focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Focus up"),
-    Key([mod], "space", lazy.layout.next(),
+    Key([mod], "Return", lazy.layout.next(),
         desc="Focus next window"),
 
     # Move windows between left/right columns or move up/down in current stack.
@@ -86,6 +86,9 @@ keys = [
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
     Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch filemanager"),
     Key([mod], "c", lazy.spawn("code"), desc="Launch ide"),
+    Key([mod, "control"], "s", lazy.spawn("shutdown -h now"), desc="Shutdown"),
+
+    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout"),
 
     # Switch to layout
     # Key([mod], "m", lazy.cmd_to_layout_index("max")),
@@ -140,13 +143,20 @@ screens = [
                 widget.GroupBox(),
                 widget.WindowName(),
                 widget.Systray(),
-#                widget.Wlan(
-#                    interface="wlp0s20f3"
-#                ),
+                widget.KeyboardLayout(
+                    configured_keyboards=['us', 'gr'],
+                    option="caps:super, grp:win_space_toggle, terminate:ctrl_alt_bksp"
+                ),
+                widget.Sep(),
+                widget.Backlight(backlight_name='intel_backlight'),
                 widget.Battery(format='{percent:2.0%}'),
-                widget.Clock(format='%H:%M | %a %d/%m/%y', mouse_callbacks={
-                    #"Button1": lambda: qtile
-                }),
+                widget.PulseVolume(),
+                widget.Sep(),
+                #widget.Wlan(
+                #    interface="wlp0s20f3"
+                #),
+                #widget.Sep(),
+                widget.Clock(format='%H:%M | %a %d/%m/%y'),
             ],
             24,
         ),
