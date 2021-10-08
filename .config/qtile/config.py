@@ -124,7 +124,7 @@ layouts = [
     # layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
-    layout.Zoomy(),
+    # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
@@ -138,7 +138,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayoutIcon(scale=0.8),
+                widget.CurrentLayoutIcon(scale=0.7),
                 widget.Pomodoro(),
                 widget.GroupBox(),
                 widget.WindowName(),
