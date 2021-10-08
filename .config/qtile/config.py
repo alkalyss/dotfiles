@@ -26,13 +26,20 @@
 
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget
+import os
+import subprocess
+from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
 terminal = guess_terminal()
+
+@hook.subscribe.startup
+def start_once():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/autostart.sh'])
 
 keys = [
     # Switch between windows
@@ -103,12 +110,12 @@ for i in groups:
             desc="Switch to group {}".format(i.name)),
 
         # # mod + shift + letter of group = switch to & move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-        #     desc="Switch to & move focused window to group {}".format(i.name)),
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
+            desc="Switch to & move focused window to group {}".format(i.name)),
         # Or, use below if you prefer not to switch to that group.
         # mod + shift + letter of group = move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            desc="move focused window to group {}".format(i.name)),
+        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
+        #     desc="move focused window to group {}".format(i.name)),
     ])
 
 layouts = [
@@ -136,30 +143,37 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar.Bar(
-            [
-                widget.CurrentLayoutIcon(scale=0.7),
-                widget.Pomodoro(),
-                widget.GroupBox(),
-                widget.WindowName(),
-                widget.Systray(),
-                widget.KeyboardLayout(
-                    configured_keyboards=['us', 'gr'],
-                    option="caps:super, grp:win_space_toggle, terminate:ctrl_alt_bksp"
-                ),
-                widget.Sep(),
-                widget.Backlight(backlight_name='intel_backlight'),
-                widget.Battery(format='{percent:2.0%}'),
-                widget.PulseVolume(),
-                widget.Sep(),
-                #widget.Wlan(
-                #    interface="wlp0s20f3"
-                #),
-                #widget.Sep(),
-                widget.Clock(format='%H:%M | %a %d/%m/%y'),
-            ],
-            24,
-        ),
+        #top=bar.Bar(
+        #    [
+        #        widget.CurrentLayoutIcon(scale=0.7),
+        #        widget.Pomodoro(),
+        #        widget.GroupBox(),
+        #        widget.Spacer(bar.STRETCH),
+        #        widget.Systray(),
+        #        widget.KeyboardLayout(
+        #            configured_keyboards=['us', 'gr'],
+        #            option="caps:super, grp:win_space_toggle, terminate:ctrl_alt_bksp"
+        #        ),
+        #        widget.Sep(),
+        #        widget.Backlight(backlight_name='intel_backlight'),
+        #        widget.Battery(format='{percent:2.0%}'),
+        #        widget.PulseVolume(),
+        #        widget.Sep(),
+        #        widget.Wlan(
+        #            interface="wlp0s20f3",
+        #            disconnected_message="Disconnected",
+        #            format='{essid}'
+        #        ),
+        #        widget.Net(
+        #            interface="wlp0s20f3",
+        #            format='{down} ↓↑ {up}'
+        #        ),
+        #        widget.Sep(),
+        #        widget.Clock(format='%H:%M | %a %d/%m/%y'),
+        #    ],
+        #    24,
+        #),
+        top=bar.Gap(size=35)
     ),
 ]
 
