@@ -19,7 +19,7 @@ lxsession &
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xressources
 #dunst &			# dunst for notifications
 numlockx on 		# Turn on NumLock
-#xcompmgr &		# xcompmgr for transparency
+picom --experimental-backends &
 /home/alkinoos/.fehbg
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
