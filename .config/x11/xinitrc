@@ -18,7 +18,7 @@ killall xcape 2> /dev/null ; xcape -e 'Super_L=Escape' # When super is pressed o
 # Use Xresources colors/settings on startup
 lxsession &
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xressources
-#dunst &			# dunst for notifications
+dunst &			# dunst for notifications
 numlockx on 		# Turn on NumLock
 picom --experimental-backends &
 /home/alkinoos/.fehbg
