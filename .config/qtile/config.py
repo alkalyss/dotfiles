@@ -47,8 +47,8 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Focus right"),
     Key([mod], "j", lazy.layout.down(), desc="Focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Focus up"),
-    Key([mod], "Return", lazy.layout.next(),
-        desc="Focus next window"),
+    Key([mod], "Return", lazy.layout.toggle_split(),
+        desc="Toggle split in Columns layout"),
 
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
@@ -118,15 +118,15 @@ for i in groups:
     ])
 
 layouts = [
-    layout.Columns(border_focus_stack='#d75f5f'),
+    layout.Columns(border_focus_stack='#d75f5f', insert_position=1),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
-    layout.Stack(num_stacks=2),
+    #layout.Stack(num_stacks=2),
     layout.Bsp(),
     # layout.Matrix(),
-    layout.MonadTall(),
+    # layout.MonadTall(),
     layout.MonadWide(),
-    layout.RatioTile(),
+    # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
