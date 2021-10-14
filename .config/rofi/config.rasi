@@ -1,7 +1,7 @@
 configuration {
 	modi: "window,drun,ssh";
 /*	width: 50;*/
-/*	lines: 15;*/
+	lines: 5;
 /*	columns: 1;*/
 	font: "Mononoki Nerd Font 12";
 /*	bw: 1;*/
@@ -50,7 +50,7 @@ configuration {
 /*	window-format: "{w}    {i}{c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-	theme: "themes/my_theme.rasi";
+	theme: "/home/alkinoos/.config/rofi/themes/slate.rasi";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/

@@ -19,4 +19,5 @@ case $layout in
 	${layouts[9]}) echo ${icons[9]};;
 	${layouts[10]}) echo ${icons[10]};;
 	${layouts[11]}) echo ${icons[11]};;
+	*) echo ${icons[6]};;
 esac

@@ -20,7 +20,7 @@ key = "Print"
 
 [[keybind]]
 command = "Execute"
-value = "rofi -show drun"
+value = "rofi  -show drun"
 modifier = ["modkey"]
 key = "r"
 
