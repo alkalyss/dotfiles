@@ -16,7 +16,7 @@ alias sudo="sudo "
 alias upvpn="sudo openvpn --config $HOME/UPatrasVPN/UPatras.ovpn --auth-user-pass $HOME/UPatrasVPN/auth-pass --daemon"
 alias killvpn="sudo pkill openvpn"
 
-# Verbosity and settings that you pretty much just always are going to want.
+# Verbosity and settings that you are pretty much just always going to want.
 alias \
 	cp="cp -iv" \
 	mv="mv -iv" \
