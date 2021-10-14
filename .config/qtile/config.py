@@ -93,9 +93,8 @@ keys = [
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
     Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch filemanager"),
     Key([mod], "c", lazy.spawn("code"), desc="Launch ide"),
+    Key([], "Print", lazy.spawn("flameshot gui"), desc="Launch screenshot tool"),
     Key([mod, "control"], "s", lazy.spawn("shutdown -h now"), desc="Shutdown"),
-
-    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout"),
 
     # Switch to layout
     # Key([mod], "m", lazy.cmd_to_layout_index("max")),
@@ -173,7 +172,7 @@ screens = [
         #    ],
         #    24,
         #),
-        top=bar.Gap(size=35)
+        top=bar.Gap(size=32)
     ),
 ]
 
