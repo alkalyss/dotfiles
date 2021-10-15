@@ -119,21 +119,4 @@ if &diff
 	highlight! link DiffText MatchParen
 endif
 
-" Function for toggling the bottom statusbar:
-let s:hidden_all = 0
-function! ToggleHiddenAll()
-	if s:hidden_all  == 0
-		let s:hidden_all = 1
-		set noshowmode
-		set noruler
-		set laststatus=0
-		set noshowcmd
-	else
-		let s:hidden_all = 0
-		set showmode
-		set ruler
-		set laststatus=2
-		set showcmd
-	endif
-endfunction
-nnoremap <leader>h :call ToggleHiddenAll()<CR>
+source $HOME/.config/nvim/greek_keys.vim
