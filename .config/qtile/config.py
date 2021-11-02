@@ -96,8 +96,8 @@ keys = [
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Launch screenshot tool"),
     Key([mod, "control"], "s", lazy.spawn("shutdown -h now"), desc="Shutdown"),
 
-    # Switch to layout
-    # Key([mod], "m", lazy.cmd_to_layout_index("max")),
+    # Toggle floating window
+    Key([mod, "shift"], "f", lazy.window.toggle_floating()),
 ]
 
 groups = [Group(i) for i in "12345"]
@@ -109,12 +109,12 @@ for i in groups:
             desc="Switch to group {}".format(i.name)),
 
         # # mod + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name)),
+        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
+        #     desc="Switch to & move focused window to group {}".format(i.name)),
         # Or, use below if you prefer not to switch to that group.
         # mod + shift + letter of group = move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-        #     desc="move focused window to group {}".format(i.name)),
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
+            desc="move focused window to group {}".format(i.name)),
     ])
 
 layouts = [
