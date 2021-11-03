@@ -457,3 +457,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 
 if [ -f ~/.alert ]; then echo '>>> Check ~/.alert'; fi
+
+if [[ $(fgconsole 2>/dev/null) == 1 ]] then
+	exec startx &> /dev/null
+fi
