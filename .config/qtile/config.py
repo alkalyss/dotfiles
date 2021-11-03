@@ -91,13 +91,13 @@ keys = [
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch rofi"),
     Key([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
-    Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch filemanager"),
-    Key([mod], "c", lazy.spawn("code"), desc="Launch ide"),
+    Key([mod], "f", lazy.spawn("alacritty -e ranger"), desc="Launch filemanager"),
+    Key([mod], "c", lazy.spawn("codium"), desc="Launch ide"),
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Launch screenshot tool"),
     Key([mod, "control"], "s", lazy.spawn("shutdown -h now"), desc="Shutdown"),
 
-    # Switch to layout
-    # Key([mod], "m", lazy.cmd_to_layout_index("max")),
+    Key([mod], "l", lazy.spawn("slock")),
+    Key([mod, "shift"], "f", lazy.window.toggle_floating()),
 ]
 
 groups = [Group(i) for i in "12345"]
@@ -109,12 +109,12 @@ for i in groups:
             desc="Switch to group {}".format(i.name)),
 
         # # mod + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name)),
+        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
+        #     desc="Switch to & move focused window to group {}".format(i.name)),
         # Or, use below if you prefer not to switch to that group.
         # mod + shift + letter of group = move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-        #     desc="move focused window to group {}".format(i.name)),
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
+            desc="move focused window to group {}".format(i.name)),
     ])
 
 layouts = [
@@ -172,7 +172,7 @@ screens = [
         #    ],
         #    24,
         #),
-        top=bar.Gap(size=32)
+        top=bar.Gap(size=40)
     ),
 ]
 
