@@ -43,12 +43,13 @@ case $chosen in
 			i3lock
 		elif [[ -f /usr/bin/betterlockscreen ]]; then
 			betterlockscreen -l
+		elif [[ -f /usr/bin/slock ]]; then
+			slock
 		fi
         ;;
     $suspend)
 		mpc -q pause
-		amixer set Master mute
-		systemctl suspend
+		systemctl suspend-then-hibernate
         ;;
     $logout)
 		if [[ "$DESKTOP_SESSION" == "Openbox" ]]; then
@@ -59,6 +60,8 @@ case $chosen in
 			i3-msg exit
 		elif [[ "$DESKTOP_SESSION" == "leftwm" ]]; then
 			pkill leftwm
+		elif [[ "$DESKTOP_SESSION" == "qtile" ]]; then
+			pkill qtile
 		fi
         ;;
 esac
