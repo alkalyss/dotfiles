@@ -96,7 +96,7 @@ keys = [
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Launch screenshot tool"),
     Key([mod, "control"], "s", lazy.spawn("shutdown -h now"), desc="Shutdown"),
 
-    Key([mod], "l", lazy.spawn("slock")),
+    Key([mod], "BackSpace", lazy.spawn("slock")),
     Key([mod, "shift"], "f", lazy.window.toggle_floating()),
 ]
 
