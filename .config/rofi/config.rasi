@@ -3,7 +3,7 @@ configuration {
 /*	width: 50;*/
 	lines: 5;
 /*	columns: 1;*/
-	font: "Mononoki Nerd Font 12";
+	font: "Mononoki Nerd Font 10";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
@@ -50,7 +50,7 @@ configuration {
 /*	window-format: "{w}    {i}{c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-	theme: "/home/alkinoos/.config/rofi/themes/slate.rasi";
+	theme: "/home/alkinoos/.config/rofi/launcher.rasi";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
