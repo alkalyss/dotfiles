@@ -21,3 +21,5 @@ dunst &			# dunst for notifications
 numlockx on & 		# Turn on NumLock
 picom --experimental-backends &
 $HOME/.fehbg &
+
+touchegg &
