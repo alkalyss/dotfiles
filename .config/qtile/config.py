@@ -91,12 +91,12 @@ keys = [
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch rofi"),
     Key([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
-    Key([mod], "f", lazy.spawn("alacritty -e ranger"), desc="Launch filemanager"),
+    Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch filemanager"),
     Key([mod], "c", lazy.spawn("codium"), desc="Launch ide"),
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Launch screenshot tool"),
     Key([mod, "control"], "s", lazy.spawn("shutdown -h now"), desc="Shutdown"),
 
-    Key([mod], "BackSpace", lazy.spawn("slock")),
+    Key([mod], "BackSpace", lazy.screen.toggle_group()),
     Key([mod, "shift"], "f", lazy.window.toggle_floating()),
 ]
 
