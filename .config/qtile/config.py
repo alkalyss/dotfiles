@@ -93,6 +93,9 @@ keys = [
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
     Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch filemanager"),
     Key([mod], "c", lazy.spawn("codium"), desc="Launch ide"),
+    Key([mod], "s", lazy.spawn("spotify"), desc="Launch spotify"),
+    Key([mod], "d", lazy.spawn("discord"), desc="Launch discord"),
+    Key([mod], "x", lazy.spawn("xournalpp"), desc="Launch discord"),
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Launch screenshot tool"),
     Key([mod, "control"], "s", lazy.spawn("shutdown -h now"), desc="Shutdown"),
 
