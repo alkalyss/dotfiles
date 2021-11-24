@@ -51,10 +51,8 @@ case $chosen in
 			bspc quit
 		elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
 			i3-msg exit
-		elif [[ "$DESKTOP_SESSION" == "leftwm" ]]; then
-			pkill leftwm
 		elif [[ "$DESKTOP_SESSION" == "qtile" ]]; then
-			pkill qtile
+			killall qtile
 		fi
         ;;
 esac
