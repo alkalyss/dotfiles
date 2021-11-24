@@ -100,6 +100,7 @@ keys = [
     Key([mod, "control"], "s", lazy.spawn("shutdown -h now"), desc="Shutdown"),
 
     Key([mod], "BackSpace", lazy.screen.toggle_group()),
+    # Toggle floating window
     Key([mod, "shift"], "f", lazy.window.toggle_floating()),
 ]
 
