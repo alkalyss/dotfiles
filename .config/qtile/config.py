@@ -110,12 +110,7 @@ for i in groups:
         # mod + letter of group = switch to group
         Key([mod], i.name, lazy.group[i.name].toscreen(),
             desc="Switch to group {}".format(i.name)),
-
-        # # mod + shift + letter of group = switch to & move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-        #     desc="Switch to & move focused window to group {}".format(i.name)),
-        # Or, use below if you prefer not to switch to that group.
-        # mod + shift + letter of group = move focused window to group
+        # mod + shift + letter of group = send window to group
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
             desc="move focused window to group {}".format(i.name)),
     ])
@@ -145,36 +140,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        #top=bar.Bar(
-        #    [
-        #        widget.CurrentLayoutIcon(scale=0.7),
-        #        widget.Pomodoro(),
-        #        widget.GroupBox(),
-        #        widget.Spacer(bar.STRETCH),
-        #        widget.Systray(),
-        #        widget.KeyboardLayout(
-        #            configured_keyboards=['us', 'gr'],
-        #            option="caps:super, grp:win_space_toggle, terminate:ctrl_alt_bksp"
-        #        ),
-        #        widget.Sep(),
-        #        widget.Backlight(backlight_name='intel_backlight'),
-        #        widget.Battery(format='{percent:2.0%}'),
-        #        widget.PulseVolume(),
-        #        widget.Sep(),
-        #        widget.Wlan(
-        #            interface="wlp0s20f3",
-        #            disconnected_message="Disconnected",
-        #            format='{essid}'
-        #        ),
-        #        widget.Net(
-        #            interface="wlp0s20f3",
-        #            format='{down} ↓↑ {up}'
-        #        ),
-        #        widget.Sep(),
-        #        widget.Clock(format='%H:%M | %a %d/%m/%y'),
-        #    ],
-        #    24,
-        #),
+        #top=bar.Gap(size=32)
         top=bar.Gap(size=40)
     ),
 ]
