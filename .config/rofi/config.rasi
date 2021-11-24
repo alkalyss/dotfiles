@@ -3,8 +3,7 @@ configuration {
 /*	width: 50;*/
 	lines: 5;
 /*	columns: 1;*/
-	font: "Mononoki Nerd Font 10";
-/*	font: "Mononoki Nerd Font 12";*/
+	font: "Mononoki Nerd Font 12";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/

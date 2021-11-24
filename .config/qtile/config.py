@@ -138,12 +138,18 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-screens = [
-    Screen(
-        #top=bar.Gap(size=32)
-        top=bar.Gap(size=40)
-    ),
-]
+if os.uname()[1] == 'laptop':
+    screens = [
+        Screen(
+            top=bar.Gap(size=40)
+        ),
+    ]
+else:
+    screens = [
+        Screen(
+            top=bar.Gap(size=32)
+        ),
+    ]
 
 # Drag floating layouts.
 mouse = [
