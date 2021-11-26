@@ -92,10 +92,14 @@ keys = [
     Key([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
     Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch filemanager"),
-    Key([mod], "c", lazy.spawn("code"), desc="Launch ide"),
+    Key([mod], "c", lazy.spawn("codium"), desc="Launch ide"),
+    Key([mod], "s", lazy.spawn("spotify"), desc="Launch spotify"),
+    Key([mod], "d", lazy.spawn("discord"), desc="Launch discord"),
+    Key([mod], "x", lazy.spawn("xournalpp"), desc="Launch discord"),
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Launch screenshot tool"),
     Key([mod, "control"], "s", lazy.spawn("shutdown -h now"), desc="Shutdown"),
 
+    Key([mod], "BackSpace", lazy.screen.toggle_group()),
     # Toggle floating window
     Key([mod, "shift"], "f", lazy.window.toggle_floating()),
 ]
@@ -107,12 +111,7 @@ for i in groups:
         # mod + letter of group = switch to group
         Key([mod], i.name, lazy.group[i.name].toscreen(),
             desc="Switch to group {}".format(i.name)),
-
-        # # mod + shift + letter of group = switch to & move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-        #     desc="Switch to & move focused window to group {}".format(i.name)),
-        # Or, use below if you prefer not to switch to that group.
-        # mod + shift + letter of group = move focused window to group
+        # mod + shift + letter of group = send window to group
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
             desc="move focused window to group {}".format(i.name)),
     ])
@@ -140,41 +139,18 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-screens = [
-    Screen(
-        #top=bar.Bar(
-        #    [
-        #        widget.CurrentLayoutIcon(scale=0.7),
-        #        widget.Pomodoro(),
-        #        widget.GroupBox(),
-        #        widget.Spacer(bar.STRETCH),
-        #        widget.Systray(),
-        #        widget.KeyboardLayout(
-        #            configured_keyboards=['us', 'gr'],
-        #            option="caps:super, grp:win_space_toggle, terminate:ctrl_alt_bksp"
-        #        ),
-        #        widget.Sep(),
-        #        widget.Backlight(backlight_name='intel_backlight'),
-        #        widget.Battery(format='{percent:2.0%}'),
-        #        widget.PulseVolume(),
-        #        widget.Sep(),
-        #        widget.Wlan(
-        #            interface="wlp0s20f3",
-        #            disconnected_message="Disconnected",
-        #            format='{essid}'
-        #        ),
-        #        widget.Net(
-        #            interface="wlp0s20f3",
-        #            format='{down} ↓↑ {up}'
-        #        ),
-        #        widget.Sep(),
-        #        widget.Clock(format='%H:%M | %a %d/%m/%y'),
-        #    ],
-        #    24,
-        #),
-        top=bar.Gap(size=32)
-    ),
-]
+if os.uname()[1] == 'laptop':
+    screens = [
+        Screen(
+            top=bar.Gap(size=40)
+        ),
+    ]
+else:
+    screens = [
+        Screen(
+            top=bar.Gap(size=32)
+        ),
+    ]
 
 # Drag floating layouts.
 mouse = [
