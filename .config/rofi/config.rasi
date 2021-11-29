@@ -3,7 +3,7 @@ configuration {
 /*	width: 50;*/
 	lines: 5;
 /*	columns: 1;*/
-	font: "Mononoki Nerd Font 12";
+	font: "DejaVuSansMono Nerd Font 10";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
@@ -21,12 +21,12 @@ configuration {
 /*	window-match-fields: "all";*/
 /*	drun-icon-theme: ;*/
 	drun-match-fields: "name,generic,exec,categories";
-/*	disable-history: false;*/
+	disable-history: false;
 	sort: false;
 /*	levenshtein-sort: false;*/
 /*	case-sensitive: false;*/
 /*	cycle: true;*/
-/*	sidebar-mode: false;*/
+	sidebar-mode: false;
 /*	eh: 1;*/
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
@@ -50,7 +50,6 @@ configuration {
 /*	window-format: "{w}    {i}{c}   {t}";*/
 /*	click-to-exit: true;*/
 /*	show-match: true;*/
-	theme: "/home/alkinoos/.config/rofi/launcher.rasi";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
@@ -58,11 +57,11 @@ configuration {
 /*	max-history-size: 25;*/
 /*	combi-hide-mode-prefix: false;*/
 /*	pid: "/run/user/1000/rofi.pid";*/
-/*	display-window: ;*/
+	display-window: "类";
 /*	display-windowcd: ;*/
 /*	display-run: ;*/
 /*	display-ssh: ;*/
-/*	display-drun: ;*/
+	display-drun: "";
 /*	display-combi: ;*/
 /*	display-keys: ;*/
 /*	kb-primary-paste: "Control+V,Shift+Insert";*/
@@ -137,3 +136,4 @@ configuration {
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
+@theme "launcher.rasi"

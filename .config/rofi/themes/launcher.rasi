@@ -1,12 +1,3 @@
-configuration {
-	font:							"DejaVuSansMono Nerd Font 10";
-    show-icons:                     true;
-    display-drun: 					"";
-    display-window:                 "类";
-    disable-history:                false;
-	sidebar-mode: 					false;
-}
-
 @import "colors.rasi"
 
 * {
