@@ -1,6 +1,6 @@
 * {
-	foreground: #bbd5ff;
-	background: #232323cc;
+	fg: #bbd5ff;
+	bg: #232323cc;
 	color0:     #101010;
 	color8:     #434758;
 	color1:     #f07178;
