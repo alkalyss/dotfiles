@@ -39,7 +39,7 @@ If any errors occur, that means that you have conflicting dotfiles. Back them up
 
 ## Features
 
-CapsLock is mapped to Super key when held and Escape when pressed momentarilly
+- CapsLock is mapped to Super key when held and Escape when pressed momentarilly
 
 | Shortcut          | Description                        |
 | ----------------- | ---------------------------------- |
