@@ -14,8 +14,6 @@ export TMPPREFIX="${TMPDIR}/zsh"
 
 if [ ! -d "${TMP}" ]; then mkdir "${TMP}"; fi
 
-sudo loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/keymap/ttymap 2> /dev/null
-
 ## PATH
 if ! [[ "${PATH}" =~ "^${HOME}/.bin" ]]; then
     export PATH="${HOME}/.bin:${PATH}"
