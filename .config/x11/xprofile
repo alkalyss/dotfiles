@@ -24,5 +24,5 @@ $HOME/.fehbg &
 
 touchegg &
 flameshot &
-onedrive -m --confdir ${XDG_CONFIG_HOME:-$HOME/.config}/onedrivePersonal &
-onedrive -m --confdir ${XDG_CONFIG_HOME:-$HOME/.config}/onedriveWork &
+onedrive --monitor --confdir ${XDG_CONFIG_HOME:-$HOME/.config}/onedrivePersonal &
+onedrive --monitor --confdir ${XDG_CONFIG_HOME:-$HOME/.config}/onedriveWork &
