@@ -3,7 +3,6 @@
 * {
     al:  #00000000;
     //bg:  #282C33df;
-	bg: @background;
     se:  @color0;
     fg:  @color15;
     //ac:  #F6C54Eff;

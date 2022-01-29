@@ -1,0 +1,51 @@
+[global]
+    follow = mouse
+	width = 300
+	height = 300
+	origin = top-right
+	offset = 10x50
+
+    font = Iosevka 8
+    markup = full
+    format = "<b>%s</b>\n%b"
+    transparency = 0
+    line_height = 0
+    padding = 8
+    horizontal_padding = 8
+    corner_radius = 5
+
+    alignment = left
+    vertical_alignment = center
+    word_wrap = true
+
+    sort = yes
+    indicate_hidden = yes
+    show_age_threshold = 60
+    idle_threshold = 120
+    ignore_newline = no
+    sticky_history = yes
+
+    separator_height = 2
+    separator_color = "#585858"
+
+    # https://github.com/knopwob/dunst/issues/26#issuecomment-36159395
+    icon_position = left
+    #icon_folders = /usr/share/icons/elementary/actions/16/
+
+    frame_width = 3
+    frame_color = "#abb2bf"
+
+[urgency_low]
+    background = "#282c34"
+    foreground = "#abb2bf"
+    timeout = 5
+
+[urgency_normal]
+    background = "#4b5263"
+    foreground = "#abb2bf"
+    timeout = 20
+
+[urgency_critical]
+    background = "#dc322f"
+    foreground = "#282c34"
+    timeout = 0

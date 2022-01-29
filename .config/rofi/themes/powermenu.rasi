@@ -1,10 +1,8 @@
 @import "colors.rasi"
 
 * {
-    fg:         @foreground;
-    bg:         @background;
-    selected-background: @color5;
-    selected-foreground: @fg;
+    selected-bg: @color5;
+    selected-fg: @fg;
 }
 
 #window {
@@ -21,14 +19,13 @@
 	border-radius: 0px;
     padding: 0;
     children: [listview];
-    background-color: #00000000;
+    background-color: transparent;
 }
 
 #listview {
     columns: 5;
     layout: vertical;
     background-color: transparent;
-	cycle: true;
 }
 
 element {
@@ -55,18 +52,18 @@ element-text {
 }
 
 #element.normal.normal {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
     text-color:       @fg;
 }
 
 #element.selected.normal {
-    background-color: @selected-background;
+    background-color: @selected-bg;
     text-color:       @color0;
     border-color: #d07ef2;
 }
 
 #element.alternate.normal {
-    background-color: rgba(0,0,0,0);
+    background-color: transparent;
     text-color:       @fg;
 }
 
@@ -85,6 +82,6 @@ element-text {
 }
 
 #button.selected {
-    background-color: @selected-background;
-    text-color:       @selected-foreground;
+    background-color: @selected-bg;
+    text-color:       @selected-fg;
 }
