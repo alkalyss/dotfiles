@@ -105,8 +105,10 @@ yay -S acpi \
 	xorg-xinit \
 	xournalpp \
 	zathura \
+	zathura-cb \
 	zathura-djvu \
 	zathura-pdf-mupdf \
+	zathura-ps \
 	zoom \
 	zsh \
 	zsh-syntax-highlighting \
