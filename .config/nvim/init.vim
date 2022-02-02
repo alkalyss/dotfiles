@@ -8,6 +8,7 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'}
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim'
@@ -77,11 +78,14 @@ set noshowcmd
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
 
-" Compile document, be it groff/LaTeX/markdown/etc.
-	map <leader>c :w! \| !compiler "<c-r>%"<CR>
+" Open LaTeX pdf preview
+	set updatetime=1000
+	let g:livepreview_previewer = 'zathura'
+	let g:livepreview_use_biber = 1
+	map <leader>p :LLPStartPreview<CR>
 
-" Open corresponding .pdf file when editing LaTeX
-	map <leader>p :!zathura %:r.pdf<CR><CR>
+" Compile LaTeX documents on save
+	autocmd BufWritePost *.tex :silent !pdflatex %
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 	autocmd VimLeave *.tex !texclear %
@@ -97,12 +101,6 @@ set noshowcmd
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
-" Enable Goyo by default for mutt writing
-	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
-	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo | set bg=light
-	autocmd BufRead,BufNewFile /tmp/neomutt* map ZZ :Goyo\|x!<CR>
-	autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
-
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 	autocmd BufWritePre * %s/\s\+$//e
 	autocmd BufWritePre * %s/\n\+\%$//e
@@ -112,12 +110,10 @@ set noshowcmd
 	autocmd BufRead,BufNewFile xresources,xdefaults set filetype=xdefaults
 	autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
 
-" Compile LaTeX documents on save
-	autocmd BufWritePost *.tex !pdflatex %
-
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
 if &diff
 	highlight! link DiffText MatchParen
 endif
 
+" Enable greek key support
 source $HOME/.config/nvim/greek_keys.vim
