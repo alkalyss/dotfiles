@@ -82,6 +82,7 @@ set noshowcmd
 	set updatetime=1000
 	let g:livepreview_previewer = 'zathura'
 	let g:livepreview_use_biber = 1
+	let g:livepreview_engine = 'xelatex'
 	map <leader>p :LLPStartPreview<CR>
 
 " Compile LaTeX documents on save
