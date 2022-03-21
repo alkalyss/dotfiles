@@ -4,7 +4,11 @@
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
 # Reboot into Windows
-alias win="sudo grub-reboot 'Windows 10' && reboot"
+if [[ $(hostname) == "laptop" ]]; then
+	alias win="sudo grub-reboot 'Windows 10' reboot"
+else
+	alias win="sudo grub-reboot 2 && reboot"
+fi
 
 # Update grub
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
