@@ -5,7 +5,7 @@
 
 # Reboot into Windows
 if [[ $(hostname) == "laptop" ]]; then
-	alias win="sudo grub-reboot 'Windows 10' reboot"
+	alias win="sudo grub-reboot 0 && reboot"
 else
 	alias win="sudo grub-reboot 2 && reboot"
 fi
