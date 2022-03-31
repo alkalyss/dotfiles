@@ -82,10 +82,17 @@ set noshowcmd
 	set updatetime=1000
 	let g:livepreview_previewer = 'zathura'
 	let g:livepreview_use_biber = 1
+	let g:livepreview_engine = 'xelatex'
 	map <leader>p :LLPStartPreview<CR>
 
+" Compile document, be it groff/LaTeX/markdown/etc.
+	map <leader>c :w! \| !compiler "<c-r>%"<CR>
+
+" Open corresponding .pdf/.html or preview
+	map <leader>p :!opout <c-r>%<CR><CR>
+
 " Compile LaTeX documents on save
-	autocmd BufWritePost *.tex :silent !pdflatex %
+	autocmd BufWritePost *.tex :silent !xelatex %
 
 " Runs a script that cleans out tex build files whenever I close out of a .tex file.
 	autocmd VimLeave *.tex !texclear %
