@@ -19,6 +19,7 @@ lxsession &
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xressources &
 dunst &			# dunst for notifications
 numlockx on & 		# Turn on NumLock
+unclutter --timeout 5 --exclude-root --ignore-scrolling --hide-on-touch &
 picom --experimental-backends &
 $HOME/.fehbg &
 
