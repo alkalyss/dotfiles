@@ -16,7 +16,7 @@ export LANG=en_US.UTF-8
 # Default programs:
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERMINAL="xterm-256color"
+export TERMINAL="alacritty"
 export BROWSER="firefox"
 
 # ~/ Clean-up:
