@@ -20,6 +20,7 @@ Plug 'bling/vim-airline'							" Status bar
 Plug 'vim-airline/vim-airline-themes'				" Status bar themes
 Plug 'tpope/vim-commentary'							" Comments
 Plug 'ap/vim-css-color'
+Plug 'jiangmiao/auto-pairs'							" Auto bracket closing
 
 "Colorschemes
 Plug 'drewtempelmeyer/palenight.vim'
@@ -45,6 +46,7 @@ set encoding=utf-8				" Set display encoding to utf-8
 set fileencoding=utf-8			" Set file write encoding to utf-8
 
 set nohlsearch					" Don't highlight search
+set incsearch					" Enable incremental search
 set ignorecase					" Ignore case for search
 set smartcase					" If search contains uppercase it becomes case sensitive
 
