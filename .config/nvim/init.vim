@@ -11,17 +11,18 @@ endif
 " Install plugins
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
-Plug 'sheerun/vim-polyglot'							" Syntax highlighting
-Plug 'luochen1990/rainbow'							" Bracket colorizer
-Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'}	" LaTeX live preview
-Plug 'tpope/vim-surround'							" Bracket shortcuts
-Plug 'preservim/nerdtree'							" Directory explorer
-Plug 'bling/vim-airline'							" Status bar
-Plug 'vim-airline/vim-airline-themes'				" Status bar themes
-Plug 'tpope/vim-commentary'							" Comments
-Plug 'ap/vim-css-color'
-Plug 'jiangmiao/auto-pairs'							" Auto bracket closing
-Plug 'godlygeek/tabular'							" Align stuff
+Plug 'sheerun/vim-polyglot'                         " Syntax highlighting
+Plug 'luochen1990/rainbow'                          " Bracket colorizer
+Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " LaTeX live preview
+Plug 'tpope/vim-surround'                           " Bracket shortcuts
+Plug 'preservim/nerdtree'                           " Directory explorer
+Plug 'bling/vim-airline'                            " Status bar
+Plug 'vim-airline/vim-airline-themes'               " Status bar themes
+Plug 'tpope/vim-commentary'                         " Comments
+Plug 'ap/vim-css-color'                             " Color highlighter
+Plug 'jiangmiao/auto-pairs'                         " Auto bracket closing
+Plug 'godlygeek/tabular'                            " Align stuff
+Plug 'ryanoasis/vim-devicons'                       " Add file icons
 
 "Colorschemes
 Plug 'drewtempelmeyer/palenight.vim'
@@ -133,7 +134,7 @@ map <leader>p :LLPStartPreview<CR>
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " Toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <leader>f :NERDTreeToggle<CR>
 
 " Perform dot commands over visual blocks:
 vnoremap . :normal .<CR>
