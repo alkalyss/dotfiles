@@ -49,8 +49,8 @@ set noshowcmd
 	vnoremap . :normal .<CR>
 " Goyo plugin makes text more readable when writing prose:
 	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
-" Spell-check set to <leader>o, 'o' for 'orthography':
-	map <leader>o :setlocal spell! spelllang=en_us<CR>
+" Spell-check set to <leader>s:
+	map <leader>s :setlocal spell! spelllang=en_us<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitbelow splitright
 
@@ -72,9 +72,6 @@ set noshowcmd
 " Replace ex mode with gq
 	map Q gq
 
-" Check file in shellcheck:
-	map <leader>s :!clear && shellcheck -x %<CR>
-
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
 
@@ -89,7 +86,7 @@ set noshowcmd
 	map <leader>c :w! \| !compiler "<c-r>%"<CR>
 
 " Open corresponding .pdf/.html or preview
-	map <leader>p :!opout <c-r>%<CR><CR>
+	map <leader>o :!opout <c-r>%<CR><CR>
 
 " Compile LaTeX documents on save
 	autocmd BufWritePost *.tex :silent !xelatex %
