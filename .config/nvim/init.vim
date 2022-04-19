@@ -21,21 +21,36 @@ Plug 'vim-airline/vim-airline-themes'				" Status bar themes
 Plug 'tpope/vim-commentary'							" Comments
 Plug 'ap/vim-css-color'
 Plug 'jiangmiao/auto-pairs'							" Auto bracket closing
+Plug 'godlygeek/tabular'							" Align stuff
 
 "Colorschemes
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'joshdick/onedark.vim'
+Plug 'yunlingz/equinusocio-material.vim'
 call plug#end()
 
 
 " Options ======================================================================
 
+" Enable more colors
+if !has('gui_running')
+	set t_Co=256
+endif
+
+if (has("termguicolors"))
+	set termguicolors
+endif
+
 let mapleader =","
 
 " Theme
-colorscheme onedark
-let g:palenight_terminal_italics=1
-let g:airline_theme='palenight'
+let g:equinusocio_material_style = 'darker'
+" let g:equinusocio_material_less = 50
+let g:equinusocio_material_bracket_improved = 0
+colorscheme equinusocio_material
+
+" Status bar theme
+let g:palenight_terminal_italics = 1
+let g:airline_theme = 'palenight'
 
 set bg=dark						" Set background for highlighting
 set go=P						" Copy visual selection to "+ register
@@ -74,15 +89,6 @@ set timeoutlen=500				" Set timeout length to 500ms
 syntax on						" Enable syntax highlighting
 filetype plugin on				" Enable filetype detection and plugins
 filetype indent on				" Enable filetype indentation and plugins
-
-" Enable more colors
-if !has('gui_running')
-	set t_Co=256
-endif
-
-if (has("termguicolors"))
-	set termguicolors
-endif
 
 let g:rainbow_active = 1		" Enable rainbow parenthesis
 
