@@ -10,15 +10,20 @@ endif
 
 " Install plugins
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
-Plug 'sheerun/vim-polyglot'
-Plug 'luochen1990/rainbow'
-Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'}
-Plug 'tpope/vim-surround'
-Plug 'preservim/nerdtree'
-Plug 'jreybert/vimagit'
-Plug 'bling/vim-airline'
-Plug 'tpope/vim-commentary'
+
+Plug 'sheerun/vim-polyglot'							" Syntax highlighting
+Plug 'luochen1990/rainbow'							" Bracket colorizer
+Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'}	" LaTeX live preview
+Plug 'tpope/vim-surround'							" Bracket shortcuts
+Plug 'preservim/nerdtree'							" Directory explorer
+Plug 'bling/vim-airline'							" Status bar
+Plug 'vim-airline/vim-airline-themes'				" Status bar themes
+Plug 'tpope/vim-commentary'							" Comments
 Plug 'ap/vim-css-color'
+
+"Colorschemes
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 
@@ -26,12 +31,18 @@ call plug#end()
 
 let mapleader =","
 
-set number relativenumber		" Relative line numbers
-set encoding=utf-8				" Set encoding to utf-8
+" Theme
+colorscheme onedark
+let g:palenight_terminal_italics=1
+let g:airline_theme='palenight'
 
-set bg=light					" Set background for highlighting
+set bg=dark						" Set background for highlighting
 set go=P						" Copy visual selection to "+ register
+set shortmess=ac				" Short messages
 set mouse=a						" Enable mouse
+
+set encoding=utf-8				" Set display encoding to utf-8
+set fileencoding=utf-8			" Set file write encoding to utf-8
 
 set nohlsearch					" Don't highlight search
 set ignorecase					" Ignore case for search
@@ -39,13 +50,11 @@ set smartcase					" If search contains uppercase it becomes case sensitive
 
 set clipboard+=unnamedplus		" Enable "+ register
 
+set number relativenumber		" Relative line numbers
 set noshowmode					" Don't show mode (Insert, Visual, Normal)
 set noruler						" Don't show cursor position
-set laststatus=0				" Disable status line
+set laststatus=2				" Disable status line
 set noshowcmd					" Don't show last command
-
-set nocompatible				" Blanck
-set t_Co=256					" Enable 256 colors
 
 set tabstop=4					" Tab = 4 spaces
 set shiftwidth=4				" Number of spaces to autoindent
@@ -58,9 +67,20 @@ set wildmode=longest,list,full	" Enable autocompletion
 set splitbelow splitright		" Split below and to the right
 
 set updatetime=300				" Set update time to 300ms
+set timeoutlen=500				" Set timeout length to 500ms
 
 syntax on						" Enable syntax highlighting
 filetype plugin on				" Enable filetype detection and plugins
+filetype indent on				" Enable filetype indentation and plugins
+
+" Enable more colors
+if !has('gui_running')
+	set t_Co=256
+endif
+
+if (has("termguicolors"))
+	set termguicolors
+endif
 
 let g:rainbow_active = 1		" Enable rainbow parenthesis
 
