@@ -4,10 +4,7 @@ image/jpeg=feh.desktop
 text/plain=notepadqq.desktop
 image/png=feh.desktop
 image/svg+xml=org.inkscape.Inkscape.desktop
-
-[Added Associations]
-application/pdf=org.pwmt.zathura.desktop;okularApplication_pdf.desktop;
-image/jpeg=feh.desktop;
-text/plain=gimp.desktop;notepadqq.desktop;
-image/png=feh.desktop;
-image/svg+xml=org.inkscape.Inkscape.desktop;
+application/filemanager=pcmanfm.desktop
+inode/directory=pcmanfm.desktop
+application/x-wine-extension-osz=org.kde.ark.desktop;
+application/x-wine-extension-osk=org.kde.ark.desktop;
