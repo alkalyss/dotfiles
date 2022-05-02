@@ -11,22 +11,33 @@ endif
 " Install plugins
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
-Plug 'sheerun/vim-polyglot'                         " Syntax highlighting
-Plug 'luochen1990/rainbow'                          " Bracket colorizer
-Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " LaTeX live preview
-Plug 'tpope/vim-surround'                           " Bracket shortcuts
-Plug 'preservim/nerdtree'                           " Directory explorer
+" Visual improvements
 Plug 'bling/vim-airline'                            " Status bar
 Plug 'vim-airline/vim-airline-themes'               " Status bar themes
+" Plug 'chrisbra/colorizer'                           " Color highlighter
+Plug 'ap/vim-css-color'
+Plug 'luochen1990/rainbow'                          " Bracket colorizer
+
+" Functional improvements
+Plug 'sheerun/vim-polyglot'                         " Syntax highlighting
 Plug 'tpope/vim-commentary'                         " Comments
-Plug 'ap/vim-css-color'                             " Color highlighter
 Plug 'jiangmiao/auto-pairs'                         " Auto bracket closing
+Plug 'tpope/vim-surround'                           " Bracket shortcuts
 Plug 'godlygeek/tabular'                            " Align stuff
+Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " LaTeX live preview
+Plug 'tpope/vim-fugitive'							" Git integration
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}		" IntelliSense
+
+" File explorer
+Plug 'preservim/nerdtree'                           " Directory explorer
+Plug 'Xuyuanp/nerdtree-git-plugin'                  " Git integration
 Plug 'ryanoasis/vim-devicons'                       " Add file icons
 
 "Colorschemes
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'yunlingz/equinusocio-material.vim'
+
 call plug#end()
 
 
@@ -74,6 +85,14 @@ set noruler						" Don't show cursor position
 set laststatus=2				" Disable status line
 set noshowcmd					" Don't show last command
 
+" Recently vim can merge signcolumn and number column into one
+" for coc
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+	set signcolumn=number
+else
+	set signcolumn=yes
+endif
+
 set tabstop=4					" Tab = 4 spaces
 set shiftwidth=4				" Number of spaces to autoindent
 set noexpandtab					" Tabs are tabs not spaces
@@ -87,23 +106,19 @@ set splitbelow splitright		" Split below and to the right
 set updatetime=300				" Set update time to 300ms
 set timeoutlen=500				" Set timeout length to 500ms
 
+filetype plugin indent on		" Enable filetype detection and plugins
 syntax on						" Enable syntax highlighting
-filetype plugin on				" Enable filetype detection and plugins
-filetype indent on				" Enable filetype indentation and plugins
 
 let g:rainbow_active = 1		" Enable rainbow parenthesis
 
-" Latex live preview options
-let g:livepreview_previewer = 'zathura'
-let g:livepreview_use_biber = 1
-let g:livepreview_engine = 'xelatex'
-
-" NERDTree file path
-let NERDTreeBookmarksFile = stdpath('data') . '/NERDTreeBookmarks'
 
 " Shortcuts ====================================================================
 
 " Split navigation shortcuts:
+map <C-n> :vnew<CR>
+map <C-s> :new<CR>
+map <C-q> <C-w>q
+
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -127,14 +142,8 @@ map <leader>o :!opout <c-r>%<CR><CR>
 " Spell-check set to <leader>s:
 map <leader>s :setlocal spell! spelllang=en,el<CR>
 
-" Open LaTeX pdf preview
-map <leader>p :LLPStartPreview<CR>
-
 " Save file as sudo on files that require root permission
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
-
-" Toggle NERDTree
-map <leader>f :NERDTreeToggle<CR>
 
 " Perform dot commands over visual blocks:
 vnoremap . :normal .<CR>
@@ -143,7 +152,7 @@ vnoremap . :normal .<CR>
 " Automations ==================================================================
 
 " Disables automatic commenting on newline:
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType * setlocal formatoptions-=cro
 
 " Compile LaTeX documents on save
 autocmd BufWritePost *.tex :silent !xelatex %
@@ -158,14 +167,105 @@ autocmd BufRead,BufNewFile *.frag set syntax=glsl
 autocmd BufRead,BufNewFile *.vert set syntax=glsl
 
 " Delete all trailing whitespace and newlines at end of file on save
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre * %s/\n\+\%$//e
-autocmd BufWritePre *.[ch] %s/\%$/\r/e
+function! <SID>StripTrailingWhitespaces()
+	let l = line(".")
+	let c = col(".")
+	%s/\s\+$//e
+	%s/\n\+\%$//e
+	call cursor(l, c)
+endfun
+
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
 autocmd BufRead,BufNewFile xresources,xdefaults set filetype=xdefaults
 autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
 
+
+" NERDTree config ==============================================================
+
+" Start NERDTree when Vim starts with a directory argument.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+	\ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+
+" NERDTree file path
+let NERDTreeBookmarksFile = stdpath('data') . '/NERDTreeBookmarks'
+
+" NERDTree git integration use Nerd Fonts
+let g:NERDTreeGitStatusUseNerdFonts = 1
+
+" Toggle NERDTree
+map <leader>f :NERDTreeToggle<CR>
+
+
+" Latex live preview config ====================================================
+
+let g:livepreview_previewer = 'zathura' " Pdf viewer
+let g:livepreview_use_biber = 1         " Use biber
+let g:livepreview_engine = 'xelatex'    " Use xelatex engine
+
+" Open LaTeX pdf preview
+map <leader>p :LLPStartPreview<CR>
+
+
+" Colorizer config =============================================================
+
+" Enable auto color highlighting for these filetypes
+let g:colorizer_auto_filetype ='html,css,javascript,python,conf,dosini'
+let g:colorizer_disable_bufleave = 1	" Keep color when changing buffer
+let g:colorizer_skip_comments = 0		" Skip comments
+let g:colorizer_colornames = 0			" Don't highlight color names
+
+
+" Coc config ===================================================================
+
+let g:coc_global_extensions = [
+	\'coc-json', 'coc-git', 'coc-yaml',
+	\'coc-pyright', 'coc-clangd', 'coc-texlab',
+	\'coc-snippets'
+	\]
+
+" Use TAB for expansion
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Trigger completion with Ctrl-Space
+if has('nvim')
+	inoremap <silent><expr> <c-space> coc#refresh()
+else
+	inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Show documentation with K
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+	if CocAction('hasProvider', 'hover')
+		call CocActionAsync('doHover')
+	else
+		call feedkeys('K', 'in')
+	endif
+endfunction
+
+" Symbol renaming.
+nmap <f2> <Plug>(coc-rename)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nnoremap <silent> <M-o> :CocCommand clangd.switchSourceHeader vsplit<CR>
 
 " Extra ========================================================================
 
