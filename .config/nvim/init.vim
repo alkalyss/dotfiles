@@ -14,7 +14,6 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 " Visual improvements
 Plug 'bling/vim-airline'                            " Status bar
 Plug 'vim-airline/vim-airline-themes'               " Status bar themes
-" Plug 'chrisbra/colorizer'                           " Color highlighter
 Plug 'ap/vim-css-color'
 Plug 'luochen1990/rainbow'                          " Bracket colorizer
 
@@ -155,7 +154,7 @@ vnoremap . :normal .<CR>
 autocmd FileType * setlocal formatoptions-=cro
 
 " Compile LaTeX documents on save
-autocmd BufWritePost *.tex :silent !xelatex %
+autocmd BufWritePost *.tex :silent !xelatex --output-directory "%:p:h" "%"
 
 " Cleanup LaTeX build files on exit
 autocmd VimLeave *.tex !texclear %
