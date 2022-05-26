@@ -272,7 +272,7 @@ fi
 PROMPT="${bold}${userStyle}"
 PROMPT+="${white}@"
 PROMPT+="${hostStyle}"
-PROMPT+="${white}: ${cyan}%1~"
+PROMPT+="${white}: ${cyan}%~"
 PROMPT+=' ${git_prompt} '
 PROMPT+="
 ${white}%# "
