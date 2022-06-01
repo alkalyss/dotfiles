@@ -1,50 +1,3 @@
-" Plugins =====================================================================erg2/src/
-
-" Install vim-plug if not installed
-if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
-	echo "Downloading junegunn/vim-plug to manage plugins..."
-	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
-	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
-	autocmd VimEnter * PlugInstall
-endif
-
-" Install plugins
-call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
-
-" Visual improvements
-Plug 'bling/vim-airline'                            " Status bar
-Plug 'vim-airline/vim-airline-themes'               " Status bar themes
-Plug 'ap/vim-css-color'
-Plug 'luochen1990/rainbow'                          " Bracket colorizer
-
-" Functional improvements
-Plug 'sheerun/vim-polyglot'                         " Syntax highlighting
-Plug 'tpope/vim-commentary'                         " Comments
-Plug 'jiangmiao/auto-pairs'                         " Auto bracket closing
-Plug 'tpope/vim-surround'                           " Bracket shortcuts
-Plug 'godlygeek/tabular'                            " Align stuff
-Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " LaTeX live preview
-Plug 'tpope/vim-fugitive'							" Git integration
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}		" IntelliSense
-
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-telescope/telescope.nvim' 				" Fuzzy finder
-
-
-" File explorer
-Plug 'preservim/nerdtree'                           " Directory explorer
-Plug 'Xuyuanp/nerdtree-git-plugin'                  " Git integration
-Plug 'ryanoasis/vim-devicons'                       " Add file icons
-
-"Colorschemes
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'yunlingz/equinusocio-material.vim'
-
-call plug#end()
-
-
 " Options ======================================================================
 
 " Enable more colors
@@ -56,17 +9,7 @@ if (has("termguicolors"))
 	set termguicolors
 endif
 
-let mapleader =","
-
-" Theme
-let g:equinusocio_material_style = 'darker'
-" let g:equinusocio_material_less = 50
-let g:equinusocio_material_bracket_improved = 0
-colorscheme equinusocio_material
-
-" Status bar theme
-let g:palenight_terminal_italics = 1
-let g:airline_theme = 'palenight'
+let mapleader =" "
 
 set bg=dark						" Set background for highlighting
 set go=P						" Copy visual selection to "+ register
@@ -89,13 +32,7 @@ set noruler						" Don't show cursor position
 set laststatus=2				" Disable status line
 set noshowcmd					" Don't show last command
 
-" Recently vim can merge signcolumn and number column into one
-" for coc
-if has("nvim-0.5.0") || has("patch-8.1.1564")
-	set signcolumn=number
-else
-	set signcolumn=yes
-endif
+set signcolumn=yes 				" Use signcolumn for git and lsp
 
 set tabstop=4					" Tab = 4 spaces
 set shiftwidth=4				" Number of spaces to autoindent
@@ -113,20 +50,21 @@ set timeoutlen=500				" Set timeout length to 500ms
 filetype plugin indent on		" Enable filetype detection and plugins
 syntax on						" Enable syntax highlighting
 
-let g:rainbow_active = 1		" Enable rainbow parenthesis
 
 
 " Shortcuts ====================================================================
 
-" Split navigation shortcuts:
-map <C-n> :vnew<CR>
-map <C-s> :new<CR>
-map <C-q> <C-w>q
+map gf :edit <cfile><cr>
 
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+" Split navigation shortcuts:
+map <silent> <C-n> :vnew<cr>
+map <silent> <C-s> :new<cr>
+map <silent> <C-q> <C-w>q
+
+map <silent> <C-h> <C-w>h
+map <silent> <C-j> <C-w>j
+map <silent> <C-k> <C-w>k
+map <silent> <C-l> <C-w>l
 
 " Don't keep stuff replaced by c
 nnoremap c "_c
@@ -138,19 +76,19 @@ nnoremap S :%s//g<Left><Left>
 map Q gq
 
 " Compile document, be it groff/LaTeX/markdown/etc.
-map <leader>c :w! \| !compiler "<c-r>%"<CR>
+map <leader>c :w! \| !compiler "<c-r>%"<cr>
 
 " Open corresponding .pdf/.html or preview
-map <leader>o :!opout <c-r>%<CR><CR>
+map <leader>o :!opout <c-r>%<cr><cr>
 
 " Spell-check set to <leader>s:
-map <leader>s :setlocal spell! spelllang=en,el<CR>
+map <leader>s :setlocal spell! spelllang=en,el<cr>
 
 " Save file as sudo on files that require root permission
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " Perform dot commands over visual blocks:
-vnoremap . :normal .<CR>
+vnoremap . :normal .<cr>
 
 
 " Automations ==================================================================
@@ -186,95 +124,50 @@ autocmd BufRead,BufNewFile xresources,xdefaults set filetype=xdefaults
 autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
 
 
-" NERDTree config ==============================================================
+" Plugins =====================================================================
 
-" Start NERDTree when Vim starts with a directory argument.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-	\ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
-
-" NERDTree file path
-let NERDTreeBookmarksFile = stdpath('data') . '/NERDTreeBookmarks'
-
-" NERDTree git integration use Nerd Fonts
-let g:NERDTreeGitStatusUseNerdFonts = 1
-
-" Toggle NERDTree
-map <leader>t :NERDTreeToggle<CR>
-
-
-" Telescope ====================================================================
-
-nnoremap <leader>f <cmd>Telescope find_files<cr>
-
-
-" Latex live preview config ====================================================
-
-let g:livepreview_previewer = 'zathura' " Pdf viewer
-let g:livepreview_use_biber = 1         " Use biber
-let g:livepreview_engine = 'xelatex'    " Use xelatex engine
-
-" Open LaTeX pdf preview
-map <leader>p :LLPStartPreview<CR>
-
-
-" Colorizer config =============================================================
-
-" Enable auto color highlighting for these filetypes
-let g:colorizer_auto_filetype ='html,css,javascript,python,conf,dosini'
-let g:colorizer_disable_bufleave = 1	" Keep color when changing buffer
-let g:colorizer_skip_comments = 0		" Skip comments
-let g:colorizer_colornames = 0			" Don't highlight color names
-
-
-" Coc config ===================================================================
-
-let g:coc_global_extensions = [
-	\'coc-json', 'coc-git', 'coc-yaml',
-	\'coc-pyright', 'coc-clangd', 'coc-texlab',
-	\'coc-snippets'
-	\]
-
-" Use TAB for expansion
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Trigger completion with Ctrl-Space
-if has('nvim')
-	inoremap <silent><expr> <c-space> coc#refresh()
-else
-	inoremap <silent><expr> <c-@> coc#refresh()
+" Install vim-plug if not installed
+if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
+	echo "Downloading junegunn/vim-plug to manage plugins..."
+	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+	autocmd VimEnter * PlugInstall
 endif
 
-" Show documentation with K
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Install plugins
+call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
-function! s:show_documentation()
-	if CocAction('hasProvider', 'hover')
-		call CocActionAsync('doHover')
-	else
-		call feedkeys('K', 'in')
-	endif
-endfunction
+" Visual improvements
+source ~/.config/nvim/plugin/airline.vim
+source ~/.config/nvim/plugin/css-color.vim
+source ~/.config/nvim/plugin/rainbow.vim
 
-" Symbol renaming.
-nmap <f2> <Plug>(coc-rename)
+" Functional improvements
+source ~/.config/nvim/plugin/polyglot.vim
+source ~/.config/nvim/plugin/commentary.vim
+source ~/.config/nvim/plugin/auto-pairs.vim
+source ~/.config/nvim/plugin/surround.vim
+source ~/.config/nvim/plugin/tabular.vim
+source ~/.config/nvim/plugin/latex-live-preview.vim
+source ~/.config/nvim/plugin/fugitive.vim
 
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" IntelliSense
+source ~/.config/nvim/plugin/coc.vim
 
-nnoremap <silent> <M-o> :CocCommand clangd.switchSourceHeader vsplit<CR>
+" Fuzzy finder
+source ~/.config/nvim/plugin/telescope.vim
+
+" File explorer
+source ~/.config/nvim/plugin/devicons.vim
+source ~/.config/nvim/plugin/nerdtree.vim
+
+" Colorschemes
+source ~/.config/nvim/plugin/theme.vim
+
+call plug#end()
+
+colorscheme equinusocio_material
+
 
 " Extra ========================================================================
 
