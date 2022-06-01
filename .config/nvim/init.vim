@@ -51,9 +51,12 @@ filetype plugin indent on		" Enable filetype detection and plugins
 syntax on						" Enable syntax highlighting
 
 
-
 " Shortcuts ====================================================================
 
+" Don't keep stuff replaced by c
+nnoremap c "_c
+
+" Open file even if it's not found
 map gf :edit <cfile><cr>
 
 " Split navigation shortcuts:
@@ -66,11 +69,8 @@ map <silent> <C-j> <C-w>j
 map <silent> <C-k> <C-w>k
 map <silent> <C-l> <C-w>l
 
-" Don't keep stuff replaced by c
-nnoremap c "_c
-
-" Replace all is aliased to S.
-nnoremap S :%s//g<Left><Left>
+" Replace all
+nnoremap <leader>r :%s//g<Left><Left>
 
 " Replace ex mode with gq
 map Q gq
@@ -158,15 +158,13 @@ source ~/.config/nvim/plugin/coc.vim
 source ~/.config/nvim/plugin/telescope.vim
 
 " File explorer
-source ~/.config/nvim/plugin/devicons.vim
 source ~/.config/nvim/plugin/nerdtree.vim
 
 " Colorschemes
 source ~/.config/nvim/plugin/theme.vim
 
 call plug#end()
-
-colorscheme equinusocio_material
+doautocmd User PlugLoaded
 
 
 " Extra ========================================================================
