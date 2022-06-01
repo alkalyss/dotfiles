@@ -111,24 +111,6 @@ begin_with() {
 
 }
 
-termtitle() {
-    case "$TERM" in
-        rxvt*|xterm*|nxterm|gnome|screen|screen-*)
-            local prompt_host="${(%):-%m}"
-            local prompt_user="${(%):-%n}"
-            local prompt_char="${(%):-%~}"
-            case "$1" in
-                precmd)
-                    printf '\e]0;%s@%s: %s\a' "${prompt_user}" "${prompt_host}" "${prompt_char}"
-                ;;
-                preexec)
-                    printf '\e]0;%s [%s@%s: %s]\a' "$2" "${prompt_user}" "${prompt_host}" "${prompt_char}"
-                ;;
-            esac
-        ;;
-    esac
-}
-
 setup_git_prompt() {
     if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
         unset git_prompt
@@ -173,18 +155,8 @@ setup_git_prompt() {
 }
 
 precmd() {
-    # Set terminal title.
-    termtitle precmd
-
     # Set optional git part of prompt.
     setup_git_prompt
-}
-
-preexec() {
-    # Set terminal title along with current executed command pass as second argument
-    termtitle preexec "${(V)1}"
-
-    echo -ne '\e[2 q'
 }
 
 man() {
@@ -388,7 +360,7 @@ _open_new_terminal_here(){
         [ "${XAUTHORITY}" ] && \
         [ "${DISPLAY}" ] && \
         [ "${LOGNAME}" = "$(logname)" ] && \
-        command -v urxvt >/dev/null 2>&1
+        command -v $TERMINAL >/dev/null 2>&1
     then
         # Spawn terminal with clean login shell.
         env -i \
@@ -399,7 +371,7 @@ _open_new_terminal_here(){
             LOGNAME="${LOGNAME}" \
             SHELL="${SHELL}" \
             LANG="${LANG}" \
-            urxvt -e "${SHELL}" --login >/dev/null 2>&1 &!
+            $TERMINAL -e "${SHELL}" --login >/dev/null 2>&1 &!
     fi
 }
 zle -N _open_new_terminal_here
