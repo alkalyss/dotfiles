@@ -62,7 +62,6 @@ map gf :edit <cfile><cr>
 " Split navigation shortcuts:
 map <silent> <C-n> :vnew<cr>
 map <silent> <C-s> :new<cr>
-map <silent> <C-q> <C-w>q
 
 map <silent> <C-h> <C-w>h
 map <silent> <C-j> <C-w>j
@@ -94,7 +93,7 @@ vnoremap . :normal .<cr>
 " Automations ==================================================================
 
 " Disables automatic commenting on newline:
-autocmd FileType * setlocal formatoptions-=cro
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Compile LaTeX documents on save
 autocmd BufWritePost *.tex :silent !xelatex --output-directory "%:p:h" "%"
@@ -138,31 +137,31 @@ endif
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
 " Visual improvements
-source ~/.config/nvim/plugin/airline.vim
-source ~/.config/nvim/plugin/css-color.vim
-source ~/.config/nvim/plugin/rainbow.vim
+source $HOME/.config/nvim/plugin/airline.vim
+source $HOME/.config/nvim/plugin/css-color.vim
+source $HOME/.config/nvim/plugin/rainbow.vim
 
 " Functional improvements
-source ~/.config/nvim/plugin/polyglot.vim
-source ~/.config/nvim/plugin/commentary.vim
-source ~/.config/nvim/plugin/auto-pairs.vim
-source ~/.config/nvim/plugin/surround.vim
-source ~/.config/nvim/plugin/tabular.vim
-source ~/.config/nvim/plugin/latex-live-preview.vim
-source ~/.config/nvim/plugin/fugitive.vim
-source ~/.config/nvim/plugin/sayonara.vim
+source $HOME/.config/nvim/plugin/polyglot.vim
+source $HOME/.config/nvim/plugin/commentary.vim
+source $HOME/.config/nvim/plugin/auto-pairs.vim
+source $HOME/.config/nvim/plugin/surround.vim
+source $HOME/.config/nvim/plugin/tabular.vim
+source $HOME/.config/nvim/plugin/latex-live-preview.vim
+source $HOME/.config/nvim/plugin/fugitive.vim
+source $HOME/.config/nvim/plugin/sayonara.vim
 
 " IntelliSense
-source ~/.config/nvim/plugin/coc.vim
+" source $HOME/.config/nvim/plugin/coc.vim
 
 " Fuzzy finder
-source ~/.config/nvim/plugin/telescope.vim
+source $HOME/.config/nvim/plugin/telescope.vim
 
 " File explorer
-source ~/.config/nvim/plugin/nerdtree.vim
+source $HOME/.config/nvim/plugin/nerdtree.vim
 
 " Colorschemes
-source ~/.config/nvim/plugin/theme.vim
+source $HOME/.config/nvim/plugin/theme.vim
 
 call plug#end()
 doautocmd User PlugLoaded
