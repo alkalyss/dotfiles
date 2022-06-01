@@ -1,8 +1,12 @@
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 let g:coc_global_extensions = [
-	\'coc-json', 'coc-git', 'coc-yaml',
-	\'coc-pyright', 'coc-clangd', 'coc-texlab',
+	\'coc-json',
+	\'coc-git',
+	\'coc-yaml',
+	\'coc-pyright',
+	\'coc-clangd',
+	\'coc-texlab',
 	\'coc-snippets'
 	\]
 
