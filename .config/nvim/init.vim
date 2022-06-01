@@ -1,4 +1,4 @@
-" Plugins =====================================================================
+" Plugins =====================================================================erg2/src/
 
 " Install vim-plug if not installed
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
@@ -27,6 +27,11 @@ Plug 'xuhdev/vim-latex-live-preview', {'for':'tex'} " LaTeX live preview
 Plug 'tpope/vim-fugitive'							" Git integration
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}		" IntelliSense
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-telescope/telescope.nvim' 				" Fuzzy finder
+
 
 " File explorer
 Plug 'preservim/nerdtree'                           " Directory explorer
@@ -195,7 +200,12 @@ let NERDTreeBookmarksFile = stdpath('data') . '/NERDTreeBookmarks'
 let g:NERDTreeGitStatusUseNerdFonts = 1
 
 " Toggle NERDTree
-map <leader>f :NERDTreeToggle<CR>
+map <leader>t :NERDTreeToggle<CR>
+
+
+" Telescope ====================================================================
+
+nnoremap <leader>f <cmd>Telescope find_files<cr>
 
 
 " Latex live preview config ====================================================
