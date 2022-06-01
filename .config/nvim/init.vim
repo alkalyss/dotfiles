@@ -150,6 +150,7 @@ source ~/.config/nvim/plugin/surround.vim
 source ~/.config/nvim/plugin/tabular.vim
 source ~/.config/nvim/plugin/latex-live-preview.vim
 source ~/.config/nvim/plugin/fugitive.vim
+source ~/.config/nvim/plugin/sayonara.vim
 
 " IntelliSense
 source ~/.config/nvim/plugin/coc.vim
