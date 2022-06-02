@@ -146,6 +146,7 @@ source $HOME/.config/nvim/plugin/polyglot.vim
 source $HOME/.config/nvim/plugin/commentary.vim
 source $HOME/.config/nvim/plugin/auto-pairs.vim
 source $HOME/.config/nvim/plugin/surround.vim
+source $HOME/.config/nvim/plugin/eunuch.vim
 source $HOME/.config/nvim/plugin/tabular.vim
 source $HOME/.config/nvim/plugin/latex-live-preview.vim
 source $HOME/.config/nvim/plugin/fugitive.vim
