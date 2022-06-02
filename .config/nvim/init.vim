@@ -15,6 +15,8 @@ set bg=dark						" Set background for highlighting
 set go=P						" Copy visual selection to "+ register
 set shortmess=ac				" Short messages
 set mouse=a						" Enable mouse
+set scrolloff=8 				" Keep the cursor 8 lines from the top/bottom
+set sidescrolloff=8 			" Keep the cursor 8 lines from the sides
 
 set encoding=utf-8				" Set display encoding to utf-8
 set fileencoding=utf-8			" Set file write encoding to utf-8
@@ -53,6 +55,10 @@ syntax on						" Enable syntax highlighting
 
 " Shortcuts ====================================================================
 
+" Put result of search on center of screen
+map n nzzzv
+map N Nzzzv
+
 " Don't keep stuff replaced by c
 nnoremap c "_c
 
@@ -88,6 +94,12 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " Perform dot commands over visual blocks:
 vnoremap . :normal .<cr>
+
+" Reload config
+nnoremap <leader><cr> :so $HOME/.config/nvim/init.vim<cr>
+
+" Make file executable
+nnoremap <leader>x :silent !chmod +x "%"<cr>
 
 
 " Automations ==================================================================
@@ -153,7 +165,10 @@ source $HOME/.config/nvim/plugin/fugitive.vim
 source $HOME/.config/nvim/plugin/sayonara.vim
 
 " IntelliSense
-" source $HOME/.config/nvim/plugin/coc.vim
+source $HOME/.config/nvim/plugin/coc.vim
+
+" Debugging
+source $HOME/.config/nvim/plugin/vimspector.vim
 
 " Fuzzy finder
 source $HOME/.config/nvim/plugin/telescope.vim
