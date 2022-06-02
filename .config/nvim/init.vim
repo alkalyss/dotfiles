@@ -55,6 +55,10 @@ syntax on						" Enable syntax highlighting
 
 " Shortcuts ====================================================================
 
+" Put result of search on center of screen
+map n nzzzv
+map N Nzzzv
+
 " Don't keep stuff replaced by c
 nnoremap c "_c
 
@@ -90,6 +94,12 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " Perform dot commands over visual blocks:
 vnoremap . :normal .<cr>
+
+" Reload config
+nnoremap <leader><cr> :so $HOME/.config/nvim/init.vim<cr>
+
+" Make file executable
+nnoremap <leader>x :silent !chmod +x "%"<cr>
 
 
 " Automations ==================================================================
