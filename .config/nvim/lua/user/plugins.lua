@@ -122,4 +122,20 @@ packer.startup(function(use)
 			require('user.plugins.cmp')
 		end
 	}
+
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = ":TSUpdate",
+		requires = {
+			'nvim-treesitter/playground',
+			'nvim-treesitter/nvim-treesitter-textobjects',
+			'nvim-treesitter/playground',
+			'lewis6991/spellsitter.nvim',
+			'JoosepAlviste/nvim-ts-context-commentstring'
+		},
+		config = function()
+			require('user.plugins.treesitter')
+			require('spellsitter').setup()
+		end
+	}
 end)
