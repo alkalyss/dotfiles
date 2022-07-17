@@ -1,17 +1,17 @@
 local packer = require 'lib.packer-init'
 
 packer.startup(function(use)
-	use {'wbthomason/packer.nvim'} -- Let packer manage itself
+	use { 'wbthomason/packer.nvim' } -- Let packer manage itself
 
-	use {'sheerun/vim-polyglot'}
-	use {'tpope/vim-commentary'}
-	use {'tpope/vim-surround'}
-	use {'tpope/vim-eunuch'}
-	use {'tpope/vim-fugitive'}
-	use {'godlygeek/tabular'}
-	use {'jiangmiao/auto-pairs'}
-	use {'jessarcher/vim-heritage'}
-	use {'sickill/vim-pasta'}
+	use { 'sheerun/vim-polyglot' }
+	use { 'tpope/vim-commentary' }
+	use { 'tpope/vim-surround' }
+	use { 'tpope/vim-eunuch' }
+	use { 'tpope/vim-fugitive' }
+	use { 'godlygeek/tabular' }
+	use { 'jiangmiao/auto-pairs' }
+	use { 'jessarcher/vim-heritage' }
+	use { 'sickill/vim-pasta' }
 
 	use {
 		'ap/vim-css-color',
@@ -53,8 +53,8 @@ packer.startup(function(use)
 		requires = {
 			'nvim-lua/plenary.nvim',
 			'kyazdani42/nvim-web-devicons',
-			{'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
-      		'nvim-telescope/telescope-live-grep-raw.nvim'
+			{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+			'nvim-telescope/telescope-live-grep-raw.nvim'
 		},
 		config = function()
 			require('user.plugins.telescope')
@@ -92,6 +92,34 @@ packer.startup(function(use)
 		'karb94/neoscroll.nvim',
 		config = function()
 			require('user.plugins.neoscroll')
+		end
+	}
+
+	use {
+		'junnplus/nvim-lsp-setup',
+		requires = {
+			'neovim/nvim-lspconfig',
+			'williamboman/nvim-lsp-installer',
+		},
+		config = function()
+			require('user.plugins.lsp')
+		end
+	}
+
+	use {
+		'hrsh7th/nvim-cmp',
+		requires = {
+			'hrsh7th/cmp-nvim-lsp',
+			'hrsh7th/cmp-buffer',
+			'hrsh7th/cmp-nvim-lua',
+			'hrsh7th/cmp-path',
+			'onsails/lspkind.nvim',
+			'saadparwaiz1/cmp_luasnip',
+			'L3MON4D3/LuaSnip',
+			'hrsh7th/cmp-nvim-lsp-signature-help'
+		},
+		config = function()
+			require('user.plugins.cmp')
 		end
 	}
 end)
