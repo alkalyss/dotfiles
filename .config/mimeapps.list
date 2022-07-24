@@ -8,6 +8,10 @@ application/filemanager=pcmanfm.desktop
 inode/directory=pcmanfm.desktop
 application/x-wine-extension-osz=org.kde.ark.desktop;
 application/x-wine-extension-osk=org.kde.ark.desktop;
+application/zip=org.kde.ark.desktop
+text/x-processing=processing-pde.desktop
+text/html=firefox.desktop
 
 [Added Associations]
-application/zip=matlab.desktop;
+application/zip=matlab.desktop;org.kde.ark.desktop;
+text/html=firefox.desktop;
