@@ -7,6 +7,8 @@ table.insert(lua_runtime_path, "lua/?.lua")
 table.insert(lua_runtime_path, "lua/?/init.lua")
 
 require('nvim-lsp-setup').setup({
+	on_attach = function(client, bufnr)
+	end,
 	mappings = {
 		gd = 'lua require "telescope.builtin".lsp_definitions()',
 		gi = 'lua require "telescope.builtin".lsp_implementations()',
@@ -23,7 +25,7 @@ require('nvim-lsp-setup').setup({
 			}
 		},
 		bashls = {},
-		clangd = {},
+		clangd = require('nvim-lsp-setup.clangd_extensions').setup({}),
 		cssls = {},
 		html = {},
 		jdtls = {},

@@ -100,6 +100,7 @@ packer.startup(function(use)
 		requires = {
 			'neovim/nvim-lspconfig',
 			'williamboman/nvim-lsp-installer',
+			'p00f/clangd_extensions.nvim'
 		},
 		config = function()
 			require('user.plugins.lsp')
