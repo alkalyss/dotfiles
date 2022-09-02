@@ -4,7 +4,7 @@
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
 # Reboot into Windows
-if [[ $(hostname) == "laptop" ]]; then
+if [[ $HOST == "laptop" ]]; then
 	alias win="sudo grub-reboot 0 && reboot"
 else
 	alias win="sudo grub-reboot 2 && reboot"
