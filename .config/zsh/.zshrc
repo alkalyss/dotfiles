@@ -393,6 +393,8 @@ zle -N zle-line-init
 echo -ne '\e[6 q' # Use beam shape cursor on startup.
 echo -ne "\033]12;Grey\007"
 
+zle_highlight=('region:bg=red,fg=grey')
+
 ## KEYBINDINGS
 bindkey "^[[H" beginning-of-line # Home key
 bindkey "^[[1~" beginning-of-line # Home key TTY
