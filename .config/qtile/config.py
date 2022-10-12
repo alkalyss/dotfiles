@@ -99,9 +99,11 @@ keys = [
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Launch screenshot tool"),
     Key([mod, "control"], "s", lazy.spawn("shutdown -h now"), desc="Shutdown"),
 
-    Key([mod], "BackSpace", lazy.screen.toggle_group()),
+    Key([mod], "Delete", lazy.screen.toggle_group()),
     # Toggle floating window
     Key([mod, "shift"], "f", lazy.window.toggle_floating()),
+    Key([mod], "w", lazy.to_screen(0)),
+    Key([mod], "e", lazy.to_screen(1)),
 ]
 
 groups = [Group(i) for i in "12345"]
@@ -140,17 +142,18 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 if os.uname()[1] == 'laptop':
-    screens = [
-        Screen(
-            top=bar.Gap(size=40)
-        ),
-    ]
+    barGap = 40
 else:
-    screens = [
-        Screen(
-            top=bar.Gap(size=32)
-        ),
-    ]
+    barGap = 32
+
+screens = [
+    Screen(
+        top=bar.Gap(size=barGap)
+    ),
+    Screen(
+        top=bar.Gap(size=barGap)
+    ),
+]
 
 # Drag floating layouts.
 mouse = [
