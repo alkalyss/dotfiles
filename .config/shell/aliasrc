@@ -39,7 +39,7 @@ alias \
 	la="ls -lAhNF --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
 	fgrep="fgrep --color=auto" \
-	egrep="egrep --color=auto" \
+	egrep="grep --color=auto -E" \
 	diff="diff --color=auto"
 
 # These common commands are just too long! Abbreviate them.
