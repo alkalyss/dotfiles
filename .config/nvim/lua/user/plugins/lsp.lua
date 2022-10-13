@@ -6,7 +6,7 @@ local lua_runtime_path = vim.split(package.path, ";")
 table.insert(lua_runtime_path, "lua/?.lua")
 table.insert(lua_runtime_path, "lua/?/init.lua")
 
-require('nvim-lsp-setup').setup({
+require('lsp-setup').setup({
 	on_attach = function(client, bufnr)
 	end,
 	mappings = {
@@ -25,7 +25,7 @@ require('nvim-lsp-setup').setup({
 			}
 		},
 		bashls = {},
-		clangd = require('nvim-lsp-setup.clangd_extensions').setup({}),
+		clangd = require('lsp-setup.clangd_extensions').setup({}),
 		cssls = {},
 		html = {},
 		jdtls = {},
