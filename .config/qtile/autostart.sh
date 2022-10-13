@@ -2,7 +2,11 @@
 
 killall polybar
 if [[ $(hostname) == "laptop" ]]; then
-	polybar -q laptop -c "${XDG_CONFIG:-$HOME/.config}/polybar/default/config.ini" &
+	config=laptop
 else
-	polybar -q desktop -c "${XDG_CONFIG:-$HOME/.config}/polybar/default/config.ini" &
+	config=desktop
 fi
+
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+    MONITOR=$m polybar -q $config  &
+done
