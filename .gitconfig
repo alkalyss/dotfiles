@@ -173,7 +173,7 @@
 
 	insteadOf = "gl:"
 	pushInsteadOf = "gitlab:"
-        pushInsteadOf = "git://gitlab.com/"
+	pushInsteadOf = "git://gitlab.com/"
 
 [url "git://github.com/"]
 
