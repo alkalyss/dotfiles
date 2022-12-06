@@ -193,3 +193,7 @@
 	gpgsign = true
 [init]
 	defaultBranch = master
+[safe]
+	directory = /opt/flutter
+[pull]
+	rebase = false
