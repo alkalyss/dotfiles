@@ -85,7 +85,7 @@ keys = [
     # Kill window, restart qtile, kill qtile
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
-    Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
     # Spawn stuff
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch rofi"),
