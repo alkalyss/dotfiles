@@ -134,7 +134,7 @@ setup_git_prompt() {
     fi
 
     if [ "$(git stash list)" ]; then
-        git_status="${blue}S${reset}"
+        git_status+="${blue}S${reset}"
     fi
 
     git_branch="$(git symbolic-ref HEAD 2>/dev/null)"
