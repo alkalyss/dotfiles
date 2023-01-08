@@ -11,7 +11,9 @@ application/x-wine-extension-osk=org.kde.ark.desktop;
 application/zip=org.kde.ark.desktop
 text/x-processing=processing-pde.desktop
 text/html=firefox.desktop
+video/mp4=vlc.desktop
 
 [Added Associations]
 application/zip=matlab.desktop;org.kde.ark.desktop;
 text/html=firefox.desktop;
+video/mp4=vlc.desktop;
