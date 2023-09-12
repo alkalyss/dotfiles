@@ -1,18 +1,14 @@
 #!/bin/sh
 
-xrandr --output VGA-0 --auto --primary --output HDMI-0 --off
-
 xsetroot -cursor_name left_ptr
 xset r rate 300 50	# Speed xrate up
 xset m 3/2 0		# Disable acceleration
-xkbset -bo 35		# Half-assed mesure against keybounce
 
-# Setup keyboard
-setxkbmap \
-	-model pc104 \
-	-option "caps:super, grp:win_space_toggle, terminate:ctrl_alt_bksp" \
-	"us, gr"
 killall xcape 2> /dev/null ; xcape -e 'Super_L=Escape' # When super is pressed once treat as escape
+
+xinput --map-to-output "Wacom HID 5218 Pen stylus" eDP
+xinput --map-to-output "Wacom HID 5218 Finger touch" eDP
+xinput --map-to-output "Wacom HID 5218 Pen eraser" eDP
 
 lxsession &
 # Use Xresources colors/settings on startup
