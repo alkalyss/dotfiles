@@ -154,7 +154,7 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 if os.uname()[1] == 'laptop':
-    barGap = 40
+    barGap = 2
 else:
     barGap = 32
 
