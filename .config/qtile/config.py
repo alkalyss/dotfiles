@@ -93,7 +93,7 @@ keys = [
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
     Key([mod], "f", lazy.spawn("pcmanfm"), desc="Launch filemanager"),
     Key([mod], "c", lazy.spawn("codium"), desc="Launch ide"),
-    Key([mod], "s", lazy.spawn("spotify"), desc="Launch spotify"),
+    Key([mod], "s", lazy.spawn("steam"), desc="Launch spotify"),
     Key([mod], "d", lazy.spawn("discord"), desc="Launch discord"),
     Key([mod], "x", lazy.spawn("xournalpp"), desc="Launch discord"),
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Launch screenshot tool"),
@@ -132,13 +132,13 @@ for i in groups:
 
 layouts = [
     layout.Columns(border_focus_stack='#d75f5f', insert_position=1),
-    layout.Max(),
+    # layout.Max(),
     # Try more layouts by unleashing below layouts.
     #layout.Stack(num_stacks=2),
-    layout.Bsp(),
+    # layout.Bsp(),
     # layout.Matrix(),
     # layout.MonadTall(),
-    layout.MonadWide(),
+    # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
