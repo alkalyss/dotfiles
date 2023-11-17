@@ -6,10 +6,14 @@ require('nvim-tree').setup {
 	},
 	reload_on_bufenter = true,
 	renderer = {
+		group_empty = true,
 		indent_markers = {
-			enable = true
+			enable = true,
 		}
-	}
+	},
+	filters = {
+		dotfiles = true,
+	},
 }
 
 keymap('n', '<leader>t', ':NvimTreeFindFileToggle<cr>')
