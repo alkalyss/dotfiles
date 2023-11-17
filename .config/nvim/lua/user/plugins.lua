@@ -9,44 +9,14 @@ packer.startup(function(use)
 	use { 'tpope/vim-eunuch' }
 	use { 'tpope/vim-fugitive' }
 	use { 'godlygeek/tabular' }
-	use { 'jiangmiao/auto-pairs' }
 	use { 'jessarcher/vim-heritage' }
 	use { 'sickill/vim-pasta' }
-
-	use {
-		'ap/vim-css-color',
-		config = function()
-			require('user.plugins.css-color')
-		end
-	}
-
-	use {
-		'luochen1990/rainbow',
-		config = function()
-			require('user.plugins.rainbow')
-		end
-	}
-
-	use {
-		'xuhdev/vim-latex-live-preview',
-		config = function()
-			require('user.plugins.latex-live-preview')
-		end
-	}
-
-	use {
-		'mhinz/vim-sayonara',
-		config = function()
-			require('user.plugins.sayonara')
-		end
-	}
-
-	use {
-		'puremourning/vimspector',
-		config = function()
-			require('user.plugins.vimspector')
-		end
-	}
+	use { 'ap/vim-css-color' }
+	use { 'luochen1990/rainbow' }
+	use { 'xuhdev/vim-latex-live-preview' }
+	use { 'mhinz/vim-sayonara' }
+	use { 'puremourning/vimspector' }
+	use { 'karb94/neoscroll.nvim' }
 
 	use {
 		'nvim-lua/telescope.nvim',
@@ -56,17 +26,11 @@ packer.startup(function(use)
 			{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
 			'nvim-telescope/telescope-live-grep-raw.nvim'
 		},
-		config = function()
-			require('user.plugins.telescope')
-		end
 	}
 
 	use {
 		'kyazdani42/nvim-tree.lua',
 		requires = 'kyazdani42/nvim-web-devicons',
-		config = function()
-			require('user.plugins.nvim-tree')
-		end
 	}
 
 	use {
@@ -75,24 +39,11 @@ packer.startup(function(use)
 			'kyazdani42/nvim-web-devicons',
 			'RRethy/nvim-base16'
 		},
-		config = function()
-			require('user.plugins.lualine')
-		end
 	}
 
 	use {
 		'yunlingz/equinusocio-material.vim',
 		requires = 'drewtempelmeyer/palenight.vim',
-		config = function()
-			require('user.plugins.theme')
-		end
-	}
-
-	use {
-		'karb94/neoscroll.nvim',
-		config = function()
-			require('user.plugins.neoscroll')
-		end
 	}
 
 	use {
@@ -104,9 +55,6 @@ packer.startup(function(use)
 			'williamboman/mason.nvim',
 			'williamboman/mason-lspconfig.nvim'
 		},
-		config = function()
-			require('user.plugins.lsp')
-		end
 	}
 
 	use {
@@ -121,9 +69,6 @@ packer.startup(function(use)
 			'L3MON4D3/LuaSnip',
 			'hrsh7th/cmp-nvim-lsp-signature-help'
 		},
-		config = function()
-			require('user.plugins.cmp')
-		end
 	}
 
 	use {
@@ -137,8 +82,15 @@ packer.startup(function(use)
 			'JoosepAlviste/nvim-ts-context-commentstring'
 		},
 		config = function()
-			require('user.plugins.treesitter')
 			require('spellsitter').setup()
 		end
 	}
+
+	use {
+		'windwp/nvim-autopairs',
+		config = function()
+			require('nvim-autopairs').setup{}
+		end
+	}
+
 end)

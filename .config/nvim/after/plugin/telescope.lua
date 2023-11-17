@@ -1,4 +1,4 @@
-local keymap = require 'lib.utils'.keymap
+local keymap = require('lib.utils').keymap
 
 keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
 keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')

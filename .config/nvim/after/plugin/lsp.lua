@@ -25,13 +25,13 @@ require('lsp-setup').setup({
 			}
 		},
 		bashls = {},
-		clangd = require('lsp-setup.clangd_extensions').setup({}),
+		clangd = {},
 		cssls = {},
 		html = {},
 		jdtls = {},
 		jsonls = {},
 		ltex = {},
-		sumneko_lua = {
+		lua_ls = {
 			setting = {
 				Lua = {
 					runtime = {

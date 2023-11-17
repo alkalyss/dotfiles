@@ -9,20 +9,12 @@ keymap('', 'N', 'Nzzzv')
 -- Don't keep stuff replaced by c
 keymap('n', 'c', '"_c')
 
--- Open file even if it's not found
-keymap('', 'gf', ':edit <cfile><cr>')
-
 -- Split navigation shortcuts
 keymap('', '<C-n>', ':vnew<cr>')
 keymap('', '<C-s>', ':new<cr>')
 
-keymap('', '<C-h>', '<C-w>h')
-keymap('', '<C-j>', '<C-w>j')
-keymap('', '<C-k>', '<C-w>k')
-keymap('', '<C-l>', '<C-w>l')
-
 -- Replace all
-keymap('n', '<leader>r', '%s//g<Left><Left>')
+keymap('n', '<leader>ra', '%s//g<Left><Left>')
 
 -- Replace ex mode with gq
 keymap('', 'Q', 'gq')

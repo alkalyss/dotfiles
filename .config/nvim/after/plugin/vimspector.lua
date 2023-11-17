@@ -1,4 +1,4 @@
-local keymap = require 'lib.utils'.keymap
+local keymap = require('lib.utils').keymap
 
 vim.g.vimspector_install_gadgets = {'debugpy', 'vscode-cpptools'}
 
