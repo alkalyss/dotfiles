@@ -39,3 +39,8 @@ vim.cmd [[
 	autocmd BufRead,BufNewFile xresources,xdefaults set filetype=xdefaults
 	autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
 ]]
+
+-- Momentarily highlight yanked text
+vim.cmd [[
+	autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup = "IncSearch", timeout = 200}
+]]

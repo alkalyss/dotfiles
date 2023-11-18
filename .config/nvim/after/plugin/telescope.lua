@@ -1,6 +1,21 @@
-local keymap = require('lib.utils').keymap
+local telescope = require('telescope.builtin')
 
-keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
-keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
-keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
-keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
+vim.keymap.set('n', '<leader>ff', telescope.find_files)
+vim.keymap.set('n', '<leader>fg', telescope.live_grep)
+vim.keymap.set('n', '<leader>b', telescope.buffers)
+vim.keymap.set('n', '<leader>fh', telescope.help_tags)
+
+require('telescope').setup{
+	pickers = {
+		buffers = {
+			mappings = {
+				i = {
+					["<C-d>"] = "delete_buffer",
+				},
+				n = {
+					["<C-d>"] = "delete_buffer",
+				},
+			}
+		}
+	}
+}

@@ -1,5 +1,3 @@
-local keymap = require ('lib.utils').keymap
-
 require('nvim-tree').setup {
 	git = {
 		ignore = false,
@@ -16,4 +14,4 @@ require('nvim-tree').setup {
 	},
 }
 
-keymap('n', '<leader>t', ':NvimTreeFindFileToggle<cr>')
+vim.keymap.set('n', '<leader>t', ':NvimTreeFindFileToggle<cr>')

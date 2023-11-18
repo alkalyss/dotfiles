@@ -1,56 +1,54 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local lsp = require('lsp-zero')
+local telescope = require('telescope.builtin')
 
-local lua_runtime_path = vim.split(package.path, ";")
-table.insert(lua_runtime_path, "lua/?.lua")
-table.insert(lua_runtime_path, "lua/?/init.lua")
+lsp.on_attach(function(client, bufnr)
+	local opts = {buffer = bufnr, remap = false}
 
-require('lsp-setup').setup({
-	on_attach = function(client, bufnr)
-	end,
-	mappings = {
-		gd = 'lua require "telescope.builtin".lsp_definitions()',
-		gi = 'lua require "telescope.builtin".lsp_implementations()',
-		gr = 'lua require "telescope.builtin".lsp_references()',
+	vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+
+	vim.keymap.set('n', 'gd', telescope.lsp_definitions, opts)
+	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+	vim.keymap.set('n', 'gi', telescope.lsp_implementations, opts)
+	vim.keymap.set('n', 'gr', telescope.lsp_references, opts)
+	vim.keymap.set('n', 'gtd', telescope.lsp_type_definitions, opts)
+
+	vim.keymap.set('n', 'gl', vim.diagnostic.open_float, opts)
+	vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+	vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+
+	vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
+	vim.keymap.set('n', '<F4>', vim.lsp.buf.code_action, opts)
+
+	vim.keymap.set('n', '<leader>ws', telescope.lsp_dynamic_workspace_symbols, opts)
+	vim.keymap.set('n', '<leader>fs', telescope.lsp_document_symbols, opts)
+	vim.keymap.set('n', '<leader>gd', telescope.diagnostics, opts)
+
+	vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
+end)
+
+require('mason').setup()
+require('mason-lspconfig').setup({
+	ensure_installed = {
+		'bashls',
+		'clangd',
+		'cmake',
+		'cssls',
+		'dockerls',
+		'docker_compose_language_service',
+		'html',
+		'jsonls',
+		'ltex',
+		'lua_ls',
+		'marksman',
+		'pyright',
+		'tsserver',
 	},
-	capabilities = capabilities,
-	servers = {
-		arduino_language_server = {
-			cmd = {
-				"arduino-language-server",
-				"-fqbn", "arduino:avr:uno",
-				"-cli", "arduino-cli",
-				"-clangd", "clangd"
-			}
-		},
-		bashls = {},
-		clangd = {},
-		cssls = {},
-		html = {},
-		jdtls = {},
-		jsonls = {},
-		ltex = {},
-		lua_ls = {
-			setting = {
-				Lua = {
-					runtime = {
-						version = 'LuaJIT',
-						path = lua_runtime_path
-					},
-					diagnostics = {
-						globals = { "vim" }
-					},
-					workspace = {
-						-- library = vim.api.nvim_get_runtime_file("", true)
-					},
-					telemetry = {
-						enable = false
-					}
-				}
-			}
-		},
-		tsserver = {},
-		pyright = {},
-	}
+	automatic_installation = true,
+	handlers = {
+		lsp.default_setup,
+		lua_ls = function()
+			local lua_opts = lsp.nvim_lua_ls()
+			require('lspconfig').lua_ls.setup(lua_opts)
+		end,
+	},
 })

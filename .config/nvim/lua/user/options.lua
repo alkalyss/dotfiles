@@ -7,10 +7,12 @@ if vim.fn.has('termguicolors') == 1 then
 	vim.opt.termguicolors = true
 end
 
+vim.g.mapleader = ' '
+
 vim.opt.bg = 'dark'							-- Set background for highlighting
 vim.opt.go = 'P'							-- Copy visual selection to '+ register
 vim.opt.shortmess = 'ac'					-- Short messages
-vim.opt.mouse = ''							-- Enable mouse
+vim.opt.mouse = ''							-- Disable mouse
 vim.opt.scrolloff = 8						-- Keep the cursor 8 lines from the top/bottom
 vim.opt.sidescrolloff = 8					-- Keep the cursor 8 lines from the sides
 
@@ -26,7 +28,7 @@ vim.opt.clipboard = 'unnamedplus'			-- Enable system clipboard
 
 vim.opt.number = true						-- Enable line numbers
 vim.opt.relativenumber = true				-- Make line numbers relative
-vim.opt.showmode = false					-- Don't show mode (Inser, Visual, Normal)
+vim.opt.showmode = false					-- Don't show mode (Insert, Visual, Normal)
 vim.opt.ruler = false						-- Don't show cursor position
 vim.opt.showcmd = false						-- Disable status line
 vim.opt.laststatus = 2						-- Don't show last command
@@ -39,7 +41,7 @@ vim.opt.expandtab = false					-- TABS ARE TABS
 vim.opt.autoindent = true					-- Enable auto indent
 vim.opt.smartindent = true					-- Enable smart indent
 
--- vim.opt.wildmode = 'longest,list,full'		-- Enable autocompletion
+vim.opt.wildmode = 'longest,list,full'		-- Enable autocompletion
 
 vim.opt.splitbelow = true					-- Split below
 vim.opt.splitright = true					-- Split right

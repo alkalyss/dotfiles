@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["clangd_extensions.nvim"] = {
-    loaded = true,
-    path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/clangd_extensions.nvim",
-    url = "https://github.com/p00f/clangd_extensions.nvim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -119,15 +114,16 @@ _G.packer_plugins = {
     path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/equinusocio-material.vim",
     url = "https://github.com/yunlingz/equinusocio-material.vim"
   },
-  ["lsp-setup.nvim"] = {
+  ["indent-blankline.nvim"] = {
+    config = { "\27LJ\2\n1\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\bibl\frequire\0" },
     loaded = true,
-    path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/lsp-setup.nvim",
-    url = "https://github.com/junnplus/lsp-setup.nvim"
+    path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  ["lspkind.nvim"] = {
+  ["lsp-zero.nvim"] = {
     loaded = true,
-    path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
-    url = "https://github.com/onsails/lspkind.nvim"
+    path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
+    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -165,11 +161,6 @@ _G.packer_plugins = {
     path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
-  ["nvim-lsp-installer"] = {
-    loaded = true,
-    path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer",
-    url = "https://github.com/williamboman/nvim-lsp-installer"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -181,10 +172,14 @@ _G.packer_plugins = {
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16spellsitter\frequire\0" },
     loaded = true,
     path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-treesitter-context"] = {
+    loaded = true,
+    path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
   },
   ["nvim-treesitter-textobjects"] = {
     loaded = true,
@@ -221,15 +216,10 @@ _G.packer_plugins = {
     path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  rainbow = {
+  ["rainbow-delimiters.nvim"] = {
     loaded = true,
-    path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/rainbow",
-    url = "https://github.com/luochen1990/rainbow"
-  },
-  ["spellsitter.nvim"] = {
-    loaded = true,
-    path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/spellsitter.nvim",
-    url = "https://github.com/lewis6991/spellsitter.nvim"
+    path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/rainbow-delimiters.nvim",
+    url = "https://github.com/HiPhish/rainbow-delimiters.nvim"
   },
   tabular = {
     loaded = true,
@@ -300,11 +290,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
-  },
-  vimspector = {
-    loaded = true,
-    path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/vimspector",
-    url = "https://github.com/puremourning/vimspector"
   }
 }
 
@@ -313,10 +298,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
 time([[Config for nvim-autopairs]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16spellsitter\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+try_loadstring("\27LJ\2\n1\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\bibl\frequire\0", "config", "indent-blankline.nvim")
+time([[Config for indent-blankline.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
