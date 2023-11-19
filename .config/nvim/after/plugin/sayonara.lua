@@ -1,2 +1,2 @@
-vim.keymap.set('n', '<leader>q', ':Sayonara!<cr>')
-vim.keymap.set('n', '<leader>Q', ':Sayonara<cr>')
+vim.keymap.set('n', '<leader>q', ':Sayonara!<cr>', {desc = "[q]uit buffer"})
+vim.keymap.set('n', '<leader>Q', ':Sayonara<cr>', {desc = "[Q]uit window"})

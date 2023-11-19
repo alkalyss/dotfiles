@@ -1,4 +1,8 @@
 require('nvim-tree').setup {
+	view = {
+		side = "right",
+		width = 45,
+	},
 	git = {
 		ignore = false,
 	},
@@ -14,4 +18,4 @@ require('nvim-tree').setup {
 	},
 }
 
-vim.keymap.set('n', '<leader>t', ':NvimTreeFindFileToggle<cr>')
+vim.keymap.set('n', '<leader>t', require('nvim-tree.api').tree.toggle, {desc = "Toggle File[T]ree"})

@@ -13,17 +13,21 @@ vim.keymap.set("v", "<DOWN>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<UP>", ":m '<-2<CR>gv=gv")
 
 -- Paste over highlighted area without overriding register
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("v", "<leader>p", "\"_dP")
 
 -- Delete to the void register
-vim.keymap.set({"n", "v"}, "<leader>d", "\"_d")
+vim.keymap.set({'n', 'v'}, "<leader>d", "\"_d")
 
 -- Don't keep stuff replaced by c
 vim.keymap.set('n', 'c', '"_c')
 
 -- Split navigation shortcuts
-vim.keymap.set('', '<C-n>', ':vnew<cr>')
-vim.keymap.set('', '<C-s>', ':new<cr>')
+vim.keymap.set('n', '<C-n>', ':vnew<cr>')
+vim.keymap.set('n', '<C-s>', ':new<cr>')
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
 
 -- Replace all
 vim.keymap.set('n', '<leader>ra', ':%s//g<Left><Left>')

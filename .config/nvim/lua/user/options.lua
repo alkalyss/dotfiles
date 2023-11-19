@@ -15,6 +15,7 @@ vim.opt.shortmess = 'ac'					-- Short messages
 vim.opt.mouse = ''							-- Disable mouse
 vim.opt.scrolloff = 8						-- Keep the cursor 8 lines from the top/bottom
 vim.opt.sidescrolloff = 8					-- Keep the cursor 8 lines from the sides
+vim.opt.wrap = false						-- Don't wrap lines
 
 vim.opt.encoding = 'utf-8'					-- Set display encoding to utf-8
 vim.opt.fileencoding = 'utf-8'				-- Set file write encoding to utf-8
