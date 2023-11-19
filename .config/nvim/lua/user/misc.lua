@@ -1,6 +1,6 @@
 -- Disables automatic commenting on newline:
 vim.cmd [[
-	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+	autocmd FileType * setlocal formatoptions-=cro
 ]]
 
 -- Compile LaTeX documents on save
@@ -41,6 +41,8 @@ vim.cmd [[
 ]]
 
 -- Momentarily highlight yanked text
-vim.cmd [[
-	autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup = "IncSearch", timeout = 200}
-]]
+vim.api.nvim_create_autocmd( "TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank {higroup = "IncSearch", timeout = 200}
+	end
+})

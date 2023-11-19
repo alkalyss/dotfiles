@@ -276,11 +276,6 @@ _G.packer_plugins = {
     path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/vim-pasta",
     url = "https://github.com/sickill/vim-pasta"
   },
-  ["vim-polyglot"] = {
-    loaded = true,
-    path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/vim-polyglot",
-    url = "https://github.com/sheerun/vim-polyglot"
-  },
   ["vim-sayonara"] = {
     loaded = true,
     path = "/home/alkinoos/.local/share/nvim/site/pack/packer/start/vim-sayonara",

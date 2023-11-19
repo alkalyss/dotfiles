@@ -10,10 +10,10 @@ require('telescope').setup{
 		buffers = {
 			mappings = {
 				i = {
-					["<C-d>"] = "delete_buffer",
+					["<C-D>"] = "delete_buffer",
 				},
 				n = {
-					["<C-d>"] = "delete_buffer",
+					["<C-D>"] = "delete_buffer",
 				},
 			}
 		}
