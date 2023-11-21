@@ -13,7 +13,7 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set('n', 'gl', vim.diagnostic.open_float, {desc = "", buffer = bufnr, remap = false})
 	vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {desc = "Go to previous diagnostic", buffer = bufnr, remap = false})
 	vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {desc = "Go to next diagnostic", buffer = bufnr, remap = false})
-	vim.keymap.set('n', '<leader>gd', telescope.diagnostics, {desc = "[G]o to [D]iagnostics", buffer = bufnr, remap = false})
+	vim.keymap.set('n', '<leader>gd', telescope.diagnostics, {desc = "[G]et [D]iagnostics", buffer = bufnr, remap = false})
 
 	vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, {desc = "Rename symbol", buffer = bufnr, remap = false})
 	vim.keymap.set('n', '<F3>', vim.lsp.buf.code_action, {desc = "Code actions", buffer = bufnr, remap = false})
@@ -33,6 +33,8 @@ require("neodev").setup({
 		types = true,
 	},
 })
+
+local lspconfig = require("lspconfig")
 
 require('mason').setup()
 require('mason-lspconfig').setup({
@@ -56,7 +58,35 @@ require('mason-lspconfig').setup({
 		lsp.default_setup,
 		lua_ls = function()
 			local lua_opts = lsp.nvim_lua_ls()
-			require('lspconfig').lua_ls.setup(lua_opts)
+			lspconfig.lua_ls.setup(lua_opts)
+		end,
+		ltex = function ()
+			lspconfig.ltex.setup{
+				settings = {
+					language = {
+						"en-US",
+						"el-GR",
+					},
+				}
+			}
 		end,
 	},
 })
+
+lspconfig.glsl_analyzer.setup{
+	filetypes = {
+		"glsl",
+		"vert",
+		"tesc",
+		"tese",
+		"frag",
+		"geom",
+		"comp",
+		"fragmentshader",
+		"vertexshader"
+	},
+	cmd = {
+		"glsl_analyzer"
+	},
+	single_file_support = true,
+}

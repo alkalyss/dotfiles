@@ -14,7 +14,7 @@ vim.opt.go = 'P'							-- Copy visual selection to '+ register
 vim.opt.shortmess = 'ac'					-- Short messages
 vim.opt.mouse = ''							-- Disable mouse
 vim.opt.scrolloff = 8						-- Keep the cursor 8 lines from the top/bottom
-vim.opt.sidescrolloff = 8					-- Keep the cursor 8 lines from the sides
+vim.opt.sidescrolloff = 0					-- Keep the cursor 0 columns from the sides
 vim.opt.wrap = false						-- Don't wrap lines
 
 vim.opt.encoding = 'utf-8'					-- Set display encoding to utf-8

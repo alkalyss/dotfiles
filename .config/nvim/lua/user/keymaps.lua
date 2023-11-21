@@ -30,31 +30,31 @@ vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 
 -- Replace all
-vim.keymap.set('n', '<leader>ra', ':%s//g<Left><Left>')
+vim.keymap.set('n', '<leader>ra', ':%s//g<Left><Left>', {desc= "Replace all"})
 
 -- Replace word
-vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {desc= "Replace word"})
 
 -- Disable Q
 vim.keymap.set('', 'Q', '<nop>')
 
 -- Compile document, be it groff/LaTeX/ markdown/etc.
-vim.keymap.set('', '<leader>c', ':w! | !compiler "<c-r>%"<cr>')
+vim.keymap.set('', '<leader>c', ':w! | !compiler "<c-r>%"<cr>', {desc= "Compile file"})
 
 -- Open corresponding .pdf/.html or preview
-vim.keymap.set('', '<leader>o', ':!opout <cr>%<cr><cr>')
+vim.keymap.set('', '<leader>o', ':!opout <cr>%<cr><cr>', {desc= "Open pdf file"})
 
 -- Spell-check
-vim.keymap.set('', '<leader>s', ':setlocal spell! spelllang=en,el')
+vim.keymap.set('', '<leader>s', ':setlocal spell! spelllang=en,el', {desc= "Spellcheking"})
 
 -- Save file as sudo if it requires root permission
-vim.keymap.set('c', 'w!!', 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!')
+vim.keymap.set('c', 'w!!', 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!', {desc= "Save file with sudo priviledges"})
 
 -- Perform dot command over visual blocks
 vim.keymap.set('v', '.', ':normal .<cr>')
 
 -- Reload config
-vim.keymap.set('n', '<leader><cr>', ':so $HOME/.config/nvim/init.lua<cr>')
+vim.keymap.set('n', '<leader><cr>', ':so $HOME/.config/nvim/init.lua<cr>', {desc= "Reload nvim config"})
 
 -- Make file executable
-vim.keymap.set('n', '<leader>x', ':silent !chmod +x "%"<cr>')
+vim.keymap.set('n', '<leader>x', ':silent !chmod +x "%"<cr>', {desc= "Make file executable"})

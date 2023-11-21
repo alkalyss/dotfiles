@@ -5,7 +5,7 @@ vim.cmd [[
 
 -- Compile LaTeX documents on save
 vim.cmd [[
-	autocmd BufWritePost *.tex :silent !xelatex --output-directory "%:p:h" "%"
+	autocmd BufWritePost *.tex :silent !tectonic --outdir "%:p:h" "%"
 ]]
 
 -- Cleanup LaTeX build files on exit
@@ -17,8 +17,9 @@ vim.cmd [[
 vim.cmd [[
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
-	autocmd BufRead,BufNewFile *.frag set syntax=glsl
-	autocmd BufRead,BufNewFile *.vert set syntax=glsl
+	autocmd BufRead,BufNewFile *.fragmentshader set filetype=glsl
+	autocmd BufRead,BufNewFile *.vertexshader set filetype=glsl
+	autocmd FileType glsl setlocal commentstring=//\ %s
 ]]
 
 -- Delete all trailing whitespace and newlines at end of file on save
