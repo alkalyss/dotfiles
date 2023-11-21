@@ -1,8 +1,3 @@
--- Disables automatic commenting on newline:
-vim.cmd [[
-	autocmd FileType * setlocal formatoptions-=cro
-]]
-
 -- Compile LaTeX documents on save
 vim.cmd [[
 	autocmd BufWritePost *.tex :silent !tectonic --outdir "%:p:h" "%"
