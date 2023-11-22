@@ -1,12 +1,14 @@
 -- Compile LaTeX documents on save
-vim.cmd [[
-	autocmd BufWritePost *.tex :silent !tectonic --outdir "%:p:h" "%"
-]]
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = "*.tex",
+	command = ':silent !tectonic --outdir "%:p:h" "%"'
+})
 
 -- Cleanup LaTeX build files on exit
-vim.cmd [[
-	autocmd VimLeave *.tex !texclear %
-]]
+vim.api.nvim_create_autocmd( "VimLeave", {
+	pattern = "*.tex",
+	command = ":!texclear %"
+})
 
 -- Set file associations for specific extensions
 vim.cmd [[
@@ -14,8 +16,12 @@ vim.cmd [[
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
 	autocmd BufRead,BufNewFile *.fragmentshader set filetype=glsl
 	autocmd BufRead,BufNewFile *.vertexshader set filetype=glsl
-	autocmd FileType glsl setlocal commentstring=//\ %s
 ]]
+
+vim.api.nvim_create_autocmd( "FileType", {
+	pattern = {"glsl"},
+	command = "setlocal commentstring=//\\ %s"
+})
 
 -- Delete all trailing whitespace and newlines at end of file on save
 vim.cmd [[
@@ -31,10 +37,10 @@ vim.cmd [[
 ]]
 
 -- Run xrdb whenever Xdefaults or Xresources are updated.
-vim.cmd [[
-	autocmd BufRead,BufNewFile xresources,xdefaults set filetype=xdefaults
-	autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
-]]
+vim.api.nvim_create_autocmd( "BufWritePost", {
+	pattern = "Xresources,Xdefaults",
+	command = "!xrdb %",
+})
 
 -- Momentarily highlight yanked text
 vim.api.nvim_create_autocmd( "TextYankPost", {
