@@ -39,10 +39,10 @@ vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 vim.keymap.set('', 'Q', '<nop>')
 
 -- Compile document, be it groff/LaTeX/ markdown/etc.
-vim.keymap.set('', '<leader>c', ':w! | !compiler "<c-r>%"<cr>', {desc= "Compile file"})
+vim.keymap.set('', '<leader>c', ':w! | !compiler "%"<cr>', {desc= "Compile file"})
 
 -- Open corresponding .pdf/.html or preview
-vim.keymap.set('', '<leader>o', ':!opout <cr>%<cr><cr>', {desc= "Open pdf file"})
+vim.keymap.set('', '<leader>o', ':!opout "%"<cr><cr>', {desc= "Open pdf file"})
 
 -- Spell-check
 vim.keymap.set('', '<leader>s', ':setlocal spell! spelllang=en,el', {desc= "Spellcheking"})
