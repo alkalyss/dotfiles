@@ -65,4 +65,4 @@ alias \
 alias dots="/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME"
 
 # Wake up HomePC
-alias wakeup="wol -i alkalyss.ddns.net d4:3d:7e:dd:0c:64 -p 9"
+alias wakeup="wol -i alkalyss.gr d4:3d:7e:dd:0c:64 -p 9"
