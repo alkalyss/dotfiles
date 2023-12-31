@@ -8,6 +8,9 @@ vim.keymap.set('', 'N', 'Nzzzv')
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
+-- Open file even if it's not found
+vim.keymap.set('', 'gF', ':edit <cfile><cr>')
+
 -- Move highlighted lines
 vim.keymap.set("v", "<DOWN>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<UP>", ":m '<-2<CR>gv=gv")

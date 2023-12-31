@@ -22,5 +22,6 @@ require('lualine').setup {
 	},
 	extensions = {
 		'nvim-tree',
+		'neo-tree',
 	}
 }
