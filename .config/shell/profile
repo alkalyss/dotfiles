@@ -15,6 +15,7 @@ export LANG=en_US.UTF-8
 
 # Default programs:
 export EDITOR="nvim"
+export SUDO_EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
