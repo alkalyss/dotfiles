@@ -33,6 +33,7 @@ If any errors occur, that means that you have conflicting dotfiles. Back them up
 | `qtile`                  | Window manager written in Python         |
 | `rofi`                   | Application launcher / dmenu replacement |
 | `rofi-bluetooth`         | Bluetooth menu based on rofi             |
+| `thunar`                 | File Manager                             |
 | `touchegg`               | Touchpad / Touchscreen gestures          |
 | `xcape`                  | Tool to map CapsLock to Super and Escape |
 | `zsh`                    | Better shell                             |
@@ -63,7 +64,7 @@ If any errors occur, that means that you have conflicting dotfiles. Back them up
 | `Super+t`         | Launch terminal                    |
 | `Super+r`         | Launch rofi                        |
 | `Super+b`         | Launch brownser (Firefox)          |
-| `Super+f`         | Launch filemanager (pcmanfm)       |
+| `Super+f`         | Launch filemanager (thunar)        |
 | `Super+c`         | Launch Codium                      |
 | `Super+s`         | Launch Spotify                     |
 | `Super+d`         | Launch Discord                     |
