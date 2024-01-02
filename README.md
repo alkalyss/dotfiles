@@ -20,6 +20,7 @@ If any errors occur, that means that you have conflicting dotfiles. Back them up
 | ------------------------ | ---------------------------------------- |
 | `alacritty`              | Terminal emulator                        |
 | `bluez-utils`            | Bluetooth utilities                      |
+| `brightnessctl`          | Brightness control                       |
 | `dmenu`                  | Needed for network menu                  |
 | `feh`                    | Image viewer / Background manager        |
 | `flameshot`              | Screenshot tool                          |
@@ -29,6 +30,7 @@ If any errors occur, that means that you have conflicting dotfiles. Back them up
 | `nerd-fonts-mononoki`    | Font                                     |
 | `networkmanager-dmenu`   | Network menu based on dmenu              |
 | `picom-ibhagwan`         | Compositor                               |
+| `playerctl`              | Multimedia controls                      |
 | `polybar`                | Status bar                               |
 | `qtile`                  | Window manager written in Python         |
 | `rofi`                   | Application launcher / dmenu replacement |
