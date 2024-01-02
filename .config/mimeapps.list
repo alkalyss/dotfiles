@@ -27,4 +27,3 @@ application/x-ms-dos-executable=wine.desktop;
 application/xml=jflap-beta.desktop;nvim.desktop;
 application/octet-stream=notepadqq.desktop;
 inode/directory=vlc.desktop;
-text/markdown=firefox.desktop;
