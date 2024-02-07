@@ -16,9 +16,9 @@ require('nvim-treesitter.configs').setup {
 			keymaps = {
 				['ia'] = '@parameter.inner',
 				['if'] = '@function.inner',
-				['af'] = '@function.inner',
+				['af'] = '@function.outer',
 				['ic'] = '@class.inner',
-				['ac'] = '@class.inner'
+				['ac'] = '@class.outer'
 			}
 		}
 	},
@@ -28,4 +28,9 @@ vim.g.skip_ts_context_commentstring_module = true
 
 require('ts_context_commentstring').setup {
 	enable_autocmd = false,
+}
+
+require("treesitter-context").setup {
+	max_lines = 5,
+	separator = "-"
 }
