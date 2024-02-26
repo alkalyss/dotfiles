@@ -1,6 +1,7 @@
 #!/bin/sh
 
 xsetroot -cursor_name left_ptr
+xset s off -dpms
 
 killall xcape 2> /dev/null ; xcape -e 'Super_L=Escape' # When super is pressed once treat as escape
 
