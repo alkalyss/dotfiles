@@ -8,6 +8,8 @@ return {
 		'MunifTanjim/nui.nvim',
 		'3rd/image.nvim',
 	},
+	lazy = false,
+	priority = 1000,
 	config = function ()
 		require("neo-tree").setup{
 			enable_normal_mode_for_inputs = true,
@@ -15,7 +17,6 @@ return {
 				position = "right",
 				mappings = {
 					["<space>"] = "none",
-					-- ["o"] = "open",
 				},
 			},
 			filesystem = {

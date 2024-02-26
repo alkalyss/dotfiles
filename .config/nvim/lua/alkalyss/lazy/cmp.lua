@@ -9,8 +9,6 @@ return {
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-nvim-lsp-signature-help',
 
-		-- 'onsails/lspkind',
-
 		-- Snippets
 		'L3MON4D3/LuaSnip',
 		'saadparwaiz1/cmp_luasnip',
@@ -20,23 +18,12 @@ return {
 	},
 	config = function ()
 		local cmp = require('cmp')
-		-- local lspkind = require('lspkind')
 
 		cmp.setup {
 			snippet = {
 				expand = function(args)
 					require('luasnip').lsp_expand(args.body)
 				end
-			},
-			formatting = {
-				-- format = lspkind.cmp_format {
-				-- 	with_text = true,
-				-- 	menu = {
-				-- 		buffer = "[buf]",
-				-- 		nvim_lsp = "[LSP]",
-				-- 		path = "[path]",
-				-- 	}
-				-- }
 			},
 			sources = {
 				{ name = "nvim_lsp" },

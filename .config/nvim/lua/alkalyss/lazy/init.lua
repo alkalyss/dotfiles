@@ -8,19 +8,6 @@ return {
 	'jessarcher/vim-heritage', -- Create missing parent directories when creating a new file
 	'sickill/vim-pasta', -- Context aware pasting
 
-	-- Indent guides
-	{
-		'lukas-reineke/indent-blankline.nvim',
-		config = function ()
-			require('ibl').setup()
-		end
-	},
-
-	-- Auto bracket pairs
-	{
-		'windwp/nvim-autopairs',
-		config = function()
-			require('nvim-autopairs').setup{}
-		end
-	}
+	{ 'lukas-reineke/indent-blankline.nvim', main = "ibl", config = true }, -- Indent guides
+	{ 'windwp/nvim-autopairs', config = true } -- Auto bracket pairs
 }
