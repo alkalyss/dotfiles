@@ -1,4 +1,4 @@
-require("lib.greek_keys")
+require("alkalyss.core.greek_keys")
 
 -- Put result of search on center of screen
 vim.keymap.set('', 'n', 'nzzzv')
