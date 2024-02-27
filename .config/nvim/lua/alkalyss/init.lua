@@ -11,10 +11,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("alkalyss.core")
+require("alkalyss.core.options")
 
 require("lazy").setup({
-	spec = "alkalyss.lazy",
+	spec = "alkalyss.plugins",
 	change_detection = { notify = false },
 	checker = {
 		enabled = true,
@@ -24,3 +24,6 @@ require("lazy").setup({
 		colorscheme = { "catppuccin" }
 	}
 })
+
+require("alkalyss.core.keymaps")
+require("alkalyss.core.automations")

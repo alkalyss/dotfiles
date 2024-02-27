@@ -32,6 +32,10 @@ vim.keymap.set('n', '<C-j>', '<C-w>j')
 vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 
+-- Buffer navigation
+vim.keymap.set('n', '<C-Tab>', ':bnext<cr>')
+vim.keymap.set('n', '<C-S-Tab>', ':bprevious<cr>')
+
 -- Replace all
 vim.keymap.set('n', '<leader>ra', ':%s//g<Left><Left>', {desc= "Replace all"})
 
