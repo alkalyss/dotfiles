@@ -35,6 +35,8 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 
 export GTK_THEME=Dracula
 
+export MAKEFLAGS="-j$(nproc)" # Makefiles will use all cores
+
 # Other program settings:
 #export QT_QPA_PLATFORMTHEME="gtk2"	# Have QT use gtk2 theme.
 export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
@@ -43,3 +45,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 
 # Map escape to caps on tty and no passwd required:
 sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/keymap/ttymap 2> /dev/null
+
+# Setup pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
