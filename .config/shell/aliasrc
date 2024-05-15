@@ -1,14 +1,10 @@
 #!/bin/sh
 
+# I refuse to give up yay
+alias yay="paru"
+
 # Use neovim for vim if present.
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
-
-# Reboot into Windows
-if [[ $HOST == "laptop" ]]; then
-	alias win="sudo grub-reboot 0 && reboot"
-else
-	alias win="sudo grub-reboot 2 && reboot"
-fi
 
 # Update grub
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
@@ -66,3 +62,7 @@ alias dots="/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME"
 
 # Wake up HomePC
 alias wakeup="wol -i alkalyss.gr d4:3d:7e:dd:0c:64 -p 9"
+
+# Monitor configuration
+alias home="mons -e right"
+alias away="mons -o"
