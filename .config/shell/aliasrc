@@ -55,7 +55,7 @@ alias \
 	cfp="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile" \
 	cfxp="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" \
 	cfxr="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xressources" \
-	cfv="$EDITOR ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/"
+	cfv="cd ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/ && $EDITOR . && cd - > /dev/null" \
 
 # Dotfile repo shortcut
 alias dots="/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME"
