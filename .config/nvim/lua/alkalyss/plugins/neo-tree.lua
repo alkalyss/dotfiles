@@ -12,7 +12,6 @@ return {
 	priority = 1000,
 	config = function ()
 		require("neo-tree").setup{
-			enable_normal_mode_for_inputs = true,
 			window = {
 				position = "right",
 				mappings = {

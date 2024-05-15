@@ -52,7 +52,7 @@ vim.keymap.set('', '<leader>c', ':w! | !compiler "%"<cr>', {desc= "Compile file"
 vim.keymap.set('', '<leader>o', ':!opout "%"<cr><cr>', {desc= "Open pdf file"})
 
 -- Spell-check
-vim.keymap.set('', '<leader>s', ':setlocal spell! spelllang=en,el', {desc= "Spellcheking"})
+-- vim.keymap.set('', '<leader>s', ':setlocal spell! spelllang=en,el', {desc= "Spellcheking"})
 
 -- Save file as sudo if it requires root permission
 vim.keymap.set('c', 'w!!', 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!', {desc= "Save file with sudo priviledges"})
@@ -65,3 +65,6 @@ vim.keymap.set('n', '<leader><cr>', ':so $HOME/.config/nvim/init.lua<cr>', {desc
 
 -- Make file executable
 vim.keymap.set('n', '<leader>x', ':silent !chmod +x "%"<cr>', {desc= "Make file executable"})
+
+-- Shortcut for saving a file
+vim.keymap.set('n', '<leader>w', ':w<cr>', {desc= "Save file"})
