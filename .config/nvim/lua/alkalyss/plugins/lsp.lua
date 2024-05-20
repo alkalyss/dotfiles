@@ -42,7 +42,7 @@ return {
 				vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, {desc = "[G]et [S]ignature help", buffer = bufnr, remap = false})
 				vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, {desc = "Get signature [H]elp (Insert mode)", buffer = bufnr, remap = false})
 
-				vim.keymap.set('n', '<leader>gf', vim.lsp.buf.format, {desc = "[G]et [F]ormat", buffer = bufnr, remap = false})
+				vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format, {desc = "[F]or[M]at code", buffer = bufnr, remap = false})
 			end)
 
 			local lspconfig = require("lspconfig")

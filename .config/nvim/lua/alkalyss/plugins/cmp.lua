@@ -13,13 +13,14 @@ return {
 	},
 	{
 		'hrsh7th/nvim-cmp',
-		event = "InsertEnter",
+		event = "BufEnter",
 		dependencies = {
 			'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-buffer',
 			'hrsh7th/cmp-nvim-lua',
 			'hrsh7th/cmp-path',
 			'hrsh7th/cmp-nvim-lsp-signature-help',
+			'SergioRibera/cmp-dotenv',
 
 			-- Snippets
 			'L3MON4D3/LuaSnip',
@@ -40,7 +41,8 @@ return {
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "path" },
-					{ name = "buffer", keyword_length = 5 }
+					{ name = "buffer", keyword_length = 5 },
+					{ name = "env" }
 				},
 				mapping = cmp.mapping.preset.insert({
 						['<C-f>'] = cmp.mapping.scroll_docs(-4),

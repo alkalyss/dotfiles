@@ -1,16 +1,7 @@
--- Enable more colors
-if vim.fn.has('gui_running') == 0 then
-	vim.o.t_Co = 256
-end
-
-if vim.fn.has('termguicolors') == 1 then
-	vim.opt.termguicolors = true
-end
-
 vim.g.mapleader = ' '
 
 vim.opt.bg = 'dark'							-- Set background for highlighting
-vim.opt.go = 'P'							-- Copy visual selection to '+ register
+-- vim.opt.go = 'P'							-- Copy visual selection to '+ register
 vim.opt.shortmess = 'ac'					-- Short messages
 vim.opt.mouse = ''							-- Disable mouse
 vim.opt.scrolloff = 8						-- Keep the cursor 8 lines from the top/bottom
@@ -50,7 +41,4 @@ vim.opt.splitright = true					-- Split right
 vim.opt.updatetime = 300					-- Set update time to 300ms
 vim.opt.timeoutlen = 500					-- Set timeout length to 500ms
 
-vim.opt.filetype = 'on'						-- Enable filetype detection and plugins
-vim.opt.filetype.indent = 'on'
-vim.opt.filetype.plugin = 'on'
 vim.opt.syntax = 'on'						-- Enable syntax highlighting
