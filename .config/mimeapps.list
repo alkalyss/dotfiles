@@ -18,6 +18,7 @@ x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_usr_lib_eclipse_.
 application/xml=nvim.desktop
 x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/viber=viber.desktop
+x-scheme-handler/discord-1216669957799018608=discord-1216669957799018608.desktop
 
 [Added Associations]
 application/zip=matlab.desktop;org.kde.ark.desktop;
@@ -31,3 +32,4 @@ application/octet-stream=notepadqq.desktop;
 inode/directory=vlc.desktop;
 text/plain=notepadqq.desktop;nvim.desktop;
 text/x-makefile=notepadqq.desktop;
+application/pdf=firefox.desktop;
