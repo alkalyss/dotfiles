@@ -12,6 +12,14 @@ size = 9
 family = "Mononoki Nerd Font"
 style = "Regular"
 
+[font.bold]
+family = "Mononoki Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "Mononoki Nerd Font"
+style = "Italic"
+
 [mouse]
 hide_when_typing = true
 
