@@ -17,5 +17,14 @@ return {
 		widget_guides = {
 			enabled = true,
 		},
+		lsp = {
+			settings = {
+				analysisExcludedFolders = {
+					vim.fn.expand "$HOME/.pub-cache",
+					"/usr/lib/flutter/packages",
+				},
+				lineLength = 120,
+			}
+		}
 	},
 }
