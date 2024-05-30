@@ -33,19 +33,20 @@
     #icon_folders = /usr/share/icons/elementary/actions/16/
 
     frame_width = 3
-    frame_color = "#abb2bf"
+    frame_color = "#89b4fa"
 
 [urgency_low]
-    background = "#282c34"
-    foreground = "#abb2bf"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
     timeout = 5
 
 [urgency_normal]
-    background = "#4b5263"
-    foreground = "#abb2bf"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
     timeout = 20
 
 [urgency_critical]
-    background = "#dc322f"
-    foreground = "#282c34"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    frame_color = "#fab387"
     timeout = 0
