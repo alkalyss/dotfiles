@@ -11,7 +11,6 @@ fi
 ## BASIC SETUP
 umask 077
 ZDOTDIR=${ZDOTDIR:-${HOME}/.config/zsh}
-ZSHDDIR="${HOME}/.config/zsh.d"
 
 # Setup zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
