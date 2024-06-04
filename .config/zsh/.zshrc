@@ -1,3 +1,6 @@
+# Use beam cursor at startup
+echo -ne '\e[6 q'
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -128,3 +131,13 @@ bindkey '^e' edit-command-line
 reload () {
 	exec "${SHELL}"
 }
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+	case $KEYMAP in
+		vicmd) echo -ne '\e[2 q' ;; # block cursor
+		*) echo -ne '\e[6 q' ;; # beam cursor
+	esac
+}
+zle -N zle-keymap-select
+precmd_functions+=(zle-keymap-select)
