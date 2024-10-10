@@ -64,5 +64,5 @@ alias dots="/usr/bin/git --git-dir=$HOME/.files/ --work-tree=$HOME"
 alias wakeup="wol -i alkalyss.gr d4:3d:7e:dd:0c:64 -p 9"
 
 # Monitor configuration
-alias home="mons -e right"
-alias away="mons -o"
+alias home="mons -e right && brightnessctl set 100% > /dev/null"
+alias away="mons -o && brightnessctl set 40% > /dev/null"
