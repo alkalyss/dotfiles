@@ -96,6 +96,7 @@ keys = [
     Key([mod], "s", lazy.spawn("steam"), desc="Launch spotify"),
     Key([mod], "d", lazy.spawn("discord"), desc="Launch discord"),
     Key([mod], "x", lazy.spawn("xournalpp"), desc="Launch discord"),
+    Key([mod], "o", lazy.spawn("obsidian"), desc="Launch obsidian"),
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Launch screenshot tool"),
     Key([mod, "control"], "s", lazy.spawn("shutdown -h now"), desc="Shutdown"),
 
