@@ -40,9 +40,6 @@ return{
 				row = 0,
 				col = 1
 			},
-			yadm = {
-				enable = false
-			},
 		}
 
 		vim.keymap.set("n", "<leader>hp", ":Gitsigns preview_hunk<cr>", {desc="[H]unk [P]review"})
