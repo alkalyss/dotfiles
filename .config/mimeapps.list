@@ -19,6 +19,8 @@ application/xml=nvim.desktop
 x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/viber=viber.desktop
 x-scheme-handler/discord-1216669957799018608=discord-1216669957799018608.desktop
+x-scheme-handler/postman=Postman.desktop
+application/x-zerosize=nvim.desktop
 
 [Added Associations]
 application/zip=matlab.desktop;org.kde.ark.desktop;
@@ -32,5 +34,6 @@ application/octet-stream=nvim.desktop;
 inode/directory=vlc.desktop;
 text/plain=nvim.desktop;
 text/x-makefile=nvim.desktop;
-application/pdf=firefox.desktop;
+application/pdf=firefox.desktop;com.github.xournalpp.xournalpp.desktop;libreoffice-draw.desktop;
 application/json=nvim.desktop;
+application/x-zerosize=nvim.desktop;
