@@ -61,7 +61,7 @@ return {
 						'lua_ls',
 						'marksman',
 						'pyright',
-						'tsserver',
+						'ts_ls',
 					},
 					automatic_installation = true,
 					handlers = {
