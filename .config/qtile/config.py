@@ -47,8 +47,6 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Focus right"),
     Key([mod], "j", lazy.layout.down(), desc="Focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Focus up"),
-    Key([mod], "Return", lazy.layout.toggle_split(),
-        desc="Toggle split in Columns layout"),
 
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
@@ -71,13 +69,6 @@ keys = [
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack"),
-
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Next layout"),
     Key([mod, "shift"], "Tab", lazy.prev_layout(), desc="Previous layout"),
@@ -95,7 +86,7 @@ keys = [
     Key([mod], "c", lazy.spawn("codium"), desc="Launch ide"),
     Key([mod], "s", lazy.spawn("steam"), desc="Launch spotify"),
     Key([mod], "d", lazy.spawn("discord"), desc="Launch discord"),
-    Key([mod], "x", lazy.spawn("xournalpp"), desc="Launch discord"),
+    Key([mod], "x", lazy.spawn("xournalpp"), desc="Launch xournal"),
     Key([mod], "o", lazy.spawn("obsidian"), desc="Launch obsidian"),
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Launch screenshot tool"),
     Key([mod, "control"], "s", lazy.spawn("shutdown -h now"), desc="Shutdown"),
@@ -156,16 +147,17 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-if os.uname()[1] == 'laptop':
-    barGap = 2
-else:
-    barGap = 32
+barGap = 2
 
 screens = [
     Screen(
+        wallpaper=os.path.join(os.path.expanduser('~'), 'wallpapers/0335.jpg'),
+        wallpaper_mode='fill',
         top=bar.Gap(size=barGap)
     ),
     Screen(
+        wallpaper=os.path.join(os.path.expanduser('~'), 'wallpapers/0335.jpg'),
+        wallpaper_mode='fill',
         top=bar.Gap(size=barGap)
     ),
 ]
@@ -195,8 +187,10 @@ floating_layout = layout.Floating(float_rules=[
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
 ])
+floats_kept_above = True
 auto_fullscreen = True
 focus_on_window_activation = "smart"
+reconfigure_screens = True
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

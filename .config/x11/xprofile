@@ -16,7 +16,6 @@ dunst &			# dunst for notifications
 numlockx on & 		# Turn on NumLock
 unclutter --timeout 5 --exclude-root --ignore-scrolling --hide-on-touch &
 picom --experimental-backends &
-$HOME/.fehbg &
 
 touchegg &
 flameshot &
