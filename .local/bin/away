@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mons -o &&
+brightnessctl set 40% > /dev/null
+$HOME/.local/bin/callibrate_touch
