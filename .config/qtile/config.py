@@ -81,7 +81,7 @@ keys = [
     # Spawn stuff
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch rofi"),
     Key([mod], "t", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "b", lazy.spawn("firefox"), desc="Launch browser"),
+    Key([mod], "b", lazy.spawn("vivaldi"), desc="Launch browser"),
     Key([mod], "f", lazy.spawn("thunar"), desc="Launch filemanager"),
     Key([mod], "c", lazy.spawn("codium"), desc="Launch ide"),
     Key([mod], "s", lazy.spawn("steam"), desc="Launch spotify"),
