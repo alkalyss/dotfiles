@@ -47,6 +47,10 @@ if ! [[ "${PATH}" =~ "^${HOME}/.local/bin" ]]; then
 	export PATH="$HOME/.local/bin:$PATH"
 fi
 
+if ! [[ "${PATH}" =~ "^${HOME}/.dotnet/tools" ]]; then
+	export PATH="$HOME/.dotnet/tools:$PATH"
+fi
+
 
 ## HISTORY
 HISTFILE="${ZDOTDIR:-${HOME}/.config/zsh}/.zsh_history"

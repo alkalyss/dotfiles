@@ -61,3 +61,7 @@ eval "$(pyenv init -)"
 if [[ $(fgconsole 2> /dev/null) == 1 ]]; then
 	exec startx &> /dev/null
 fi
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
