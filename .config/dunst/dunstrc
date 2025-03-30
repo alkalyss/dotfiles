@@ -1,9 +1,9 @@
 [global]
     follow = mouse
 	width = 300
-	height = 50
+	height = (0, 50)
 	origin = top-right
-	offset = 10x50
+    offset = (10, 10)
 
     font = Iosevka 8
     markup = full
