@@ -14,6 +14,9 @@ return {
 			'williamboman/mason-lspconfig.nvim',
 
 			'hrsh7th/nvim-cmp',
+
+			'Decodetalkers/csharpls-extended-lsp.nvim',
+			-- 'Hoffs/omnisharp-extended-lsp.nvim',
 		},
 		config = function ()
 			local lsp_zero = require('lsp-zero')
@@ -100,6 +103,36 @@ return {
 				},
 				single_file_support = true,
 			}
+
+			lspconfig.csharp_ls.setup{
+				handlers = {
+					["textDocument/definition"] = require("csharpls_extended").handler,
+					["textDocument/typeDefinition"] = require("csharpls_extended").handler,
+				},
+			}
+
+-- 			lspconfig.omnisharp.setup{
+-- 				cmd = {vim.fn.stdpath "data" .. "/mason/bin/omnisharp", "-lsp"},
+-- 				handlers = {
+-- 					["textDocument/definition"] = require("omnisharp_extended").definition_handler,
+-- 					["textDocument/typeDefinition"] = require("omnisharp_extended").type_definition_handler,
+-- 					["textDocument/references"] = require("omnisharp_extended").references_handler,
+-- 					["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
+-- 				},
+-- 				root_dir = function ()
+--                     return vim.loop.cwd() -- current working directory
+--                 end,
+-- 			}
+
+-- 			lspconfig.omnisharp_mono.setup{
+-- 				cmd = {vim.fn.stdpath "data" .. "/mason/bin/omnisharp-mono", "-lsp"},
+-- 				handlers = {
+-- 					["textDocument/definition"] = require("omnisharp_extended").definition_handler,
+-- 					["textDocument/typeDefinition"] = require("omnisharp_extended").type_definition_handler,
+-- 					["textDocument/references"] = require("omnisharp_extended").references_handler,
+-- 					["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
+-- 				},
+-- 			}
 		end
 	}
 }
