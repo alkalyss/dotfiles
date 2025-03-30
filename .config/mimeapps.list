@@ -24,6 +24,9 @@ application/x-zerosize=nvim.desktop
 x-scheme-handler/discord-523502837364424706=discord-523502837364424706.desktop
 application/vnd.squashfs=org.kde.ark.desktop
 x-scheme-handler/mailto=vivaldi-stable.desktop
+x-scheme-handler/https=vivaldi-stable.desktop
+x-scheme-handler/http=vivaldi-stable.desktop
+x-scheme-handler/webcal=vivaldi-stable.desktop
 
 [Added Associations]
 application/zip=matlab.desktop;org.kde.ark.desktop;
@@ -39,7 +42,7 @@ text/plain=nvim.desktop;
 text/x-makefile=nvim.desktop;
 application/pdf=vivaldi-stable.desktop;com.github.xournalpp.xournalpp.desktop;libreoffice-draw.desktop;
 application/json=nvim.desktop;
-application/x-zerosize=nvim.desktop;
 text/csv=notepadqq.desktop;
 text/x-nfo=wine-extension-ini.desktop;notepadqq.desktop;
 application/vnd.squashfs=org.kde.ark.desktop;
+text/x-csrc=nvim.desktop;
