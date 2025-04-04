@@ -60,7 +60,6 @@ return {
 						'docker_compose_language_service',
 						'html',
 						'jsonls',
-						'ltex',
 						'lua_ls',
 						'marksman',
 						'pyright',
@@ -110,29 +109,6 @@ return {
 					["textDocument/typeDefinition"] = require("csharpls_extended").handler,
 				},
 			}
-
--- 			lspconfig.omnisharp.setup{
--- 				cmd = {vim.fn.stdpath "data" .. "/mason/bin/omnisharp", "-lsp"},
--- 				handlers = {
--- 					["textDocument/definition"] = require("omnisharp_extended").definition_handler,
--- 					["textDocument/typeDefinition"] = require("omnisharp_extended").type_definition_handler,
--- 					["textDocument/references"] = require("omnisharp_extended").references_handler,
--- 					["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
--- 				},
--- 				root_dir = function ()
---                     return vim.loop.cwd() -- current working directory
---                 end,
--- 			}
-
--- 			lspconfig.omnisharp_mono.setup{
--- 				cmd = {vim.fn.stdpath "data" .. "/mason/bin/omnisharp-mono", "-lsp"},
--- 				handlers = {
--- 					["textDocument/definition"] = require("omnisharp_extended").definition_handler,
--- 					["textDocument/typeDefinition"] = require("omnisharp_extended").type_definition_handler,
--- 					["textDocument/references"] = require("omnisharp_extended").references_handler,
--- 					["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
--- 				},
--- 			}
 		end
 	}
 }
