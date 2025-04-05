@@ -1,36 +1,41 @@
 -- LSP
 return {
 	{
-		'williamboman/mason.nvim',
-		lazy = false,
-		config = true
-	},
-	{
-		'neovim/nvim-lspconfig',
+		'williamboman/mason-lspconfig.nvim',
 		cmd = {'LspInfo', 'LspInstall', 'LspStart'},
 		event = {'BufReadPre', 'BufNewFile'},
 		dependencies = {
-			'williamboman/mason.nvim',
-			'williamboman/mason-lspconfig.nvim',
+			{
+				'williamboman/mason.nvim',
+				lazy = false,
+				opts = {
+					ui = {
+						border = "rounded",
+					}
+				}
+			},
+			'neovim/nvim-lspconfig',
 
-			'hrsh7th/nvim-cmp',
+			-- 'hrsh7th/nvim-cmp',
+			"saghen/blink.cmp",
 
 			'Decodetalkers/csharpls-extended-lsp.nvim',
 		},
 		init = function ()
-			vim.opt.signcolumn = 'yes'
-		end,
-		config = function ()
 			local lspconfig = require("lspconfig")
-			local telescope = require('telescope.builtin')
 
 			local lsp_defaults = lspconfig.util.default_config
-			lsp_defaults.capabilities = vim.tbl_deep_extend(
-				'force',
-				lsp_defaults.capabilities,
-				require('cmp_nvim_lsp').default_capabilities()
-			)
+			-- lsp_defaults.capabilities = vim.tbl_deep_extend(
+			-- 	'force',
+			-- 	lsp_defaults.capabilities,
+			-- 	require('cmp_nvim_lsp').default_capabilities()
+			-- )
+			lsp_defaults.capabilities = require("blink.cmp").get_lsp_capabilities(lsp_defaults.capabilities)
 
+
+			local telescope = require('telescope.builtin')
+
+			vim.opt.signcolumn = 'yes'
 
 			vim.keymap.set('n', 'gl', function() vim.diagnostic.open_float({border="rounded"}) end, {desc = "Open floating diagnostic", remap = false})
 			vim.keymap.set('n', '[d', function() vim.diagnostic.jump({count=-1, float=true}) end, {desc = "Go to previous diagnostic", remap = false})
@@ -62,110 +67,93 @@ return {
 				end
 			})
 
-			require('mason-lspconfig').setup({
-				ensure_installed = {
-					'bashls',
-					'clangd',
-					'cmake',
-					'cssls',
-					'dockerls',
-					'docker_compose_language_service',
-					'html',
-					'jsonls',
-					'lua_ls',
-					'marksman',
-					'pyright',
-					'ts_ls',
-				},
-				automatic_installation = true,
-				handlers = {
-					function(server_name)
-						lspconfig[server_name].setup({})
-					end,
-					lua_ls = function()
-						lspconfig.lua_ls.setup({
+		end,
+		opts = {
+			ensure_installed = {
+				'bashls',
+				'clangd',
+				'cmake',
+				'cssls',
+				'dockerls',
+				'docker_compose_language_service',
+				'html',
+				'jsonls',
+				'lua_ls',
+				'marksman',
+				'pyright',
+				'ts_ls',
+			},
+			automatic_installation = true,
+			handlers = {
+				function(server_name)
+					require("lspconfig")[server_name].setup({})
+				end,
+				lua_ls = function()
+					require("lspconfig").lua_ls.setup({
 							settings = {
-							  Lua = {
-								telemetry = {
-								  enable = false
+								Lua = {
+									telemetry = {
+										enable = false
+									},
 								},
-							  },
 							},
 							on_init = function(client)
-							  local join = vim.fs.joinpath
-							  local path = client.workspace_folders[1].name
+								local join = vim.fs.joinpath
+								local path = client.workspace_folders[1].name
 
-							  -- Don't do anything if there is project local config
-							  if vim.uv.fs_stat(join(path, '.luarc.json'))
-								or vim.uv.fs_stat(join(path, '.luarc.jsonc'))
-							  then
-								return
-							  end
+								-- Don't do anything if there is project local config
+								if vim.uv.fs_stat(join(path, '.luarc.json'))
+									or vim.uv.fs_stat(join(path, '.luarc.jsonc'))
+									then
+									return
+								end
 
-							  local nvim_settings = {
-								runtime = {
-								  -- Tell the language server which version of Lua you're using
-								  version = 'LuaJIT',
-								},
-								diagnostics = {
-								  -- Get the language server to recognize the `vim` global
-								  globals = {'vim'}
-								},
-								workspace = {
-								  checkThirdParty = false,
-								  library = {
-									-- Make the server aware of Neovim runtime files
-									vim.env.VIMRUNTIME,
-									vim.fn.stdpath('config'),
-								  },
-								},
-							  }
+								local nvim_settings = {
+									runtime = {
+										-- Tell the language server which version of Lua you're using
+										version = 'LuaJIT',
+									},
+									diagnostics = {
+										-- Get the language server to recognize the `vim` global
+										globals = {'vim'}
+									},
+									workspace = {
+										checkThirdParty = false,
+										library = {
+											-- Make the server aware of Neovim runtime files
+											vim.env.VIMRUNTIME,
+											vim.fn.stdpath('config'),
+										},
+									},
+								}
 
-							  client.config.settings.Lua = vim.tbl_deep_extend(
-								'force',
-								client.config.settings.Lua,
-								nvim_settings
-							  )
+								client.config.settings.Lua = vim.tbl_deep_extend(
+									'force',
+									client.config.settings.Lua,
+									nvim_settings
+									)
 							end,
 						})
-					end,
-					ltex = function ()
-						lspconfig.ltex.setup{
-							settings = {
-								language = {
-									"en-US",
-									"el-GR",
-								},
-							}
+				end,
+				ltex = function ()
+					require("lspconfig").ltex.setup{
+						settings = {
+							language = {
+								"en-US",
+								"el-GR",
+							},
 						}
-					end,
-				},
-			})
-
-			lspconfig.glsl_analyzer.setup{
-				filetypes = {
-					"glsl",
-					"vert",
-					"tesc",
-					"tese",
-					"frag",
-					"geom",
-					"comp",
-					"fragmentshader",
-					"vertexshader"
-				},
-				cmd = {
-					"glsl_analyzer"
-				},
-				single_file_support = true,
-			}
-
-			lspconfig.csharp_ls.setup{
-				handlers = {
-					["textDocument/definition"] = require("csharpls_extended").handler,
-					["textDocument/typeDefinition"] = require("csharpls_extended").handler,
-				},
-			}
-		end
+					}
+				end,
+				csharp_ls = function ()
+					require("lspconfig").csharp_ls.setup{
+						handlers = {
+							["textDocument/definition"] = require("csharpls_extended").handler,
+							["textDocument/typeDefinition"] = require("csharpls_extended").handler,
+						},
+					}
+				end
+			},
+		}
 	}
 }

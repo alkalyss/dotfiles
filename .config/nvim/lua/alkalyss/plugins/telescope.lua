@@ -6,7 +6,7 @@ return {
 		{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 		'nvim-telescope/telescope-ui-select.nvim',
 	},
-	config = function()
+	init = function()
 		local telescope = require('telescope.builtin')
 
 		vim.keymap.set('n', '<leader>ff', telescope.find_files, {desc = "[F]ind [F]ile"})
@@ -19,34 +19,31 @@ return {
 		vim.keymap.set('n', '<leader>gb', telescope.git_branches, {desc = "[G]it [B]ranches"})
 		vim.keymap.set('n', '<leader>gc', telescope.git_commits, {desc = "[G]it [C]ommits"})
 
-
-		require('telescope').setup{
-			pickers = {
-				buffers = {
-					mappings = {
-						i = {
-							["<C-D>"] = "delete_buffer",
-						},
-						n = {
-							["<C-D>"] = "delete_buffer",
-						},
-					}
-				}
-			},
-			extensions = {
-				["ui-select"] = {
-					require('telescope.themes').get_dropdown()
-				},
-				fzf = {
-					fuzzy = true,
-					override_generic_sorter = true,
-					override_file_sorter = true,
-					case_mode = "smart_case",
-				},
-			}
-		}
-
 		require('telescope').load_extension('ui-select')
-		-- require('telescope').load_extension('fzf')
-	end
+	end,
+	opts = {
+		pickers = {
+			buffers = {
+				mappings = {
+					i = {
+						["<C-D>"] = "delete_buffer",
+					},
+					n = {
+						["<C-D>"] = "delete_buffer",
+					},
+				}
+			}
+		},
+		extensions = {
+			["ui-select"] = {
+				require('telescope.themes').get_dropdown()
+			},
+			fzf = {
+				fuzzy = true,
+				override_generic_sorter = true,
+				override_file_sorter = true,
+				case_mode = "smart_case",
+			},
+		}
+	},
 }

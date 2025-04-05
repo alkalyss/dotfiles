@@ -10,20 +10,19 @@ return {
 	},
 	lazy = false,
 	priority = 1000,
-	config = function ()
-		require("neo-tree").setup{
-			window = {
-				position = "right",
-				mappings = {
-					["<space>"] = "none",
-				},
+	opts = {
+		window = {
+			position = "right",
+			mappings = {
+				["<space>"] = "none",
 			},
-			filesystem = {
-				group_empty_dirs = false,
-				hijack_netrw_behavior = "open_current",
-			},
-		}
-
+		},
+		filesystem = {
+			group_empty_dirs = false,
+			hijack_netrw_behavior = "open_current",
+		},
+	},
+	init = function ()
 		vim.keymap.set('n', '<leader>t', function ()
 			local reveal_file = vim.fn.expand("%:p")
 			if (reveal_file == '') then

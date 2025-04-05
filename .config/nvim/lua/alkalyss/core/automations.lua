@@ -18,6 +18,7 @@ vim.cmd [[
 	autocmd BufRead,BufNewFile *.vertexshader set filetype=glsl
 ]]
 
+-- Comment string for GLSL files
 vim.api.nvim_create_autocmd( "FileType", {
 	pattern = {"glsl"},
 	command = "setlocal commentstring=//\\ %s"

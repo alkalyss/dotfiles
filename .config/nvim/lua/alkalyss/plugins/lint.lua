@@ -5,11 +5,9 @@ return {
 		"williamboman/mason.nvim",
 		"nvimtools/none-ls.nvim",
 	},
-	config = function()
-		require("mason-null-ls").setup {
-			handlers = {},
-			ensure_installed = {},
-			automatic_installation = true,
-		}
-	end,
+	opts = {
+		handlers = {},
+		ensure_installed = {},
+		automatic_installation = true,
+	},
 }

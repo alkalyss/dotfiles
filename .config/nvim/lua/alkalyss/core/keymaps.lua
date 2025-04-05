@@ -27,10 +27,6 @@ vim.keymap.set('n', 'c', '"_c')
 -- Split navigation shortcuts
 vim.keymap.set('n', '<C-n>', ':vnew<cr>')
 vim.keymap.set('n', '<C-s>', ':new<cr>')
--- vim.keymap.set('n', '<C-h>', '<C-w>h')
--- vim.keymap.set('n', '<C-j>', '<C-w>j')
--- vim.keymap.set('n', '<C-k>', '<C-w>k')
--- vim.keymap.set('n', '<C-l>', '<C-w>l')
 
 -- Buffer navigation
 vim.keymap.set('n', '<C-Tab>', ':bnext<cr>')
