@@ -1,7 +1,7 @@
 return {
 	'sheerun/vim-polyglot', -- Syntax highlighting and filetype recognition
 	'tpope/vim-commentary', -- Easy commenting
-	'tpope/vim-surround', -- Surround text objects with characters
+	{ 'echasnovski/mini.surround', version = '*', opts = {} }, -- Surround text objects with characters
 	'tpope/vim-eunuch', -- Unix helpers
 	'tpope/vim-fugitive', -- Git integration
 	'godlygeek/tabular', -- Allign items
@@ -9,6 +9,6 @@ return {
 	'sickill/vim-pasta', -- Context aware pasting
 	"github/copilot.vim", -- I think this explains itself
 
-	{ 'lukas-reineke/indent-blankline.nvim', main = "ibl", config = true }, -- Indent guides
+	{ 'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {} }, -- Indent guides
 	{ 'windwp/nvim-autopairs', config = true } -- Auto bracket pairs
 }

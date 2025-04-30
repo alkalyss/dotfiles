@@ -2,7 +2,6 @@
 return {
 	{
 		'williamboman/mason-lspconfig.nvim',
-		cmd = {'LspInfo', 'LspInstall', 'LspStart'},
 		event = {'BufReadPre', 'BufNewFile'},
 		dependencies = {
 			{
@@ -58,7 +57,7 @@ return {
 					vim.keymap.set('n', '<F3>', vim.lsp.buf.code_action, {desc = "Code actions", buffer = bufnr, remap = false})
 
 					vim.keymap.set('n', '<leader>ws', telescope.lsp_dynamic_workspace_symbols, {desc = "Find [W]orkspace [S]ymbols", buffer = bufnr, remap = false})
-					vim.keymap.set('n', '<leader>fs', telescope.lsp_document_symbols, {desc = "Find [F]ile [S]ymbols", buffer = bufnr, remap = false})
+					vim.keymap.set('n', '<leader>ds', telescope.lsp_document_symbols, {desc = "Find [D]ocument [S]ymbols", buffer = bufnr, remap = false})
 
 					vim.keymap.set('n', 'gs', function() vim.lsp.buf.signature_help({border="rounded"}) end, {desc = "[G]et [S]ignature help", buffer = bufnr, remap = false})
 					vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help({border="rounded"}) end, {desc = "Get signature [H]elp (Insert mode)", buffer = bufnr, remap = false})
@@ -66,6 +65,15 @@ return {
 					vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format, {desc = "[F]or[M]at code", buffer = bufnr, remap = false})
 				end
 			})
+
+			lspconfig.ltex_plus.setup{
+				settings = {
+					language = {
+						"en-US",
+						"el-GR",
+					},
+				}
+			}
 
 		end,
 		opts = {
