@@ -58,11 +58,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Start X at login
-if [[ $(fgconsole 2> /dev/null) == 1 ]]; then
-	exec startx &> /dev/null
-fi
-
-
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# Start GUI
+case $(fgconsole 2> /dev/null) in
+	1) exec startx &> /dev/null;;
+	2) exec hyprland &> /dev/null;;
+esac
