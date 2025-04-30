@@ -4,174 +4,41 @@
 !! Set a default font and font size as below:
 *.font: Inconsolata Nerd Font:size=10
 
-/* name		dark	light */
-/* black	0	8 */
-/* red		1	9 */
-/* green	2	10 */
-/* yellow	3	11 */
-/* blue		4	12 */
-/* purple	5	13 */
-/* cyan		6	14 */
-/* white	7	15 */
-
-/* !! brogrammer: */
-/* *.foreground:  #d6dbe5 */
-/* *.background:  #131313 */
-/* *.color0:      #1f1f1f */
-/* *.color8:      #d6dbe5 */
-/* *.color1:      #f81118 */
-/* *.color9:      #de352e */
-/* *.color2:      #2dc55e */
-/* *.color10:     #1dd361 */
-/* *.color3:      #ecba0f */
-/* *.color11:     #f3bd09 */
-/* *.color4:      #2a84d2 */
-/* *.color12:     #1081d6 */
-/* *.color5:      #4e5ab7 */
-/* *.color13:     #5350b9 */
-/* *.color6:      #1081d6 */
-/* *.color14:     #0f7ddb */
-/* *.color7:      #d6dbe5 */
-/* *.color15:     #ffffff */
-/* *.colorBD:     #d6dbe5 */
-
-/* ! base16 */
-/* *.color0:       #181818 */
-/* *.color1:       #ab4642 */
-/* *.color2:       #a1b56c */
-/* *.color3:       #f7ca88 */
-/* *.color4:       #7cafc2 */
-/* *.color5:       #ba8baf */
-/* *.color6:       #86c1b9 */
-/* *.color7:       #d8d8d8 */
-/* *.color8:       #585858 */
-/* *.color9:       #ab4642 */
-/* *.color10:      #a1b56c */
-/* *.color11:      #f7ca88 */
-/* *.color12:      #7cafc2 */
-/* *.color13:      #ba8baf */
-/* *.color14:      #86c1b9 */
-/* *.color15:      #f8f8f8 */
-
-/* !! solarized */
-/* *.color0:	#073642 */
-/* *.color1:	#dc322f */
-/* *.color2:	#859900 */
-/* *.color3:	#b58900 */
-/* *.color4:	#268bd2 */
-/* *.color5:	#d33682 */
-/* *.color6:	#2aa198 */
-/* *.color7:	#eee8d5 */
-/* *.color9:	#cb4b16 */
-/* *.color8:	#fdf6e3 */
-/* *.color10:	#586e75 */
-/* *.color11:	#657b83 */
-/* *.color12:	#839496 */
-/* *.color13:	#6c71c4 */
-/* *.color14:	#93a1a1 */
-/* *.color15:	#fdf6e3 */
-
-/* !! xterm */
-/* *.color0:   #000000 */
-/* *.color1:   #cd0000 */
-/* *.color2:   #00cd00 */
-/* *.color3:   #cdcd00 */
-/* *.color4:   #0000cd */
-/* *.color5:   #cd00cd */
-/* *.color6:   #00cdcd */
-/* *.color7:   #e5e5e5 */
-/* *.color8:   #4d4d4d */
-/* *.color9:   #ff0000 */
-/* *.color10:  #00ff00 */
-/* *.color11:  #ffff00 */
-/* *.color12:  #0000ff */
-/* *.color13:  #ff00ff */
-/* *.color14:  #00ffff */
-/* *.color15:  #aabac8 */
-/* *.background:   #000000 */
-
-/* ! Dracula Xresources palette */
-/* *.foreground: #F8F8F2 */
-/* *.background: #282A36 */
-/* *.color0:     #000000 */
-/* *.color8:     #4D4D4D */
-/* *.color1:     #FF5555 */
-/* *.color9:     #FF6E67 */
-/* *.color2:     #50FA7B */
-/* *.color10:    #5AF78E */
-/* *.color3:     #F1FA8C */
-/* *.color11:    #F4F99D */
-/* *.color4:     #BD93F9 */
-/* *.color12:    #CAA9FA */
-/* *.color5:     #FF79C6 */
-/* *.color13:    #FF92D0 */
-/* *.color6:     #8BE9FD */
-/* *.color14:    #9AEDFE */
-/* *.color7:     #BFBFBF */
-/* *.color15:    #E6E6E6 */
-
-/* Dracula termite pallete */
-*.foreground: #bbd5ff
-*.background: #232323
-*.color0:     #101010
-*.color8:     #434758
-*.color1:     #f07178
-*.color9:     #ff8b92
-*.color2:     #c3e88d
-*.color10:    #ddffa7
-*.color3:     #ffcb6b
-*.color11:    #ffe585
-*.color4:     #82aaff
-*.color12:    #9cc4ff
-*.color5:     #c792ea
-*.color13:    #e1acff
-*.color6:     #89ddff
-*.color14:    #a3f7ff
-*.color7:     #d0d0d0
-*.color15:    #ffffff
-
-/* *.background: .color0 */
-/* *.color256: 0#1d2021 */
-/* *.color257: 15#ebdbb2 */
-
-/*
-! special
-*.foreground:   #c5c8c6
-*.background:   #111112
-*.cursorColor:  #c5c8c6
+*background: #1e1e2e
+*foreground: #cdd6f4
+*cursorColor: #f5e0dc
 
 ! black
-*.color0:       #1a1b1b
-*.color8:       #33373d
+*color0: #45475a
+*color8: #585b70
 
 ! red
-*.color1:       #a13f3f
-*.color9:       #eb3b3b
+*color1: #f38ba8
+*color9: #f38ba8
 
 ! green
-*.color2:       #78a637
-*.color10:      #5cbb2c
+*color2: #a6e3a1
+*color10: #a6e3a1
 
 ! yellow
-*.color3:       #e7833d
-*.color11:      #f8ff03
+*color3: #f9e2af
+*color11: #f9e2af
 
 ! blue
-*.color4:       #337ebb
-*.color12:      #2888da
+*color4: #89b4fa
+*color12: #89b4fa
 
 ! magenta
-*.color5:       #a109d3
-*.color13:      #d60bc9
+*color5: #f5c2e7
+*color13: #f5c2e7
 
 ! cyan
-*.color6:       #29b8a5
-*.color14:      #2bf2d7
+*color6: #94e2d5
+*color14: #94e2d5
 
 ! white
-*.color7:       #899199
-*.color15:      #dbdfdc
-*/
+*color7: #bac2de
+*color15: #a6adc8
 
 xmenu.borderWidth: 0
 xmenu.separatorWidth: 3
