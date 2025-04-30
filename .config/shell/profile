@@ -36,7 +36,8 @@ export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export QT_QPA_PLATFORMTHEME="qt5ct:qt6ct"
 
-export GTK_THEME=Dracula
+# export GTK_THEME=Dracula
+export GTK_THEME=catppuccin-mocha-red-standard+default
 
 export MAKEFLAGS="-j$(nproc)" # Makefiles will use all cores
 
