@@ -53,3 +53,10 @@ xmenu.selforeground: #FFFFFF
 xmenu.separator: #555
 xmenu.border: #ff00e1
 xmenu.font: Inconsolata Nerd Font:size=13
+
+Xft.dpi: 96
+Xft.autohint: 0
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rbg
