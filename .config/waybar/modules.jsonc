@@ -1,5 +1,59 @@
 // Modules configuration
 {
+    "backlight": {
+        "min-brightness": 1,
+        "tooltip": false,
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "interval": 3,
+        "tooltip": false,
+        "adapter": "ACAD",
+        "states": {
+            "good": 75,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": " {capacity}% ",
+        "format-plugged": "{icon} {capacity}% ",
+        "format-alt": "{icon} {power}W",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+    "bluetooth": {
+        "controller": "public",
+        "interval": 5,
+        "format-disabled": "",
+        "format": "󰂯",
+        "format-off": "󰂲",
+        "format-connected": "󰂱",
+        "tooltip": true,
+        "tooltip-format": "",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias} {device_battery_percentage}%",
+        "on-click": "rofi-bluetooth"
+    },
+    "clock": {
+        "interval": 1,
+        "tooltip": false,
+        "format": " {:%H:%M | %a %d/%m/%y}",
+        "format-alt": " {:%H:%M:%S | %A %d/%B/%Y}"
+    },
+    "cpu": {
+        "interval": 5,
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "hyprland/language": {
+        "format": " {short}",
+        "tooltip": false,
+        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+    },
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
@@ -21,98 +75,6 @@
             "default": ""
         }
     },
-    "tray": {
-        "icon-size": 21,
-        "spacing": 10
-    },
-    "clock": {
-        "interval": 1,
-        "tooltip": false,
-        "format": " {:%H:%M | %a %d/%m/%y}",
-        "format-alt": " {:%H:%M:%S | %A %d/%B/%Y}"
-    },
-    "cpu": {
-        "interval": 1,
-        "format": " {usage}%",
-        "tooltip": false
-    },
-    "memory": {
-        "interval": 1,
-        "format": " {used}/{percentage}%",
-        "tooltip": false
-    },
-    "backlight": {
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-    "battery": {
-        "interval": 1,
-        "bat": "BAT0", // (Optional) To force the use of this battery
-        "adapter": "ADP0",
-        "states": {
-            "good": 75,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-full": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        // "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": [" ", " ", " ", " ", " "]
-    },
-    "hyprland/language": {
-        "format": " {short}",
-        "on-click": "hyprland_language_dmenu"
-    },
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-        "tooltip": true,
-        "format-icons": {
-            "default": "",
-            "performance": "",
-            "balanced": "",
-            "power-saver": ""
-        }
-    },
-    "network": {
-        "interval": 1,
-        "tooltip": false,
-        "on-click": "networkmanager_dmenu",
-        "format-wifi": "{icon} {essid}",
-        "format-ethernet": "  {ipaddr}/{cidr}",
-        "format-linked": "  {ifname} (No IP)",
-        "format-disconnected": "  Offline",
-        "format-icons": ["󰤯 ","󰤟 ","󰤢 ","󰤥 ","󰤨 "]
-    },
-    "network#speed": {
-        "interval": 1,
-        "tooltip": false,
-        "format": " {bandwidthDownBits} |  {bandwidthUpBits}",
-        "format-disconnected": ""
-    },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "interval": 1,
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": " {icon}",
-        "format-muted": " {format_source}",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": [" ", " ", " "]
-        },
-        "on-click": "pavucontrol"
-    },
     "custom/media": {
         "format": "{icon} {text}",
         "return-type": "json",
@@ -125,6 +87,30 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
+    "memory": {
+        "interval": 5,
+        "format": " {percentage}%",
+        "tooltip": true,
+        "tooltip-format": "{used:0.1f} GiB used"
+    },
+    "network": {
+        "interval": 5,
+        "tooltip": true,
+        "tooltip-format-wifi": "{essid}",
+        "tooltip-format-ethernet": "{ipaddr}/{cidr}",
+        "on-click": "rofi-wifi-menu",
+        "format": "󰤭 ",
+        "format-wifi": "{icon}",
+        "format-ethernet": " ",
+        "format-disconnected": " ",
+        "format-icons": ["󰤯 ","󰤟 ","󰤢 ","󰤥 ","󰤨 "]
+    },
+    "network#speed": {
+        "interval": 1,
+        "tooltip": false,
+        "format": " {bandwidthDownBits} |  {bandwidthUpBits}",
+        "format-disconnected": ""
+    },
     "custom/power": {
         "format" : "⏻ ",
         "tooltip": false,
@@ -136,5 +122,39 @@
             "suspend": "systemctl suspend",
             "hibernate": "systemctl hibernate"
         }
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "pulseaudio": {
+        "tooltip": false,
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "  {icon}",
+        "format-muted": " {format_source}",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [" ", " ", " "]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
     }
 }

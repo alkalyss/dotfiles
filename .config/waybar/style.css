@@ -101,6 +101,14 @@ button:hover {
     color: #ffffff;
 }
 
+#bluetooth {
+    padding: 0 10px 0 7px;
+    color: #ffffff;
+    background-color: #ff0000;
+    font-size: 15;
+}
+
+
 #window,
 #workspaces {
     margin: 0 4px;
