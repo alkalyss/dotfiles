@@ -1,6 +1,6 @@
 #!/bin/sh
 
-/home/alkinoos/.config/hypr/fix-gtk
+fix-gtk
 
 xsetroot -cursor_name left_ptr
 xset s off -dpms
