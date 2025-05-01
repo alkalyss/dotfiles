@@ -1,23 +1,19 @@
-@import "colors.rasi"
+@import "catppuccin-mocha.rasi"
 
 * {
-    al:  #00000000;
-    //bg:  #282C33df;
-    se:  @color0;
-    fg:  @color15;
-    //ac:  #F6C54Eff;
-    //ac:  #c046f4;
-	ac: @color5;
+    dark: @mantle;
+    background: @base;
+    accent: @red;
 }
 
 window {
     transparency:                   "real";
-    background-color:               @bg;
-    text-color:                     @fg;
+    background-color:               @background;
+    text-color:                     @text;
 	border:							0px;
-	border-color:					@ac;
+	border-color:					@accent;
     border-radius:                  12px;
-	width:							40%;
+	width:							30%;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;
@@ -25,16 +21,16 @@ window {
 
 prompt {
     enabled: 						true;
-	padding: 						0% 1% 0% -0.5%;
-	background-color: 				@al;
-	text-color: 					@fg;
-	font:							"DejaVuSansMono Nerd Font 12";
+	padding: 						0% 1% 0% 0%;
+	background-color: 				transparent;
+	text-color: 					@text;
+	font:							"DejaVuSansM Nerd Font 12";
 }
 
 entry {
-    background-color:               @al;
-    text-color:                     @fg;
-    placeholder-color:              @fg;
+    background-color:               transparent;
+    text-color:                     @text;
+    placeholder-color:              @text;
     expand:                         true;
     horizontal-align:               0;
     placeholder:                    "Search";
@@ -44,20 +40,20 @@ entry {
 
 inputbar {
 	children: 						[ prompt, entry ];
-    background-color:               @bg;
-    text-color:                     @fg;
+    background-color:               @dark;
+    text-color:                     @text;
     expand:                         false;
 	border:							0% 0% 0% 0%;
     border-radius:                  0px;
-	border-color:					@ac;
+	border-color:					@accent;
     margin:                         0% 0% 0% 0%;
     padding:                        1.5%;
 }
 
 listview {
-    background-color:               @al;
+    background-color:               transparent;
     padding:                        10px;
-    columns:                        2;
+    columns:                        1;
     lines:                          6;
     spacing:                        1%;
     cycle:                          false;
@@ -66,18 +62,18 @@ listview {
 }
 
 mainbox {
-    background-color:               @al;
+    background-color:               transparent;
 	border:							0% 0% 0% 0%;
     border-radius:                  0% 0% 0% 0%;
-	border-color:					@ac;
+	border-color:					@accent;
     children:                       [ inputbar, listview ];
     spacing:                       	0%;
     padding:                        0%;
 }
 
 element {
-    background-color:               @al;
-    text-color:                     @fg;
+    background-color:               transparent;
+    text-color:                     @text;
     orientation:                    horizontal;
     border-radius:                  0%;
     padding:                        0.5% 0.5% 0.5% 0.5%;
@@ -93,7 +89,7 @@ element-icon {
 }
 
 element-text {
-    background-color: 				@al;
+    background-color: 				transparent;
     text-color:       				inherit;
     expand:                         true;
     horizontal-align:               0;
@@ -102,9 +98,9 @@ element-text {
 }
 
 element selected {
-    background-color:               @ac;
-    text-color:                     @bg;
+    background-color:               @accent;
+    text-color:                     @background;
 	border:							0% 0% 0% 0%;
     border-radius:                  12px;
-    border-color:                  	@bg;
+    border-color:                  	@background;
 }

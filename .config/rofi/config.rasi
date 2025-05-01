@@ -1,9 +1,9 @@
 configuration {
-	modi: "window,drun,ssh";
+	modi: "drun";
 /*	width: 50;*/
 	lines: 5;
 /*	columns: 1;*/
-	font: "DejaVuSansMono Nerd Font 10";
+	font: "DejaVuSansM Nerd Font 10";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/
@@ -41,7 +41,7 @@ configuration {
 /*	separator-style: "dash";*/
 	hide-scrollbar: true;
 /*	fullscreen: false;*/
-	fake-transparency: true;
+	fake-transparency: false;
 /*	dpi: -1;*/
 /*	threads: 0;*/
 /*	scrollbar-width: 8;*/
@@ -57,7 +57,7 @@ configuration {
 /*	max-history-size: 25;*/
 /*	combi-hide-mode-prefix: false;*/
 /*	pid: "/run/user/1000/rofi.pid";*/
-	display-window: "类";
+/*	display-window: "类";*/
 /*	display-windowcd: ;*/
 /*	display-run: ;*/
 /*	display-ssh: ;*/
