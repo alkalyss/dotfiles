@@ -1,16 +1,20 @@
 @import "mocha.css";
 
+@define-color background alpha(@base, 0.8);
+
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: IosevkaNerdFont, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
     font-size: 13px;
+    color: @text;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
+    /* background-color: rgba(43, 48, 59, 0.5); */
+    background-color: @background;
+    /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
+    /* color: #ffffff; */
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -51,11 +55,6 @@ button:hover {
     box-shadow: inset 0 -3px #ffffff;
 }
 
-/* you can set a style on hover for any module like this */
-#pulseaudio:hover {
-    background-color: #a37800;
-}
-
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
@@ -66,7 +65,8 @@ button:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
-#workspaces button.focused {
+#workspaces button.focused,
+#workspaces button.active {
     background-color: #64727D;
     box-shadow: inset 0 -3px #ffffff;
 }
@@ -98,14 +98,14 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
 }
 
 #bluetooth {
     padding: 0 10px 0 7px;
-    color: #ffffff;
-    background-color: #ff0000;
+    /* background-color: #ff0000; */
     font-size: 15;
+    color: @blue;
+    border-bottom: 3px solid;
 }
 
 
@@ -124,18 +124,25 @@ button:hover {
     margin-right: 0;
 }
 
-#clock {
-    background-color: #64727D;
+/* #clock { */
+/*     background-color: #64727D; */
+/* } */
+
+#battery.charging,
+#battery.plugged,
+#battery.good {
+    color: @green;
+    border-bottom: 3px solid;
 }
 
-#battery {
-    background-color: #ffffff;
-    color: #000000;
+#battery.warning {
+    color: @yellow;
+    border-bottom: 3px solid;
 }
 
-#battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+#battery.critical {
+    color: @red;
+    border-bottom: 3px solid;
 }
 
 @keyframes blink {
@@ -180,12 +187,13 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
-    color: #000000;
+    color: @yellow;
+    border-bottom: 3px solid;
 }
 
 #memory {
-    background-color: #9b59b6;
+    color: @maroon;
+    border-bottom: 3px solid;
 }
 
 #disk {
@@ -193,25 +201,31 @@ label:focus {
 }
 
 #backlight {
-    background-color: #90b1b1;
+    color: @mauve;
+    border-bottom: 3px solid;
 }
 
 #network {
-    background-color: #2980b9;
+    color: @pink;
+    border-bottom: 3px solid;
 }
 
-#network.disconnected {
-    background-color: #f53c3c;
+#network.speed {
+    color: @text;
+    border-bottom: 3px solid;
 }
+
+/* #network.disconnected { */
+/*     background-color: #f53c3c; */
+/* } */
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    color: @teal;
+    border-bottom: 3px solid;
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
+    color: @maroon;
 }
 
 #wireplumber {
@@ -245,9 +259,9 @@ label:focus {
     background-color: #eb4d4b;
 }
 
-#tray {
-    background-color: #2980b9;
-}
+/* #tray { */
+/*     background-color: #2980b9; */
+/* } */
 
 #tray > .passive {
     -gtk-icon-effect: dim;
@@ -285,10 +299,12 @@ label:focus {
 }
 
 #language {
-    background: #00b093;
-    color: #740864;
+    /* background: #00b093; */
+    /* color: #740864; */
+    font-size: 15px;
     padding: 0 5px;
     min-width: 16px;
+    border-bottom: 3px solid;
 }
 
 #scratchpad {
