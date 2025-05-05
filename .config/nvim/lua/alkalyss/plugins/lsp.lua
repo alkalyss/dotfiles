@@ -15,23 +15,13 @@ return {
 			},
 			'neovim/nvim-lspconfig',
 
+			'nvim-telescope/telescope.nvim',
 			-- 'hrsh7th/nvim-cmp',
 			"saghen/blink.cmp",
 
 			'Decodetalkers/csharpls-extended-lsp.nvim',
 		},
 		init = function ()
-			local lspconfig = require("lspconfig")
-
-			local lsp_defaults = lspconfig.util.default_config
-			-- lsp_defaults.capabilities = vim.tbl_deep_extend(
-			-- 	'force',
-			-- 	lsp_defaults.capabilities,
-			-- 	require('cmp_nvim_lsp').default_capabilities()
-			-- )
-			lsp_defaults.capabilities = require("blink.cmp").get_lsp_capabilities(lsp_defaults.capabilities)
-
-
 			local telescope = require('telescope.builtin')
 
 			vim.opt.signcolumn = 'yes'
@@ -66,15 +56,15 @@ return {
 				end
 			})
 
-			lspconfig.ltex_plus.setup{
+			vim.lsp.config('ltex_plus', {
 				settings = {
 					language = {
 						"en-US",
 						"el-GR",
 					},
 				}
-			}
-
+			})
+			vim.lsp.enable('ltex_plus')
 		end,
 		opts = {
 			ensure_installed = {
