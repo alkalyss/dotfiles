@@ -1,3 +1,5 @@
+#!/bin/bash
+
 xinput --map-to-output "Wacom HID 5218 Pen stylus" eDP > /dev/null &&
 xinput --map-to-output "Wacom HID 5218 Finger touch" eDP > /dev/null &&
 xinput --map-to-output "Wacom HID 5218 Pen eraser" eDP > /dev/null
