@@ -31,7 +31,7 @@ x-scheme-handler/webcal=vivaldi-stable.desktop
 [Added Associations]
 application/zip=matlab.desktop;org.kde.ark.desktop;
 text/html=vivaldi-stable.desktop;
-video/mp4=vlc.desktop;
+video/mp4=mpv.desktop;vlc.desktop;
 video/x-matroska=vlc.desktop;
 image/png=gimp.desktop;org.inkscape.Inkscape.desktop;
 application/x-ms-dos-executable=wine.desktop;
