@@ -90,76 +90,80 @@ return {
 				'marksman',
 				'pyright',
 				'ts_ls',
+				'csharp_ls',
 			},
 			automatic_installation = true,
 			handlers = {
 				function(server_name)
-					require("lspconfig")[server_name].setup({})
+					vim.lsp.enable(server_name)
 				end,
 				lua_ls = function()
-					require("lspconfig").lua_ls.setup({
-							settings = {
-								Lua = {
-									telemetry = {
-										enable = false
-									},
+					vim.lsp.config('lua_ls', {
+						settings = {
+							Lua = {
+								telemetry = {
+									enable = false
 								},
 							},
-							on_init = function(client)
-								local join = vim.fs.joinpath
-								local path = client.workspace_folders[1].name
+						},
+						on_init = function(client)
+							local join = vim.fs.joinpath
+							local path = client.workspace_folders[1].name
 
-								-- Don't do anything if there is project local config
-								if vim.uv.fs_stat(join(path, '.luarc.json'))
-									or vim.uv.fs_stat(join(path, '.luarc.jsonc'))
-									then
-									return
-								end
+							-- Don't do anything if there is project local config
+							if vim.uv.fs_stat(join(path, '.luarc.json'))
+								or vim.uv.fs_stat(join(path, '.luarc.jsonc'))
+								then
+								return
+							end
 
-								local nvim_settings = {
-									runtime = {
-										-- Tell the language server which version of Lua you're using
-										version = 'LuaJIT',
+							local nvim_settings = {
+								runtime = {
+									-- Tell the language server which version of Lua you're using
+									version = 'LuaJIT',
+								},
+								diagnostics = {
+									-- Get the language server to recognize the `vim` global
+									globals = {'vim'}
+								},
+								workspace = {
+									checkThirdParty = false,
+									library = {
+										-- Make the server aware of Neovim runtime files
+										vim.env.VIMRUNTIME,
+										vim.fn.stdpath('config'),
 									},
-									diagnostics = {
-										-- Get the language server to recognize the `vim` global
-										globals = {'vim'}
-									},
-									workspace = {
-										checkThirdParty = false,
-										library = {
-											-- Make the server aware of Neovim runtime files
-											vim.env.VIMRUNTIME,
-											vim.fn.stdpath('config'),
-										},
-									},
-								}
+								},
+							}
 
-								client.config.settings.Lua = vim.tbl_deep_extend(
-									'force',
-									client.config.settings.Lua,
-									nvim_settings
-									)
-							end,
-						})
+							client.config.settings.Lua = vim.tbl_deep_extend(
+								'force',
+								client.config.settings.Lua,
+								nvim_settings
+								)
+						end,
+					})
+					vim.lsp.enable('lua_ls')
 				end,
 				ltex = function ()
-					require("lspconfig").ltex.setup{
+					vim.lsp.config('ltex', {
 						settings = {
 							language = {
 								"en-US",
 								"el-GR",
 							},
 						}
-					}
+					})
+					vim.lsp.enable('ltex')
 				end,
 				csharp_ls = function ()
-					require("lspconfig").csharp_ls.setup{
+					vim.lsp.config('csharp_ls', {
 						handlers = {
 							["textDocument/definition"] = require("csharpls_extended").handler,
 							["textDocument/typeDefinition"] = require("csharpls_extended").handler,
 						},
-					}
+					})
+					vim.lsp.enable('csharp_ls')
 				end
 			},
 		}
