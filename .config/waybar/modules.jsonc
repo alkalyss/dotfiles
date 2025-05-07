@@ -17,8 +17,8 @@
         },
         "format": "{icon} {capacity}%",
         "format-full": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        // "format-plugged": "{icon} {capacity}% ",
+        "format-charging": " {capacity}% ",
+        "format-plugged": "{icon} {capacity}% ",
         "format-alt": "{icon} {power}W",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
