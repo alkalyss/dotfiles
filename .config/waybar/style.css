@@ -58,21 +58,23 @@ button:hover {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: @text;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: alpha(@crust, 0.6);
 }
 
 #workspaces button.focused,
-#workspaces button.active {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+#workspaces button.visible.hosting-monitor {
+    /* background-color: #64727D; */
+    /* box-shadow: inset 0 -3px #ffffff; */
+    background-color: @overlay0;
+    box-shadow: inset 0 -3px @text;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: @red;
 }
 
 #mode {
