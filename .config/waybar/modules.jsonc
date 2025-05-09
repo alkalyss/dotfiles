@@ -49,6 +49,14 @@
         "format": " {usage}%",
         "tooltip": false
     },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "tooltip": false,
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        }
+    },
     "hyprland/language": {
         "format": "  {short}",
         "tooltip": false,
@@ -125,8 +133,7 @@
     },
     "power-profiles-daemon": {
         "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-        "tooltip": true,
+        "tooltip": false,
         "format-icons": {
             "default": "",
             "performance": "",
@@ -152,6 +159,15 @@
         },
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-click-right": "pavucontrol"
+    },
+    "temperature": {
+        "interval": 5,
+        "thermal-zone": 0,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "tooltip": false,
+        "critical-threshold": 80,
+        "format-critical": " {temperatureC}°C",
+        "format": " {temperatureC}°C"
     },
     "tray": {
         "icon-size": 21,

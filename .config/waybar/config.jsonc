@@ -14,6 +14,7 @@
         "hyprland/workspaces",
         "cpu",
         "memory",
+        "temperature",
         "network#speed"
     ],
     "modules-center": [
@@ -26,7 +27,9 @@
         "network",
         "battery",
         "backlight",
-        "pulseaudio"
+        "pulseaudio",
+        "power-profiles-daemon",
+        "idle_inhibitor"
         // "custom/power"
     ]
 }
