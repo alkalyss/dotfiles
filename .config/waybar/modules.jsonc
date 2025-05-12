@@ -107,6 +107,7 @@
         "tooltip-format-wifi": "{essid}",
         "tooltip-format-ethernet": "{ipaddr}/{cidr}",
         "on-click": "rofi-wifi-menu",
+        "on-click-right": "nm-connection-editor",
         "format": "󰤭 ",
         "format-wifi": "{icon}",
         "format-ethernet": " ",
