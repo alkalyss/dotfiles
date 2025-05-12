@@ -144,3 +144,5 @@ function zle-keymap-select {
 }
 zle -N zle-keymap-select
 precmd_functions+=(zle-keymap-select)
+
+eval "$(zoxide init --cmd cd zsh)"
