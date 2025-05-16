@@ -46,4 +46,5 @@ text/csv=notepadqq.desktop;
 text/x-nfo=wine-extension-ini.desktop;notepadqq.desktop;
 application/vnd.squashfs=org.kde.ark.desktop;
 text/x-csrc=nvim.desktop;
-image/jpeg=imv.desktop;imv-dir.desktop;
+image/jpeg=imv-dir.desktop;imv.desktop;
+application/x-shellscript=nvim.desktop;
