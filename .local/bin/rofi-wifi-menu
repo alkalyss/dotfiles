@@ -18,7 +18,7 @@ wifi_list=$(nmcli --fields "SECURITY,SSID" device wifi list | sed 1d | sed 's/  
 
 
 # Use rofi to select wifi network
-chosen_network=$(echo -e "$toggle\n$wifi_list" | uniq -u | rofi -dmenu -i -selected-row 1 -p "Wi-Fi " )
+chosen_network=$(echo -e "$toggle\n$wifi_list" | uniq | rofi -dmenu -i -selected-row 1 -p "Wi-Fi " )
 # Get name of connection
 read -r chosen_id <<< "${chosen_network:3}"
 
