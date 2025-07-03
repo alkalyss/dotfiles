@@ -1,7 +1,7 @@
 // Modules configuration
 {
     "backlight": {
-        "min-brightness": 1,
+        "min-brightness": 9,
         "tooltip": false,
         "format": "{icon} {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
