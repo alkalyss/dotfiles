@@ -9,7 +9,25 @@ return {
 	init = function()
 		local telescope = require('telescope.builtin')
 
-		vim.keymap.set('n', '<leader>ff', telescope.find_files, {desc = "[F]ind [F]ile"})
+		local is_inside_work_tree = {}
+
+		local project_files = function()
+		  local opts = {} -- define here if you want to define something
+
+		  local cwd = vim.fn.getcwd()
+		  if is_inside_work_tree[cwd] == nil then
+			vim.fn.system("git rev-parse --is-inside-work-tree")
+			is_inside_work_tree[cwd] = vim.v.shell_error == 0
+		  end
+
+		  if is_inside_work_tree[cwd] then
+			telescope.git_files(opts)
+		  else
+			telescope.find_files(opts)
+		  end
+		end
+
+		vim.keymap.set('n', '<leader>ff', project_files, {desc = "[F]ind [F]ile"})
 		vim.keymap.set('n', '<leader>fg', telescope.live_grep, {desc = "[F]ind with [G]rep"})
 		vim.keymap.set('n', '<leader>bb', telescope.buffers, {desc = "List [BB]uffers"})
 		vim.keymap.set('n', '<leader>fh', telescope.help_tags, {desc = "[F]ind [H]elp file"})
