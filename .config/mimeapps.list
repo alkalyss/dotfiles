@@ -51,3 +51,4 @@ application/x-shellscript=nvim.desktop;
 video/webm=mpv.desktop;
 audio/x-vorbis+ogg=vlc.desktop;
 application/sql=nvim.desktop;
+application/x-msdownload=wine.desktop;
