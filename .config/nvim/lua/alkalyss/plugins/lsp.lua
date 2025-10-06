@@ -1,11 +1,11 @@
 -- LSP
 return {
 	{
-		'williamboman/mason-lspconfig.nvim',
+		'mason-org/mason-lspconfig.nvim',
 		event = {'BufReadPre', 'BufNewFile'},
 		dependencies = {
 			{
-				'williamboman/mason.nvim',
+				'mason-org/mason.nvim',
 				lazy = false,
 				opts = {
 					ui = {
@@ -55,16 +55,6 @@ return {
 					vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format, {desc = "[F]or[M]at code", buffer = bufnr, remap = false})
 				end
 			})
-
-			vim.lsp.config('ltex_plus', {
-				settings = {
-					language = {
-						"en-US",
-						"el-GR",
-					},
-				}
-			})
-			vim.lsp.enable('ltex_plus')
 		end,
 		opts = {
 			ensure_installed = {
@@ -83,75 +73,7 @@ return {
 				'csharp_ls',
 			},
 			automatic_installation = true,
-			handlers = {
-				function(server_name)
-					vim.lsp.enable(server_name)
-				end,
-				lua_ls = function()
-					vim.lsp.config('lua_ls', {
-						settings = {
-							Lua = {
-								telemetry = {
-									enable = false
-								},
-							},
-						},
-						on_init = function(client)
-							local join = vim.fs.joinpath
-							local path = client.workspace_folders[1].name
-
-							-- Don't do anything if there is project local config
-							if vim.uv.fs_stat(join(path, '.luarc.json'))
-								or vim.uv.fs_stat(join(path, '.luarc.jsonc'))
-								then
-								return
-							end
-
-							local nvim_settings = {
-								runtime = {
-									-- Tell the language server which version of Lua you're using
-									version = 'LuaJIT',
-								},
-								diagnostics = {
-									-- Get the language server to recognize the `vim` global
-									globals = {'vim'}
-								},
-								workspace = {
-									checkThirdParty = false,
-									library = {
-										-- Make the server aware of Neovim runtime files
-										vim.env.VIMRUNTIME,
-										vim.fn.stdpath('config'),
-									},
-								},
-							}
-
-							client.config.settings.Lua = vim.tbl_deep_extend(
-								'force',
-								client.config.settings.Lua,
-								nvim_settings
-								)
-						end,
-					})
-					vim.lsp.enable('lua_ls')
-				end,
-				ltex = function ()
-					vim.lsp.config('ltex', {
-						settings = {
-							language = {
-								"en-US",
-								"el-GR",
-							},
-						}
-					})
-					vim.lsp.enable('ltex')
-				end,
-				csharp_ls = function ()
-					require("csharpls_extended").buf_read_cmd_bind()
-					require("telescope").load_extension("csharpls_definition")
-					vim.lsp.enable('csharp_ls')
-				end
-			},
+			automatic_enable = true,
 		}
 	}
 }
