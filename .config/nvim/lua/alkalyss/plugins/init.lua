@@ -7,7 +7,7 @@ return {
 	'godlygeek/tabular', -- Allign items
 	'jessarcher/vim-heritage', -- Create missing parent directories when creating a new file
 	'sickill/vim-pasta', -- Context aware pasting
-	"github/copilot.vim", -- I think this explains itself
+	-- "github/copilot.vim", -- I think this explains itself
 
 	{ 'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {} }, -- Indent guides
 	{ 'windwp/nvim-autopairs', config = true } -- Auto bracket pairs
