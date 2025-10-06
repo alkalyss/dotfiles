@@ -5,7 +5,7 @@ return {
 		'nvim-treesitter/playground',
 		'nvim-treesitter/nvim-treesitter-textobjects',
 		'JoosepAlviste/nvim-ts-context-commentstring',
-		'nvim-treesitter/nvim-treesitter-context',
+		-- 'nvim-treesitter/nvim-treesitter-context',
 	},
 	init = function()
 		vim.g.skip_ts_context_commentstring_module = true
