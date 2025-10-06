@@ -20,7 +20,6 @@ export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="alacritty"
-export TERM="xterm-256color"
 export BROWSER="vivaldi"
 
 # ~/ Clean-up:
