@@ -147,12 +147,8 @@ return {
 					vim.lsp.enable('ltex')
 				end,
 				csharp_ls = function ()
-					vim.lsp.config('csharp_ls', {
-						handlers = {
-							["textDocument/definition"] = require("csharpls_extended").handler,
-							["textDocument/typeDefinition"] = require("csharpls_extended").handler,
-						},
-					})
+					require("csharpls_extended").buf_read_cmd_bind()
+					require("telescope").load_extension("csharpls_definition")
 					vim.lsp.enable('csharp_ls')
 				end
 			},
