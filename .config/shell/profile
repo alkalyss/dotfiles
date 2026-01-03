@@ -59,6 +59,6 @@ eval "$(pyenv init -)"
 
 # Start GUI
 case $(fgconsole 2> /dev/null) in
-	1) exec hyprland &> /dev/null;;
+	1) exec start-hyprland &> /dev/null;;
 	2) exec startx &> /dev/null;;
 esac
