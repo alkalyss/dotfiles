@@ -68,7 +68,7 @@ return {
 				'jsonls',
 				'lua_ls',
 				'marksman',
-				'pyright',
+				'pylsp',
 				'ts_ls',
 				'csharp_ls',
 			},
