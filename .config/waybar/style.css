@@ -4,7 +4,8 @@
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: IosevkaNerdFont, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: Iosevka Nerd Font, Font Awesome, Roboto, Helvetica, Arial, sans-serif;
+    /* font-family: Font Awesome; */
     /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
     font-size: 13px;
     color: @text;
